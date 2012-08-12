@@ -4896,7 +4896,11 @@
     <string name="power_menu_silent_title">Silent mode</string>
 
     <!-- Launches Dev Tools -->
-    <string name="development_tools_title">Launch Tools</string>
+    <string name="development_tools_title">Launch tools</string>
+
+    <!-- USB Mass Storage -->
+    <string name="usb_mass_storage_title">Mass storage</string>
+    <string name="usb_mass_storage_summary">Enable USB mass storage</string>
 
     <!--- Volume key cursor control -->
     <string name="volume_key_cursor_control_title">Volume key cursor control</string>
