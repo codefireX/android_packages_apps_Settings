@@ -106,8 +106,9 @@ public class WirelessSettings extends SettingsPreferenceFragment {
         mNfcEnabler = new NfcEnabler(activity, nfc, androidBeam);
 
         // Remove NSD checkbox by default
-        getPreferenceScreen().removePreference(nsd);
-        //mNsdEnabler = new NsdEnabler(activity, nsd);
+        // Let's keep it around and see if there's anything interesting
+        // getPreferenceScreen().removePreference(nsd);
+        mNsdEnabler = new NsdEnabler(activity, nsd);
 
         String toggleable = Settings.System.getString(activity.getContentResolver(),
                 Settings.System.AIRPLANE_MODE_TOGGLEABLE_RADIOS);
