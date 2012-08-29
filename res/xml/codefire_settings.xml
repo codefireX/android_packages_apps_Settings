@@ -7,6 +7,14 @@
     <PreferenceCategory
         android:title="@string/codefire_lockscreen" />
 
+    <CheckBoxPreference android:key="pref_trackball_unlock_toggle"
+        android:title="@string/pref_trackball_unlock_toggle_title"
+        android:summary="@string/pref_trackball_unlock_toggle_summary" />
+
+    <CheckBoxPreference android:key="pref_trackball_wake_toggle"
+        android:title="@string/pref_trackball_wake_toggle_title"
+        android:summary="@string/pref_trackball_wake_toggle_summary" />
+
     <CheckBoxPreference
         android:key="enable_fast_torch"
         android:title="@string/enable_fast_torch_title"
