@@ -20,6 +20,7 @@ public class CodefireSettings extends SettingsFragment
 
     private static final String TRACKBALL_WAKE_TOGGLE = "pref_trackball_wake_toggle";
     private static final String TRACKBALL_UNLOCK_TOGGLE = "pref_trackball_unlock_toggle";
+    private static final String ENABLE_FAST_TORCH = "pref_enable_fast_torch";
     private static final String STATUSBAR_SIXBAR_SIGNAL = "pref_statusbar_sixbar_signal";
 
     private ContentResolver mCr;
