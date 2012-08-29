@@ -10,6 +10,7 @@ import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
 
+
 import com.android.settings.R;
 import com.android.settings.SettingsFragment;
 
@@ -28,14 +29,14 @@ public class CodefireSettings extends SettingsFragment
 
     private CheckBoxPreference mTrackballWake;
     private CheckBoxPreference mTrackballUnlockScreen;
-    private CheckBoxPreference mUseSixbaricons;
     private CheckBoxPreference mEnableQuickTorch;
+    private CheckBoxPreference mUseSixbaricons;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        addPreferencesFromResource(R.xml.codefire_settings);
+        addPreferencesFromResource(R.xml.andromadus_settings);
 
         mPrefSet = getPreferenceScreen();
         mCr = getContentResolver();
@@ -54,7 +55,7 @@ public class CodefireSettings extends SettingsFragment
                 Settings.System.TRACKBALL_UNLOCK_SCREEN, 1) == 1);
         mTrackballUnlockScreen.setOnPreferenceChangeListener(this);
 
-        /* Fast Torch */
+        /* Fast torch */
         mEnableQuickTorch = (CheckBoxPreference) mPrefSet.findPreference(
                 ENABLE_FAST_TORCH);
         mEnableQuickTorch.setChecked(Settings.System.getInt(getContentResolver(),
@@ -68,7 +69,7 @@ public class CodefireSettings extends SettingsFragment
                 Settings.System.STATUSBAR_6BAR_SIGNAL, 1) == 1);
         mUseSixbaricons.setOnPreferenceChangeListener(this);
 
-        /* Remove mTrackballWake on devices without trackballs */
+        /* Remove mTrackballWake on devices without trackballs */ 
         if (!getResources().getBoolean(R.bool.has_trackball)) {
             mPrefSet.removePreference(mTrackballWake);
             mPrefSet.removePreference(mTrackballUnlockScreen);
@@ -77,7 +78,7 @@ public class CodefireSettings extends SettingsFragment
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         String key = preference.getKey();
-
+        
         if (TRACKBALL_WAKE_TOGGLE.equals(key)) {
             Settings.System.putInt(mCr, Settings.System.TRACKBALL_WAKE_SCREEN, (Boolean) newValue ? 1 : 0);
         } else if (TRACKBALL_UNLOCK_TOGGLE.equals(key)) {
