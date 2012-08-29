@@ -21,7 +21,6 @@ public class CodefireSettings extends SettingsFragment
 
     private static final String TRACKBALL_WAKE_TOGGLE = "pref_trackball_wake_toggle";
     private static final String TRACKBALL_UNLOCK_TOGGLE = "pref_trackball_unlock_toggle";
-    private static final String ENABLE_FAST_TORCH = "pref_enable_fast_torch";
     private static final String STATUSBAR_SIXBAR_SIGNAL = "pref_statusbar_sixbar_signal";
 
     private ContentResolver mCr;
@@ -29,7 +28,6 @@ public class CodefireSettings extends SettingsFragment
 
     private CheckBoxPreference mTrackballWake;
     private CheckBoxPreference mTrackballUnlockScreen;
-    private CheckBoxPreference mEnableQuickTorch;
     private CheckBoxPreference mUseSixbaricons;
 
     @Override
@@ -55,13 +53,6 @@ public class CodefireSettings extends SettingsFragment
                 Settings.System.TRACKBALL_UNLOCK_SCREEN, 1) == 1);
         mTrackballUnlockScreen.setOnPreferenceChangeListener(this);
 
-        /* Fast torch */
-        mEnableQuickTorch = (CheckBoxPreference) mPrefSet.findPreference(
-                ENABLE_FAST_TORCH);
-        mEnableQuickTorch.setChecked(Settings.System.getInt(getContentResolver(),
-                Settings.System.ENABLE_FAST_TORCH, 1) == 1);
-        mEnableQuickTorch.setOnPreferenceChangeListener(this);
-
         /* Six bar pref */
         mUseSixbaricons = (CheckBoxPreference) mPrefSet.findPreference(
                 STATUSBAR_SIXBAR_SIGNAL);
@@ -83,8 +74,6 @@ public class CodefireSettings extends SettingsFragment
             Settings.System.putInt(mCr, Settings.System.TRACKBALL_WAKE_SCREEN, (Boolean) newValue ? 1 : 0);
         } else if (TRACKBALL_UNLOCK_TOGGLE.equals(key)) {
             Settings.System.putInt(mCr, Settings.System.TRACKBALL_UNLOCK_SCREEN, (Boolean) newValue ? 1 : 0);
-        } else if (ENABLE_FAST_TORCH.equals(key)) {
-            Settings.System.putInt(mCr, Settings.System.ENABLE_FAST_TORCH, (Boolean) newValue ? 1 : 0);
         } else if (STATUSBAR_SIXBAR_SIGNAL.equals(key)) {
             Settings.System.putInt(mCr, Settings.System.STATUSBAR_6BAR_SIGNAL, (Boolean) newValue ? 1 : 0);
         }
