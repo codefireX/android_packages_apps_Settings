@@ -4878,6 +4878,10 @@
     <string name="enable_fast_torch_title">Enable fast torch</string>
     <string name="pref_statusbar_sixbar_signal_title">Six bar signal icons</string>
     <string name="pref_statusbar_sixbar_signal_summary">Use six bar cell signal icons opposed to four</string>
+    <string name="pref_trackball_wake_toggle_title">Trackball wake</string>
+    <string name="pref_trackball_wake_toggle_summary">Allow trackball to wake the device</string>
+    <string name="pref_trackball_unlock_toggle_title">Trackball unlock</string>
+    <string name="pref_trackball_unlock_toggle_summary">Allow trackball to unlock the device</string>
 
     <!-- **** CODEFIRE ADDITIONS END **** -->
 </resources>
