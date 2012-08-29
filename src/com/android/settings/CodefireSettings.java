@@ -10,7 +10,6 @@ import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
 
-
 import com.android.settings.R;
 import com.android.settings.SettingsFragment;
 
@@ -25,6 +24,7 @@ public class CodefireSettings extends SettingsFragment
     private PreferenceScreen mPrefSet;
 
     private CheckBoxPreference mUseSixbaricons;
+    private CheckBoxPreference mEnableQuickTorch;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -34,6 +34,13 @@ public class CodefireSettings extends SettingsFragment
 
         mPrefSet = getPreferenceScreen();
         mCr = getContentResolver();
+
+        /* Fast Torch */
+        mEnableQuickTorch = (CheckBoxPreference) mPrefSet.findPreference(
+                ENABLE_FAST_TORCH);
+        mEnableQuickTorch.setChecked(Settings.System.getInt(getContentResolver(),
+                Settings.System.ENABLE_FAST_TORCH, 1) == 1);
+        mEnableQuickTorch.setOnPreferenceChangeListener(this);
 
         /* Six bar pref */
         mUseSixbaricons = (CheckBoxPreference) mPrefSet.findPreference(
@@ -47,7 +54,9 @@ public class CodefireSettings extends SettingsFragment
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         String key = preference.getKey();
         
-        if (STATUSBAR_SIXBAR_SIGNAL.equals(key)) {
+        if (ENABLE_FAST_TORCH.equals(key)) {
+            Settings.System.putInt(mCr, Settings.System.ENABLE_FAST_TORCH, (Boolean) newValue ? 1 : 0);
+        } else if (STATUSBAR_SIXBAR_SIGNAL.equals(key)) {
             Settings.System.putInt(mCr, Settings.System.STATUSBAR_6BAR_SIGNAL, (Boolean) newValue ? 1 : 0);
         }
         return true;
