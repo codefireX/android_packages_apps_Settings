@@ -18,11 +18,15 @@ public class CodefireSettings extends SettingsFragment
 
     private final static String TAG = CodefireSettings.class.getSimpleName();
 
+    private static final String TRACKBALL_WAKE_TOGGLE = "pref_trackball_wake_toggle";
+    private static final String TRACKBALL_UNLOCK_TOGGLE = "pref_trackball_unlock_toggle";
     private static final String STATUSBAR_SIXBAR_SIGNAL = "pref_statusbar_sixbar_signal";
 
     private ContentResolver mCr;
     private PreferenceScreen mPrefSet;
 
+    private CheckBoxPreference mTrackballWake;
+    private CheckBoxPreference mTrackballUnlockScreen;
     private CheckBoxPreference mUseSixbaricons;
     private CheckBoxPreference mEnableQuickTorch;
 
