@@ -36,7 +36,7 @@ public class CodefireSettings extends SettingsFragment
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        addPreferencesFromResource(R.xml.andromadus_settings);
+        addPreferencesFromResource(R.xml.codefire_settings);
 
         mPrefSet = getPreferenceScreen();
         mCr = getContentResolver();
