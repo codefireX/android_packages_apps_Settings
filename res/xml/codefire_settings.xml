@@ -12,8 +12,6 @@
         android:title="@string/enable_fast_torch_title"
         android:summary="@string/enable_fast_torch_summary" />
 
-    </PreferenceCategory>
-
     <PreferenceCategory
         android:title="@string/codefire_statusbar" />
 
@@ -22,5 +20,4 @@
         android:title="@string/pref_statusbar_sixbar_signal_title"
         android:summary="@string/pref_statusbar_sixbar_signal_summary" />
 
-    </PreferenceCategory>
 </PreferenceScreen>
