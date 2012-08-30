@@ -45,9 +45,17 @@ public class PerformanceSettings extends SettingsPreferenceFragment
 
     private static final String USE_16BPP_ALPHA_PROP = "persist.sys.use_16bpp_alpha";
 
+    private static final String DISABLE_BOOTANIMATION_PREF = "pref_disable_bootanimation";
+
+    private static final String DISABLE_BOOTANIMATION_PERSIST_PROP = "persist.sys.nobootanimation";
+
+    private static final String DISABLE_BOOTANIMATION_DEFAULT = "0";
+
     private ListPreference mUseDitheringPref;
 
     private CheckBoxPreference mUse16bppAlphaPref;
+
+    private CheckBoxPreference mDisableBootanimPref;
 
     private AlertDialog alertDialog;
 
@@ -66,6 +74,12 @@ public class PerformanceSettings extends SettingsPreferenceFragment
             mUseDitheringPref.setOnPreferenceChangeListener(this);
             mUseDitheringPref.setValue(useDithering);
             mUseDitheringPref.setSummary(mUseDitheringPref.getEntry());
+
+            String disableBootanim = SystemProperties.get(DISABLE_BOOTANIMATION_PERSIST_PROP, DISABLE_BOOTANIMATION_DEFAULT);
+            mDisableBootanimPref = (ListPreference) prefSet.findPreference(DISABLE_BOOTANIMATION_PREF);
+            mDisableBootanimPref.setOnPreferenceChangeListener(this);
+            mDisableBootanimPref.setValue(disableBootanim);
+            mDisableBootanimPref.setSummary(mDisableBootanimPref.getEntry());
 
             mUse16bppAlphaPref = (CheckBoxPreference) prefSet.findPreference(USE_16BPP_ALPHA_PREF);
             String use16bppAlpha = SystemProperties.get(USE_16BPP_ALPHA_PROP, "0");
@@ -106,6 +120,11 @@ public class PerformanceSettings extends SettingsPreferenceFragment
             int index = mUseDitheringPref.findIndexOfValue(newVal);
             SystemProperties.set(USE_DITHERING_PERSIST_PROP, newVal);
             mUseDitheringPref.setSummary(mUseDitheringPref.getEntries()[index]);
+        } else if (preference == mDisableBootanimPref) {
+            string newVal = (String) newValue;
+            int index = mDisableBootanimPref.findIndexOfValue(newVal);
+            SystemProperties.set(DISABLE_BOOTANIMATION_PERSIST_PROP, newVal);
+            mDisableBootanimPref.setSummary(mDisableBootanimPref.getEntries()[index]);
         }
         return true;
     }
