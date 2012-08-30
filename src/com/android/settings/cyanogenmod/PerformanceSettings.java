@@ -75,11 +75,9 @@ public class PerformanceSettings extends SettingsPreferenceFragment
             mUseDitheringPref.setValue(useDithering);
             mUseDitheringPref.setSummary(mUseDitheringPref.getEntry());
 
+            mDisableBootanimPref = (CheckBoxPreference) prefSet.findPreference(DISABLE_BOOTANIMATION_PREF);
             String disableBootanim = SystemProperties.get(DISABLE_BOOTANIMATION_PERSIST_PROP, DISABLE_BOOTANIMATION_DEFAULT);
-            mDisableBootanimPref = (ListPreference) prefSet.findPreference(DISABLE_BOOTANIMATION_PREF);
-            mDisableBootanimPref.setOnPreferenceChangeListener(this);
-            mDisableBootanimPref.setValue(disableBootanim);
-            mDisableBootanimPref.setSummary(mDisableBootanimPref.getEntry());
+            mDisableBootanimPref.setChecked("1".equals(disableBootanim));
 
             mUse16bppAlphaPref = (CheckBoxPreference) prefSet.findPreference(USE_16BPP_ALPHA_PREF);
             String use16bppAlpha = SystemProperties.get(USE_16BPP_ALPHA_PROP, "0");
@@ -106,6 +104,9 @@ public class PerformanceSettings extends SettingsPreferenceFragment
         if (preference == mUse16bppAlphaPref) {
             SystemProperties.set(USE_16BPP_ALPHA_PROP,
                     mUse16bppAlphaPref.isChecked() ? "1" : "0");
+        } else if (preference == mDisableBootanimPref) {
+            SystemProperties.set(DISABLE_BOOTANIMATION_PERSIST_PROP,
+                    mDisableBootanimPref.isChecked() ? "1" : "0");
         } else {
             // If we didn't handle it, let preferences handle it.
             return super.onPreferenceTreeClick(preferenceScreen, preference);
@@ -120,11 +121,6 @@ public class PerformanceSettings extends SettingsPreferenceFragment
             int index = mUseDitheringPref.findIndexOfValue(newVal);
             SystemProperties.set(USE_DITHERING_PERSIST_PROP, newVal);
             mUseDitheringPref.setSummary(mUseDitheringPref.getEntries()[index]);
-        } else if (preference == mDisableBootanimPref) {
-            string newVal = (String) newValue;
-            int index = mDisableBootanimPref.findIndexOfValue(newVal);
-            SystemProperties.set(DISABLE_BOOTANIMATION_PERSIST_PROP, newVal);
-            mDisableBootanimPref.setSummary(mDisableBootanimPref.getEntries()[index]);
         }
         return true;
     }
