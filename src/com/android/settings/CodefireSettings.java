@@ -65,21 +65,21 @@ public class CodefireSettings extends SettingsFragment
         mUseSixbaricons = (CheckBoxPreference) mPrefSet.findPreference(
                 STATUSBAR_SIXBAR_SIGNAL);
         mUseSixbaricons.setChecked(Settings.System.getInt(getContentResolver(),
-                Settings.System.STATUSBAR_6BAR_SIGNAL, 1) == 1);
+                Settings.System.STATUSBAR_6BAR_SIGNAL, 0) == 1);
         mUseSixbaricons.setOnPreferenceChangeListener(this);
 
         /* Kill All button on recent apps */
         mRecentKillAll = (CheckBoxPreference) mPrefSet.findPreference(
                 PREF_RECENT_KILL_ALL);
         mRecentKillAll.setChecked(Settings.System.getInt(getContentResolver(),
-                Settings.System.RECENT_KILL_ALL_BUTTON, 1) == 1);
+                Settings.System.RECENT_KILL_ALL_BUTTON, 0) == 1);
         mRecentKillAll.setOnPreferenceChangeListener(this);
 
                 /* Dual pane toggle */
         mDualPane = (CheckBoxPreference) mPrefSet.findPreference(
                 KEY_DUAL_PANE);
         mDualPane.setChecked(Settings.System.getInt(getContentResolver(),
-                Settings.System.DUAL_PANE_SETTINGS, 1) == 1);
+                Settings.System.DUAL_PANE_SETTINGS, 0) == 1);
         mDualPane.setOnPreferenceChangeListener(this);
 
         /* Disable BootAnimation Toggle */
