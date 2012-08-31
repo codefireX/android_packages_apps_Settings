@@ -25,6 +25,7 @@ public class CodefireSettings extends SettingsFragment
     private static final String DISABLE_BOOTANIMATION_PREF = "pref_disable_bootanimation";
     private static final String DISABLE_BOOTANIMATION_PERSIST_PROP = "persist.sys.nobootanimation";
     private static final String DISABLE_BOOTANIMATION_DEFAULT = "0";
+    private static final String PREF_RECENT_KILL_ALL = "recent_kill_all";
 
     private ContentResolver mCr;
     private PreferenceScreen mPrefSet;
@@ -33,6 +34,7 @@ public class CodefireSettings extends SettingsFragment
     private CheckBoxPreference mTrackballUnlockScreen;
     private CheckBoxPreference mUseSixbaricons;
     private CheckBoxPreference mDisableBootanimPref;
+    private CheckBoxPreference mRecentKillAll;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -63,6 +65,13 @@ public class CodefireSettings extends SettingsFragment
         mUseSixbaricons.setChecked(Settings.System.getInt(getContentResolver(),
                 Settings.System.STATUSBAR_6BAR_SIGNAL, 1) == 1);
         mUseSixbaricons.setOnPreferenceChangeListener(this);
+
+        /* Kill All button on recent apps */
+        mRecentKillAll = (CheckBoxPreference) mPrefSet.findPreference(
+                PREF_RECENT_KILL_ALL);
+        mRecentKillAll.setChecked(Settings.System.getInt(getContentResolver(),
+                Settings.System.RECENT_KILL_ALL_BUTTON, 1) == 1);
+        mRecentKillAll.setOnPreferenceChangeListener(this);
 
         /* Disable BootAnimation Toggle */
         mDisableBootanimPref = (CheckBoxPreference) mPrefSet.findPreference(DISABLE_BOOTANIMATION_PREF);
@@ -98,6 +107,8 @@ public class CodefireSettings extends SettingsFragment
             Settings.System.putInt(mCr, Settings.System.TRACKBALL_UNLOCK_SCREEN, (Boolean) newValue ? 1 : 0);
         } else if (STATUSBAR_SIXBAR_SIGNAL.equals(key)) {
             Settings.System.putInt(mCr, Settings.System.STATUSBAR_6BAR_SIGNAL, (Boolean) newValue ? 1 : 0);
+        } else if (PREF_RECENT_KILL_ALL.equals(key)) {
+            Settings.System.putInt(mCr, Settings.System.RECENT_KILL_ALL_BUTTON, (Boolean) newValue ? 1 : 0);
         }
         return true;
     }
