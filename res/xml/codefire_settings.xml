@@ -22,6 +22,15 @@
         android:title="@string/recent_kill_all"
         android:summary="@string/recent_kill_all_summary" />
 
+    <EditTextPreference
+        android:title="@string/pref_kill_app_longpress_back_timeout_title"
+        android:dialogTitle="@string/pref_kill_app_longpress_back_timeout_dialogtitle"
+        android:summary="@string/pref_kill_app_longpress_back_timeout_summary"
+        android:key="pref_kill_app_longpress_back_timeout"
+        android:singleLine="true"
+        android:inputType="number"
+        android:defaultValue="1000" />
+
     <CheckBoxPreference android:key="pref_trackball_unlock_toggle"
         android:title="@string/pref_trackball_unlock_toggle_title"
         android:summary="@string/pref_trackball_unlock_toggle_summary" />

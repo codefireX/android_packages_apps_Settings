@@ -28,6 +28,7 @@ public class CodefireSettings extends SettingsFragment
     private static final String PREF_RECENT_KILL_ALL = "recent_kill_all";
     private static final String KEY_DUAL_PANE = "dual_pane";
     private static final String SHOW_BRIGHTNESS_TOGGLESLIDER = "pref_show_brightness_toggleslider";
+    private static final String KILL_APP_LONGPRESS_BACK_TIMEOUT = "pref_kill_app_longpress_back_timeout";
 
     private ContentResolver mCr;
     private PreferenceScreen mPrefSet;
@@ -39,6 +40,8 @@ public class CodefireSettings extends SettingsFragment
     private CheckBoxPreference mRecentKillAll;
     private CheckBoxPreference mDualPane;
     private CheckBoxPreference mShowBrightnessToggleslider;
+
+    private EditTextPreference mKillAppLongpressBackTimeout;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -96,11 +99,53 @@ public class CodefireSettings extends SettingsFragment
         String disableBootanim = SystemProperties.get(DISABLE_BOOTANIMATION_PERSIST_PROP, DISABLE_BOOTANIMATION_DEFAULT);
         mDisableBootanimPref.setChecked("1".equals(disableBootanim));
 
+        /* Kill App Longpress Back timeout duration pref */
+        mKillAppLongpressBackTimeout = (EditTextPreference) mPrefSet.findPreference(KILL_APP_LONGPRESS_BACK_TIMEOUT);
+        mKillAppLongpressBackTimeout.setOnPreferenceChangeListener(this);
+
         /* Remove mTrackballWake on devices without trackballs */ 
         if (!getResources().getBoolean(R.bool.has_trackball)) {
             mPrefSet.removePreference(mTrackballWake);
             mPrefSet.removePreference(mTrackballUnlockScreen);
         }
+        if (Settings.Secure.getInt(mCr, Settings.Secure.KILL_APP_LONGPRESS_BACK, 0) == 0) {
+            buttonCategory.removePreference(mKillAppLongpressBackTimeout);
+        }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        // This kinda permanently sets the summary in english & makes the definition in strings.xml useless.. should probably fix
+        mKillAppLongpressBackTimeout.setSummary("Hold down back button for " + mKillAppLongpressBackTimeout.getText() + "ms to kill a process");
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+    }
+
+    @Override
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        String key = preference.getKey();
+        
+        if (KILL_APP_LONGPRESS_BACK_TIMEOUT.equals(key)) {
+            try {
+                int timeout = Integer.parseInt((String) newValue);
+                if (timeout < 500 || timeout > 2000) {
+                    // Out of bounds, bail!
+                    return false;
+                }
+                Settings.System.putInt(mCr, KILL_APP_LONGPRESS_BACK_TIMEOUT, timeout);
+                mKillAppLongpressBackTimeout.setSummary("Hold down back button for " + timeout + "ms to kill a process");
+                mKillAppLongpressBackTimeout.setText(Integer.toString(timeout));
+            } finally {
+                Log.d(TAG, "Exception error on preference change.");
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
