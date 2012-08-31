@@ -33,6 +33,10 @@
     <PreferenceCategory
         android:title="@string/codefire_statusbar" />
 
+    <CheckBoxPreference android:key="pref_show_brightness_toggleslider"
+        android:title="@string/pref_show_brightness_toggleslider_title"
+        android:summary="@string/pref_show_brightness_toggleslider_summary" />
+
     <CheckBoxPreference
         android:key="pref_statusbar_sixbar_signal"
         android:title="@string/pref_statusbar_sixbar_signal_title"

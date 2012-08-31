@@ -27,6 +27,7 @@ public class CodefireSettings extends SettingsFragment
     private static final String DISABLE_BOOTANIMATION_DEFAULT = "0";
     private static final String PREF_RECENT_KILL_ALL = "recent_kill_all";
     private static final String KEY_DUAL_PANE = "dual_pane";
+    private static final String SHOW_BRIGHTNESS_TOGGLESLIDER = "pref_show_brightness_toggleslider";
 
     private ContentResolver mCr;
     private PreferenceScreen mPrefSet;
@@ -37,6 +38,7 @@ public class CodefireSettings extends SettingsFragment
     private CheckBoxPreference mDisableBootanimPref;
     private CheckBoxPreference mRecentKillAll;
     private CheckBoxPreference mDualPane;
+    private CheckBoxPreference mShowBrightnessToggleslider;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -75,12 +77,19 @@ public class CodefireSettings extends SettingsFragment
                 Settings.System.RECENT_KILL_ALL_BUTTON, 0) == 1);
         mRecentKillAll.setOnPreferenceChangeListener(this);
 
-                /* Dual pane toggle */
+        /* Dual pane toggle */
         mDualPane = (CheckBoxPreference) mPrefSet.findPreference(
                 KEY_DUAL_PANE);
         mDualPane.setChecked(Settings.System.getInt(getContentResolver(),
                 Settings.System.DUAL_PANE_SETTINGS, 0) == 1);
         mDualPane.setOnPreferenceChangeListener(this);
+
+        /* Notification Area Brightness Toggleslider pref */
+        mShowBrightnessToggleslider = (CheckBoxPreference) mPrefSet.findPreference(
+                SHOW_BRIGHTNESS_TOGGLESLIDER);
+        mShowBrightnessToggleslider.setChecked(Settings.System.getInt(getContentResolver(),
+                Settings.System.SHOW_BRIGHTNESS_TOGGLESLIDER, 0) == 1);
+        mShowBrightnessToggleslider.setOnPreferenceChangeListener(this);
 
         /* Disable BootAnimation Toggle */
         mDisableBootanimPref = (CheckBoxPreference) mPrefSet.findPreference(DISABLE_BOOTANIMATION_PREF);
@@ -120,6 +129,8 @@ public class CodefireSettings extends SettingsFragment
             Settings.System.putInt(mCr, Settings.System.RECENT_KILL_ALL_BUTTON, (Boolean) newValue ? 1 : 0);
         } else if (KEY_DUAL_PANE.equals(key)) {
             Settings.System.putInt(mCr, Settings.System.DUAL_PANE_SETTINGS, (Boolean) newValue ? 1 : 0);
+        } else if (SHOW_BRIGHTNESS_TOGGLESLIDER.equals(key)) {
+            Settings.System.putInt(mCr, Settings.System.SHOW_BRIGHTNESS_TOGGLESLIDER, (Boolean) newValue ? 1 : 0);
         }
         return true;
     }
