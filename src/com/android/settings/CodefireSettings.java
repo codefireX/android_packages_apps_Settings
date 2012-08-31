@@ -26,6 +26,7 @@ public class CodefireSettings extends SettingsFragment
     private static final String DISABLE_BOOTANIMATION_PERSIST_PROP = "persist.sys.nobootanimation";
     private static final String DISABLE_BOOTANIMATION_DEFAULT = "0";
     private static final String PREF_RECENT_KILL_ALL = "recent_kill_all";
+    private static final String KEY_DUAL_PANE = "dual_pane";
 
     private ContentResolver mCr;
     private PreferenceScreen mPrefSet;
@@ -35,6 +36,7 @@ public class CodefireSettings extends SettingsFragment
     private CheckBoxPreference mUseSixbaricons;
     private CheckBoxPreference mDisableBootanimPref;
     private CheckBoxPreference mRecentKillAll;
+    private CheckBoxPreference mDualPane;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -73,6 +75,13 @@ public class CodefireSettings extends SettingsFragment
                 Settings.System.RECENT_KILL_ALL_BUTTON, 1) == 1);
         mRecentKillAll.setOnPreferenceChangeListener(this);
 
+                /* Dual pane toggle */
+        mDualPane = (CheckBoxPreference) mPrefSet.findPreference(
+                KEY_DUAL_PANE);
+        mDualPane.setChecked(Settings.System.getInt(getContentResolver(),
+                Settings.System.DUAL_PANE_SETTINGS, 1) == 1);
+        mDualPane.setOnPreferenceChangeListener(this);
+
         /* Disable BootAnimation Toggle */
         mDisableBootanimPref = (CheckBoxPreference) mPrefSet.findPreference(DISABLE_BOOTANIMATION_PREF);
         String disableBootanim = SystemProperties.get(DISABLE_BOOTANIMATION_PERSIST_PROP, DISABLE_BOOTANIMATION_DEFAULT);
@@ -109,6 +118,8 @@ public class CodefireSettings extends SettingsFragment
             Settings.System.putInt(mCr, Settings.System.STATUSBAR_6BAR_SIGNAL, (Boolean) newValue ? 1 : 0);
         } else if (PREF_RECENT_KILL_ALL.equals(key)) {
             Settings.System.putInt(mCr, Settings.System.RECENT_KILL_ALL_BUTTON, (Boolean) newValue ? 1 : 0);
+        } else if (KEY_DUAL_PANE.equals(key)) {
+            Settings.System.putInt(mCr, Settings.System.DUAL_PANE_SETTINGS, (Boolean) newValue ? 1 : 0);
         }
         return true;
     }

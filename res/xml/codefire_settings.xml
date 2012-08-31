@@ -8,6 +8,11 @@
         android:title="@string/codefire_general" />
 
     <CheckBoxPreference
+        android:key="dual_pane"
+        android:title="@string/dual_pane_title"
+        android:summary="@string/dual_pane_summary" />
+
+    <CheckBoxPreference
         android:key="pref_disable_bootanimation"
         android:title="@string/pref_disable_bootanimation_title"
         android:summary="@string/pref_disable_bootanimation_summary" />
