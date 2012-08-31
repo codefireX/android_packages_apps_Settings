@@ -65,7 +65,7 @@ public class CodefireSettings extends SettingsFragment
         mUseSixbaricons.setOnPreferenceChangeListener(this);
 
         /* Disable BootAnimation Toggle */
-        mDisableBootanimPref = (CheckBoxPreference) prefSet.findPreference(DISABLE_BOOTANIMATION_PREF);
+        mDisableBootanimPref = (CheckBoxPreference) mPrefSet.findPreference(DISABLE_BOOTANIMATION_PREF);
         String disableBootanim = SystemProperties.get(DISABLE_BOOTANIMATION_PERSIST_PROP, DISABLE_BOOTANIMATION_DEFAULT);
         mDisableBootanimPref.setChecked("1".equals(disableBootanim));
 
@@ -78,25 +78,7 @@ public class CodefireSettings extends SettingsFragment
 
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-        if (preference == mUse16bppAlphaPref) {
-            SystemProperties.set(USE_16BPP_ALPHA_PROP,
-                    mUse16bppAlphaPref.isChecked() ? "1" : "0");
-        } else if (preference == mDisableBootanimPref) {
-            SystemProperties.set(DISABLE_BOOTANIMATION_PERSIST_PROP,
-                    mDisableBootanimPref.isChecked() ? "1" : "0");
-        } else {
-            // If we didn't handle it, let preferences handle it.
-            return super.onPreferenceTreeClick(preferenceScreen, preference);
-        }
-
-        return true;
-    }
-    @Override
-    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-        if (preference == mUse16bppAlphaPref) {
-            SystemProperties.set(USE_16BPP_ALPHA_PROP,
-                    mUse16bppAlphaPref.isChecked() ? "1" : "0");
-        } else if (preference == mDisableBootanimPref) {
+        if (preference == mDisableBootanimPref) {
             SystemProperties.set(DISABLE_BOOTANIMATION_PERSIST_PROP,
                     mDisableBootanimPref.isChecked() ? "1" : "0");
         } else {
