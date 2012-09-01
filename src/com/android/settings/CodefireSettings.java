@@ -108,9 +108,6 @@ public class CodefireSettings extends SettingsFragment
             mPrefSet.removePreference(mTrackballWake);
             mPrefSet.removePreference(mTrackballUnlockScreen);
         }
-        if (Settings.Secure.getInt(mCr, Settings.Secure.KILL_APP_LONGPRESS_BACK, 0) == 0) {
-            buttonCategory.removePreference(mKillAppLongpressBackTimeout);
-        }
     }
 
     @Override
@@ -124,28 +121,6 @@ public class CodefireSettings extends SettingsFragment
     @Override
     public void onPause() {
         super.onPause();
-    }
-
-    @Override
-    public boolean onPreferenceChange(Preference preference, Object newValue) {
-        String key = preference.getKey();
-        
-        if (KILL_APP_LONGPRESS_BACK_TIMEOUT.equals(key)) {
-            try {
-                int timeout = Integer.parseInt((String) newValue);
-                if (timeout < 500 || timeout > 2000) {
-                    // Out of bounds, bail!
-                    return false;
-                }
-                Settings.System.putInt(mCr, KILL_APP_LONGPRESS_BACK_TIMEOUT, timeout);
-                mKillAppLongpressBackTimeout.setSummary("Hold down back button for " + timeout + "ms to kill a process");
-                mKillAppLongpressBackTimeout.setText(Integer.toString(timeout));
-            } finally {
-                Log.d(TAG, "Exception error on preference change.");
-                return false;
-            }
-        }
-        return true;
     }
 
     @Override
@@ -164,7 +139,21 @@ public class CodefireSettings extends SettingsFragment
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         String key = preference.getKey();
         
-        if (TRACKBALL_WAKE_TOGGLE.equals(key)) {
+        if (KILL_APP_LONGPRESS_BACK_TIMEOUT.equals(key)) {
+            try {
+                int timeout = Integer.parseInt((String) newValue);
+                if (timeout < 500 || timeout > 2000) {
+                    // Out of bounds, bail!
+                    return false;
+                }
+                Settings.System.putInt(mCr, KILL_APP_LONGPRESS_BACK_TIMEOUT, timeout);
+                mKillAppLongpressBackTimeout.setSummary("Hold down back button for " + timeout + "ms to kill a process");
+                mKillAppLongpressBackTimeout.setText(Integer.toString(timeout));
+            } finally {
+                Log.d(TAG, "Exception error on preference change.");
+                return false;
+            }
+        } else if (TRACKBALL_WAKE_TOGGLE.equals(key)) {
             Settings.System.putInt(mCr, Settings.System.TRACKBALL_WAKE_SCREEN, (Boolean) newValue ? 1 : 0);
         } else if (TRACKBALL_UNLOCK_TOGGLE.equals(key)) {
             Settings.System.putInt(mCr, Settings.System.TRACKBALL_UNLOCK_SCREEN, (Boolean) newValue ? 1 : 0);
