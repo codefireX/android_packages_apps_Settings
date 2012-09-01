@@ -32,6 +32,7 @@ public class CodefireSettings extends SettingsFragment
 
     private ContentResolver mCr;
     private PreferenceScreen mPrefSet;
+    private PreferenceScreen mNavigationBar;
 
     private CheckBoxPreference mTrackballWake;
     private CheckBoxPreference mTrackballUnlockScreen;
@@ -51,6 +52,11 @@ public class CodefireSettings extends SettingsFragment
 
         mPrefSet = getPreferenceScreen();
         mCr = getContentResolver();
+        mNavigationBar = (PreferenceScreen) findPreference(KEY_NAVIGATION_BAR);
+
+        if (mNavigationBar != null) {
+                getPreferenceScreen().removePreference(mNavigationBar);
+        }
 
         /* Trackball wake pref */
         mTrackballWake = (CheckBoxPreference) mPrefSet.findPreference(

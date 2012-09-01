@@ -25,7 +25,6 @@ import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.preference.ListPreference;
 import android.preference.Preference;
-import android.preference.PreferenceScreen;
 import android.util.Log;
 import android.view.IWindowManager;
 
@@ -60,14 +59,10 @@ public class SystemSettings extends SettingsPreferenceFragment implements
         mFontSizePref.setOnPreferenceChangeListener(this);
         mPhoneDrawer = (PreferenceScreen) findPreference(KEY_NOTIFICATION_DRAWER);
         mTabletDrawer = (PreferenceScreen) findPreference(KEY_NOTIFICATION_DRAWER_TABLET);
-        mNavigationBar = (PreferenceScreen) findPreference(KEY_NAVIGATION_BAR);
 
         if (Utils.isTablet(getActivity())) {
             if (mPhoneDrawer != null) {
                 getPreferenceScreen().removePreference(mPhoneDrawer);
-            }
-            if (mNavigationBar != null) {
-                getPreferenceScreen().removePreference(mNavigationBar);
             }
         } else {
             if (mTabletDrawer != null) {
