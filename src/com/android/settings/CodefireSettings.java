@@ -14,6 +14,8 @@ import android.provider.Settings;
 import com.android.settings.R;
 import com.android.settings.SettingsFragment;
 
+import net.margaritov.preference.colorpicker.ColorPickerPreference;
+
 public class CodefireSettings extends SettingsFragment
     implements Preference.OnPreferenceChangeListener {
 
@@ -29,6 +31,11 @@ public class CodefireSettings extends SettingsFragment
     private static final String KEY_DUAL_PANE = "dual_pane";
     private static final String SHOW_BRIGHTNESS_TOGGLESLIDER = "pref_show_brightness_toggleslider";
     private static final String KILL_APP_LONGPRESS_BACK_TIMEOUT = "pref_kill_app_longpress_back_timeout";
+    private static final String PREF_BATT_BAR = "battery_bar_list";
+    private static final String PREF_BATT_BAR_STYLE = "battery_bar_style";
+    private static final String PREF_BATT_BAR_COLOR = "battery_bar_color";
+    private static final String PREF_BATT_BAR_WIDTH = "battery_bar_thickness";
+    private static final String PREF_BATT_ANIMATE = "battery_bar_animate";
 
     private ContentResolver mCr;
     private PreferenceScreen mPrefSet;
@@ -40,8 +47,13 @@ public class CodefireSettings extends SettingsFragment
     private CheckBoxPreference mRecentKillAll;
     private CheckBoxPreference mDualPane;
     private CheckBoxPreference mShowBrightnessToggleslider;
-
+	
     private EditTextPreference mKillAppLongpressBackTimeout;
+    private ListPreference mBatteryBar;
+    private ListPreference mBatteryBarStyle;
+    private ListPreference mBatteryBarThickness;
+    private CheckBoxPreference mBatteryBarChargingAnimation; 
+    private ColorPickerPreference mBatteryBarColor;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -108,6 +120,34 @@ public class CodefireSettings extends SettingsFragment
             mPrefSet.removePreference(mTrackballWake);
             mPrefSet.removePreference(mTrackballUnlockScreen);
         }
+	mBatteryBar = (ListPreference) findPreference(PREF_BATT_BAR);
+        mBatteryBar.setOnPreferenceChangeListener(this);
+        mBatteryBar.setValue((Settings.System
+                .getInt(getActivity().getContentResolver(),
+                        Settings.System.STATUSBAR_BATTERY_BAR, 0))
+                + "");
+
+        mBatteryBarStyle = (ListPreference) findPreference(PREF_BATT_BAR_STYLE);
+        mBatteryBarStyle.setOnPreferenceChangeListener(this);
+        mBatteryBarStyle.setValue((Settings.System.getInt(getActivity()
+                .getContentResolver(),
+                Settings.System.STATUSBAR_BATTERY_BAR_STYLE, 0))
+                + "");
+
+        mBatteryBarColor = (ColorPickerPreference) findPreference(PREF_BATT_BAR_COLOR);
+        mBatteryBarColor.setOnPreferenceChangeListener(this);
+
+        mBatteryBarChargingAnimation = (CheckBoxPreference) findPreference(PREF_BATT_ANIMATE);
+        mBatteryBarChargingAnimation.setChecked(Settings.System.getInt(
+                getActivity().getContentResolver(),
+                Settings.System.STATUSBAR_BATTERY_BAR_ANIMATE, 0) == 1);
+
+        mBatteryBarThickness = (ListPreference) findPreference(PREF_BATT_BAR_WIDTH);
+        mBatteryBarThickness.setOnPreferenceChangeListener(this);
+        mBatteryBarThickness.setValue((Settings.System.getInt(getActivity()
+                .getContentResolver(),
+                Settings.System.STATUSBAR_BATTERY_BAR_THICKNESS, 1))
+                + "");
     }
 
     @Override
@@ -128,12 +168,14 @@ public class CodefireSettings extends SettingsFragment
         if (preference == mDisableBootanimPref) {
             SystemProperties.set(DISABLE_BOOTANIMATION_PERSIST_PROP,
                     mDisableBootanimPref.isChecked() ? "1" : "0");
-        } else {
-            // If we didn't handle it, let preferences handle it.
-            return super.onPreferenceTreeClick(preferenceScreen, preference);
-        }
+        } else if (preference == mBatteryBarChargingAnimation) {
 
-        return true;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.STATUSBAR_BATTERY_BAR_ANIMATE,
+                    ((CheckBoxPreference) preference).isChecked() ? 1 : 0);
+            return true;
+        }
+        return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -165,6 +207,34 @@ public class CodefireSettings extends SettingsFragment
             Settings.System.putInt(mCr, Settings.System.DUAL_PANE_SETTINGS, (Boolean) newValue ? 1 : 0);
         } else if (SHOW_BRIGHTNESS_TOGGLESLIDER.equals(key)) {
             Settings.System.putInt(mCr, Settings.System.SHOW_BRIGHTNESS_TOGGLESLIDER, (Boolean) newValue ? 1 : 0);
+        }else if (preference == mBatteryBarColor) {
+            String hex = ColorPickerPreference.convertToARGB(Integer
+                    .valueOf(String.valueOf(newValue)));
+            preference.setSummary(hex);
+
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.STATUSBAR_BATTERY_BAR_COLOR, intHex);
+            return true;
+
+        } else if (preference == mBatteryBar) {
+
+            int val = Integer.parseInt((String) newValue);
+            return Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.STATUSBAR_BATTERY_BAR, val);
+
+        } else if (preference == mBatteryBarStyle) {
+
+            int val = Integer.parseInt((String) newValue);
+            return Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.STATUSBAR_BATTERY_BAR_STYLE, val);
+
+        } else if (preference == mBatteryBarThickness) {
+
+            int val = Integer.parseInt((String) newValue);
+            return Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.STATUSBAR_BATTERY_BAR_THICKNESS, val);
+
         }
         return true;
     }
