@@ -122,11 +122,6 @@ public class CodefireSettings extends SettingsFragment
         mKillAppLongpressBackTimeout.setOnPreferenceChangeListener(this);
 
         /* BATTERY BAR START */
-        mBatteryNotification = (CheckBoxPreference) mPrefSet.findPreference(PREF_BATT_NOT);
-        mBatteryNotification.setChecked(Settings.System.getInt(
-                getActivity().getContentResolver(),
-                Settings.System.NOTIFICATION_BATTERY_DISPLAY, 0) == 1);
-
         mBatteryBar = (ListPreference) mPrefSet.findPreference(PREF_BATT_BAR);
         mBatteryBar.setOnPreferenceChangeListener(this);
         mBatteryBar.setValue((Settings.System
