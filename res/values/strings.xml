@@ -4866,10 +4866,18 @@
     <!-- **** CYANOGENMOD ADDITIONS END **** -->
 
     <!-- CodeFire Additions Start -->
+    <string name="codefire_battbar">Battery Bar</string>
     <string name="codefire_settings">codefireX</string>
     <string name="codefire_general">General</string>
     <string name="codefire_lockscreen">Lock Screen</string>
     <string name="codefire_statusbar">Status Bar</string>
+    <string name="battery_bar">Battery bar location</string>
+    <string name="battery_bar_color">Battery bar color</string>
+    <string name="battery_bar_cat">Battery bar options</string>
+    <string name="battery_bar_style_title">Battery bar style</string>
+    <string name="battery_bar_thickness_title">Battery bar thickness</string>
+    <string name="battery_bar_animate_title">Charging animation</string>
+    <string name="battery_bar_animate_summary">The charging animation may result in a poor user experience. Enable at your own discretion.</string>
     <string name="dual_pane_title">Dual-pane view</string>
     <string name="dual_pane_summary">Apps supporting this setting will be displayed in two panes side by side</string>
     <string name="enable_fast_torch_summary">With screen off, hold power button to turn the LED(s) on. Either unlock or turn off the screen via another button press to turn the torch off. </string>
@@ -4887,6 +4895,15 @@
     <string name="pref_trackball_unlock_toggle_summary">Allow trackball to unlock the device</string>
     <string name="recent_kill_all">Enable kill-all-button</string>
     <string name="recent_kill_all_summary">Displays a button to kill all apps on recents window (requires reboot)</string>    
+    <!-- Color Picker -->
+    <string name="dialog_color_picker">Color Picker</string>
+    <string name="press_color_to_apply">Press on Color to apply</string>
+    <string name="arrow_right">.</string>
+    <string name="arrow_down">.</string>
+    <string name="hex">Hex:</string>
+    <string name="hex_hint">#FF000000</string>
+    <string name="set">Set</string>
+    <string name="ics_color">!!!</string>
 
     <!-- **** CODEFIRE ADDITIONS END **** -->
 </resources>
