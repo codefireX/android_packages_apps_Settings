@@ -53,6 +53,7 @@
 			android:gravity="center"
 			android:layout_marginLeft="10dp"
 			android:layout_marginRight="10dp" />
+                
                 <com.android.settings.colorpicker.ColorPickerPanelView
 			android:id="@+id/new_color_panel"
 			android:layout_width="0px"
