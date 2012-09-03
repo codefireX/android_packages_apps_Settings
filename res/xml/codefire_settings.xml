@@ -31,6 +31,11 @@
         android:inputType="number"
         android:defaultValue="1000" />
 
+    <PreferenceScreen
+        android:key="lcd_density"
+        android:fragment="com.android.settings.codefire.DensityChanger"
+        android:title="@string/lcd_density_wizard" />
+
     <CheckBoxPreference android:key="pref_trackball_unlock_toggle"
         android:title="@string/pref_trackball_unlock_toggle_title"
         android:summary="@string/pref_trackball_unlock_toggle_summary" />

@@ -33,6 +33,7 @@ public class CodefireSettings extends SettingsFragment
     private static final String SHOW_BRIGHTNESS_TOGGLESLIDER = "pref_show_brightness_toggleslider";
     private static final String KILL_APP_LONGPRESS_BACK_TIMEOUT = "pref_kill_app_longpress_back_timeout";
     private static final String KEY_NAVIGATION_BAR = "navigation_bar";
+    private static final String KEY_LCD_DENSITY = "lcd_density";
 
     private ContentResolver mCr;
     private PreferenceScreen mPrefSet;

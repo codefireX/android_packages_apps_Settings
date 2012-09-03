@@ -4877,6 +4877,7 @@
     <string name="codefire_general">General</string>
     <string name="codefire_lockscreen">Lock Screen</string>
     <string name="codefire_statusbar">Status Bar</string>
+    <!-- Battery Bar -->
     <string name="battery_bar">Battery bar location</string>
     <string name="battery_bar_color">Battery bar color</string>
     <string name="battery_bar_cat">Battery bar options</string>
@@ -4895,6 +4896,7 @@
     <string name="pref_show_brightness_toggleslider_summary">In the notification area</string>
     <string name="pref_statusbar_sixbar_signal_title">Six bar signal icons</string>
     <string name="pref_statusbar_sixbar_signal_summary">Use six bar cell signal icons opposed to four</string>
+    <!-- TrackBall Settings -->
     <string name="pref_trackball_wake_toggle_title">Trackball wake</string>
     <string name="pref_trackball_wake_toggle_summary">Allow trackball to wake the device</string>
     <string name="pref_trackball_unlock_toggle_title">Trackball unlock</string>
@@ -4910,6 +4912,21 @@
     <string name="hex_hint">#FF000000</string>
     <string name="set">Set</string>
     <string name="ics_color">!!!</string>
+    <!-- LCD Density -->
+    <string name="dpi">DPI</string>
+    <string name="lcd_density_wizard">LCD Density Wizard</string>
+    <string name="follow_through_title">Follow through!</string>
+    <string name="follow_through_summary">Make sure you follow the steps one-by-one and complete each one before proceeding to the next.</string>
+    <string name="stock_density_title">1. Change LCD Density to stock value</string>
+    <string name="stock_density_summary">Tablets and older phones use 160. Most phones use 240. Galaxy Nexus uses 320 by default.</string>
+    <string name="reboot_title">2. Reboot!</string>
+    <string name="reboot_summary">Come back here after the reboot and complete the rest of the steps!</string>
+    <string name="clear_market_data_title">3. Clear market data</string>
+    <string name="clear_market_data_cleared">Market data cleared</string>
+    <string name="open_market_title">4. Open Market and hit accept</string>
+    <string name="open_market_summary">Press back when done to return here.</string>
+    <string name="custom_density_title">5. Change density to whatever you like!</string>
+    <string name="custom_density_summary">If you ever have compatibility issues with the market, be sure to return here and repeat the process.</string>
 
     <!-- **** CODEFIRE ADDITIONS END **** -->
 </resources>
