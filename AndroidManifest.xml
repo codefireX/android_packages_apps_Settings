@@ -1522,6 +1522,16 @@
 
         <!-- CyanogenMod activities End -->
 
+        <!-- CodeFire activities start -->
+        <activity
+            android:name=".fragments.StatusBarBattery"
+            android:label="Statusbar Battery" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.android.settings.SHORTCUT" />
+            </intent-filter>
+        </activity>
+
         <!-- Pseudo-activity used to provide an intent-filter entry point to encryption settings -->
         <activity android:name="Settings$CryptKeeperSettingsActivity"
                 android:label="@string/crypt_keeper_encrypt_title">

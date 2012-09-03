@@ -33,11 +33,6 @@ public class CodefireSettings extends SettingsFragment
     private static final String SHOW_BRIGHTNESS_TOGGLESLIDER = "pref_show_brightness_toggleslider";
     private static final String KILL_APP_LONGPRESS_BACK_TIMEOUT = "pref_kill_app_longpress_back_timeout";
     private static final String KEY_NAVIGATION_BAR = "navigation_bar";
-    private static final String PREF_BATT_BAR = "battery_bar_list";
-    private static final String PREF_BATT_BAR_STYLE = "battery_bar_style";
-    private static final String PREF_BATT_BAR_COLOR = "battery_bar_color";
-    private static final String PREF_BATT_BAR_WIDTH = "battery_bar_thickness";
-    private static final String PREF_BATT_ANIMATE = "battery_bar_animate";
 
     private ContentResolver mCr;
     private PreferenceScreen mPrefSet;
@@ -50,15 +45,8 @@ public class CodefireSettings extends SettingsFragment
     private CheckBoxPreference mRecentKillAll;
     private CheckBoxPreference mDualPane;
     private CheckBoxPreference mShowBrightnessToggleslider;
-    private CheckBoxPreference mBatteryBarChargingAnimation;
-
-    private ColorPickerPreference mBatteryBarColor;
 
     private EditTextPreference mKillAppLongpressBackTimeout;
-
-    private ListPreference mBatteryBar;
-    private ListPreference mBatteryBarStyle;
-    private ListPreference mBatteryBarThickness;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -121,37 +109,6 @@ public class CodefireSettings extends SettingsFragment
         mKillAppLongpressBackTimeout = (EditTextPreference) mPrefSet.findPreference(KILL_APP_LONGPRESS_BACK_TIMEOUT);
         mKillAppLongpressBackTimeout.setOnPreferenceChangeListener(this);
 
-        /* BATTERY BAR START */
-        mBatteryBar = (ListPreference) mPrefSet.findPreference(PREF_BATT_BAR);
-        mBatteryBar.setOnPreferenceChangeListener(this);
-        mBatteryBar.setValue((Settings.System
-                .getInt(getActivity().getContentResolver(),
-                        Settings.System.STATUSBAR_BATTERY_BAR, 0))
-                + "");
-
-        mBatteryBarStyle = (ListPreference) mPrefSet.findPreference(PREF_BATT_BAR_STYLE);
-        mBatteryBarStyle.setOnPreferenceChangeListener(this);
-        mBatteryBarStyle.setValue((Settings.System.getInt(getActivity()
-                .getContentResolver(),
-                Settings.System.STATUSBAR_BATTERY_BAR_STYLE, 0))
-                + "");
-
-        mBatteryBarColor = (ColorPickerPreference) mPrefSet.findPreference(PREF_BATT_BAR_COLOR);
-        mBatteryBarColor.setOnPreferenceChangeListener(this);
-
-        mBatteryBarChargingAnimation = (CheckBoxPreference) mPrefSet.findPreference(PREF_BATT_ANIMATE);
-        mBatteryBarChargingAnimation.setChecked(Settings.System.getInt(
-                getActivity().getContentResolver(),
-                Settings.System.STATUSBAR_BATTERY_BAR_ANIMATE, 0) == 1);
-
-        mBatteryBarThickness = (ListPreference) mPrefSet.findPreference(PREF_BATT_BAR_WIDTH);
-        mBatteryBarThickness.setOnPreferenceChangeListener(this);
-        mBatteryBarThickness.setValue((Settings.System.getInt(getActivity()
-                .getContentResolver(),
-                Settings.System.STATUSBAR_BATTERY_BAR_THICKNESS, 1))
-                + "");
-        /* BATTERY BAR END */
-
         /* Remove mTrackballWake on devices without trackballs */
         if (!getResources().getBoolean(R.bool.has_trackball)) {
             mPrefSet.removePreference(mTrackballWake);
@@ -177,10 +134,6 @@ public class CodefireSettings extends SettingsFragment
         if (preference == mDisableBootanimPref) {
             SystemProperties.set(DISABLE_BOOTANIMATION_PERSIST_PROP,
                     mDisableBootanimPref.isChecked() ? "1" : "0");
-        } else if (preference == mBatteryBarChargingAnimation) {
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.STATUSBAR_BATTERY_BAR_ANIMATE,
-                    ((CheckBoxPreference) preference).isChecked() ? 1 : 0);
         } else {
             // If we didn't handle it, let preferences handle it.
             return super.onPreferenceTreeClick(preferenceScreen, preference);
@@ -206,29 +159,6 @@ public class CodefireSettings extends SettingsFragment
                 Log.d(TAG, "Exception error on preference change.");
                 return false;
             }
-        } else if (mBatteryBarColor.equals(key)) {
-            String hex = ColorPickerPreference.convertToARGB(Integer
-                    .valueOf(String.valueOf(newValue)));
-            preference.setSummary(hex);
-
-            int intHex = ColorPickerPreference.convertToColorInt(hex);
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.STATUSBAR_BATTERY_BAR_COLOR, intHex);
-        } else if (mBatteryBar.equals(key)) {
-
-            int val = Integer.parseInt((String) newValue);
-            return Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.STATUSBAR_BATTERY_BAR, val);
-        } else if (mBatteryBarStyle.equals(key)) {
-
-            int val = Integer.parseInt((String) newValue);
-            return Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.STATUSBAR_BATTERY_BAR_STYLE, val);
-        } else if (mBatteryBarThickness.equals(key)) {
-
-            int val = Integer.parseInt((String) newValue);
-            return Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.STATUSBAR_BATTERY_BAR_THICKNESS, val);
         } else if (TRACKBALL_WAKE_TOGGLE.equals(key)) {
             Settings.System.putInt(mCr, Settings.System.TRACKBALL_WAKE_SCREEN, (Boolean) newValue ? 1 : 0);
         } else if (TRACKBALL_UNLOCK_TOGGLE.equals(key)) {
