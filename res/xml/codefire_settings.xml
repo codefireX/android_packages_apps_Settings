@@ -54,7 +54,7 @@
 
     <PreferenceScreen
         android:key="battery_bar"
-        android:fragment="com.android.settings.StatusBarBattery"
+        android:fragment="com.android.settings.codefire.StatusBarBattery"
         android:title="@string/codefire_battbar" />
 
     <CheckBoxPreference android:key="pref_show_brightness_toggleslider"
