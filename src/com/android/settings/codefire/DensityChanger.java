@@ -111,7 +111,7 @@ public class DensityChanger extends SettingsPreferenceFragment implements
             ComponentName activityName = openMarket.resolveActivity(getActivity()
                     .getPackageManager());
             if (activityName != null) {
-                mContext.startActivity(openMarket);
+                getActivity().getApplicationContext().startActivity(openMarket);
             } else {
                 preference
                         .setSummary("Couldn't open Google Play! If you're sure it's installed, open it from the launcher.");
@@ -125,7 +125,7 @@ public class DensityChanger extends SettingsPreferenceFragment implements
 
     @Override
     public Dialog onCreateDialog(int dialogId) {
-        LayoutInflater factory = LayoutInflater.from(mContext);
+        LayoutInflater factory = LayoutInflater.from(getActivity().getApplicationContext());
 
         switch (dialogId) {
             case DIALOG_DENSITY:
