@@ -6,10 +6,6 @@
         android:key="codefire_battbar"
         android:title="@string/codefire_battbar" />
 
-    <CheckBoxPreference
-        android:key="dual_pane"
-        android:title="@string/dual_pane_title"
-        android:summary="@string/dual_pane_summary" />
     <ListPreference
         android:key="battery_bar_list"
         android:title="@string/battery_bar"
