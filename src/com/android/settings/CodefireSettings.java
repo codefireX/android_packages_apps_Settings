@@ -34,6 +34,7 @@ public class CodefireSettings extends SettingsFragment
     private static final String KILL_APP_LONGPRESS_BACK_TIMEOUT = "pref_kill_app_longpress_back_timeout";
     private static final String KEY_NAVIGATION_BAR = "navigation_bar";
     private static final String KEY_LCD_DENSITY = "lcd_density";
+    private static final String STATUS_BAR_CLOCK_STYLE = "status_bar_clock_style";
 
     private ContentResolver mCr;
     private PreferenceScreen mPrefSet;
@@ -49,6 +50,8 @@ public class CodefireSettings extends SettingsFragment
 
     private EditTextPreference mKillAppLongpressBackTimeout;
 
+    private ListPreference mStatusBarClockStyle;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +61,14 @@ public class CodefireSettings extends SettingsFragment
         mPrefSet = getPreferenceScreen();
         mCr = getContentResolver();
         mNavigationBar = (PreferenceScreen) findPreference(KEY_NAVIGATION_BAR);
+        mStatusBarClockStyle = (ListPreference) prefSet.findPreference(STATUS_BAR_CLOCK_STYLE);
+
+        /* Clock Style */
+        int statusBarClockStyle = Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
+                Settings.System.STATUS_BAR_CLOCK_STYLE, 1);
+        mStatusBarClockStyle.setValue(String.valueOf(statusBarClockStyle));
+        mStatusBarClockStyle.setSummary(mStatusBarClockStyle.getEntry());
+        mStatusBarClockStyle.setOnPreferenceChangeListener(this);
 
         /* Trackball wake pref */
         mTrackballWake = (CheckBoxPreference) mPrefSet.findPreference(
@@ -172,6 +183,12 @@ public class CodefireSettings extends SettingsFragment
             Settings.System.putInt(mCr, Settings.System.DUAL_PANE_SETTINGS, (Boolean) newValue ? 1 : 0);
         } else if (SHOW_BRIGHTNESS_TOGGLESLIDER.equals(key)) {
             Settings.System.putInt(mCr, Settings.System.SHOW_BRIGHTNESS_TOGGLESLIDER, (Boolean) newValue ? 1 : 0);
+        } else if (STATUS_BAR_CLOCK_STYLE.equals(key)) {
+            int statusBarClockStyle = Integer.valueOf((String) newValue);
+            int index = mStatusBarClockStyle.findIndexOfValue((String) newValue);
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.STATUS_BAR_CLOCK_STYLE, statusBarClockStyle);
+            mStatusBarClockStyle.setSummary(mStatusBarClockStyle.getEntries()[index]);
         }
         return true;
     }
