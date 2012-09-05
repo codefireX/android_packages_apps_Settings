@@ -64,6 +64,10 @@
         android:entryValues="@array/values_status_bar_clock_style"
         android:persistent="false" />
 
+    <Preference
+        android:key="custom_carrier_label"
+        android:title="@string/custom_carrier_label_title" />
+
     <CheckBoxPreference android:key="pref_show_brightness_toggleslider"
         android:title="@string/pref_show_brightness_toggleslider_title"
         android:summary="@string/pref_show_brightness_toggleslider_summary" />
