@@ -61,7 +61,7 @@ public class CodefireSettings extends SettingsFragment
         mPrefSet = getPreferenceScreen();
         mCr = getContentResolver();
         mNavigationBar = (PreferenceScreen) findPreference(KEY_NAVIGATION_BAR);
-        mStatusBarClockStyle = (ListPreference) prefSet.findPreference(STATUS_BAR_CLOCK_STYLE);
+        mStatusBarClockStyle = (ListPreference) mPrefSet.findPreference(STATUS_BAR_CLOCK_STYLE);
 
         /* Clock Style */
         int statusBarClockStyle = Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
