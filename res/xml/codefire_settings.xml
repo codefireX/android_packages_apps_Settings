@@ -72,6 +72,11 @@
         android:title="@string/pref_show_brightness_toggleslider_title"
         android:summary="@string/pref_show_brightness_toggleslider_summary" />
 
+    <PreferenceScreen
+        android:key="statusbar_signal"
+        android:fragment="com.android.settings.codefire.StatusBarSignal"
+        android:title="@string/codefire_signal" />
+
     <CheckBoxPreference
         android:key="pref_statusbar_sixbar_signal"
         android:title="@string/pref_statusbar_sixbar_signal_title"
