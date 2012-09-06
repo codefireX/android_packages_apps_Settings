@@ -43,7 +43,6 @@ public class CodefireSettings extends SettingsFragment
 
     private static final String TRACKBALL_WAKE_TOGGLE = "pref_trackball_wake_toggle";
     private static final String TRACKBALL_UNLOCK_TOGGLE = "pref_trackball_unlock_toggle";
-    private static final String STATUSBAR_SIXBAR_SIGNAL = "pref_statusbar_sixbar_signal";
     private static final String DISABLE_BOOTANIMATION_PREF = "pref_disable_bootanimation";
     private static final String DISABLE_BOOTANIMATION_PERSIST_PROP = "persist.sys.nobootanimation";
     private static final String DISABLE_BOOTANIMATION_DEFAULT = "0";
@@ -62,7 +61,6 @@ public class CodefireSettings extends SettingsFragment
 
     private CheckBoxPreference mTrackballWake;
     private CheckBoxPreference mTrackballUnlockScreen;
-    private CheckBoxPreference mUseSixbaricons;
     private CheckBoxPreference mDisableBootanimPref;
     private CheckBoxPreference mRecentKillAll;
     private CheckBoxPreference mDualPane;
@@ -110,13 +108,6 @@ public class CodefireSettings extends SettingsFragment
         mTrackballUnlockScreen.setChecked(Settings.System.getInt(getContentResolver(),
                 Settings.System.TRACKBALL_UNLOCK_SCREEN, 1) == 1);
         mTrackballUnlockScreen.setOnPreferenceChangeListener(this);
-
-        /* Six bar pref */
-        mUseSixbaricons = (CheckBoxPreference) mPrefSet.findPreference(
-                STATUSBAR_SIXBAR_SIGNAL);
-        mUseSixbaricons.setChecked(Settings.System.getInt(getContentResolver(),
-                Settings.System.STATUSBAR_6BAR_SIGNAL, 0) == 1);
-        mUseSixbaricons.setOnPreferenceChangeListener(this);
 
         /* Kill All button on recent apps */
         mRecentKillAll = (CheckBoxPreference) mPrefSet.findPreference(
@@ -241,8 +232,6 @@ public class CodefireSettings extends SettingsFragment
             Settings.System.putInt(mCr, Settings.System.TRACKBALL_WAKE_SCREEN, (Boolean) newValue ? 1 : 0);
         } else if (TRACKBALL_UNLOCK_TOGGLE.equals(key)) {
             Settings.System.putInt(mCr, Settings.System.TRACKBALL_UNLOCK_SCREEN, (Boolean) newValue ? 1 : 0);
-        } else if (STATUSBAR_SIXBAR_SIGNAL.equals(key)) {
-            Settings.System.putInt(mCr, Settings.System.STATUSBAR_6BAR_SIGNAL, (Boolean) newValue ? 1 : 0);
         } else if (PREF_RECENT_KILL_ALL.equals(key)) {
             Settings.System.putInt(mCr, Settings.System.RECENT_KILL_ALL_BUTTON, (Boolean) newValue ? 1 : 0);
         } else if (KEY_DUAL_PANE.equals(key)) {

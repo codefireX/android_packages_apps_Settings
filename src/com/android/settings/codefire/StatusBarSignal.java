@@ -22,6 +22,7 @@ public class StatusBarSignal extends PreferenceFragment implements
     ColorPickerPreference mColorPicker;
     ColorPickerPreference mWifiColorPicker;
     CheckBoxPreference mHideSignal;
+    CheckBoxPreference mUseSixbaricons;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -47,6 +48,11 @@ public class StatusBarSignal extends PreferenceFragment implements
         mWifiColorPicker = (ColorPickerPreference) findPreference("wifi_signal_color");
         mWifiColorPicker.setOnPreferenceChangeListener(this);
 
+        mUseSixbaricons = (CheckBoxPreference) findPreference("statusbar_sixbar");
+        mUseSixbaricons.setChecked(Settings.System.getInt(getActivity()
+                .getContentResolver(), Settings.System.STATUSBAR_6BAR_SIGNAL,
+                0) != 0);
+
         mHideSignal = (CheckBoxPreference) findPreference("hide_signal");
         mHideSignal.setChecked(Settings.System.getInt(getActivity()
                 .getContentResolver(), Settings.System.STATUSBAR_HIDE_SIGNAL_BARS,
@@ -60,6 +66,12 @@ public class StatusBarSignal extends PreferenceFragment implements
         if (preference == mHideSignal) {
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.STATUSBAR_HIDE_SIGNAL_BARS,
+                    ((CheckBoxPreference) preference).isChecked() ? 1 : 0);
+
+            return true;
+        } else if (preference == mUseSixbaricons) {
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.STATUSBAR_6BAR_SIGNAL,
                     ((CheckBoxPreference) preference).isChecked() ? 1 : 0);
 
             return true;

@@ -77,9 +77,4 @@
         android:fragment="com.android.settings.codefire.StatusBarSignal"
         android:title="@string/codefire_signal" />
 
-    <CheckBoxPreference
-        android:key="pref_statusbar_sixbar_signal"
-        android:title="@string/pref_statusbar_sixbar_signal_title"
-        android:summary="@string/pref_statusbar_sixbar_signal_summary" />
-
 </PreferenceScreen>
