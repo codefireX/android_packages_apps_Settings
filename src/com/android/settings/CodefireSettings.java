@@ -36,6 +36,8 @@ import com.android.settings.SettingsFragment;
 
 import com.android.settings.colorpicker.ColorPickerPreference;
 
+import java.io.IOException;
+
 public class CodefireSettings extends SettingsFragment
     implements Preference.OnPreferenceChangeListener {
 
@@ -54,6 +56,7 @@ public class CodefireSettings extends SettingsFragment
     private static final String KEY_LCD_DENSITY = "lcd_density";
     private static final String STATUS_BAR_CLOCK_STYLE = "status_bar_clock_style";
     private static final String PREF_CUSTOM_CARRIER_LABEL = "custom_carrier_label";
+    private static final String PREF_TRANSPARENCY = "status_bar_transparency";
 
     private ContentResolver mCr;
     private PreferenceScreen mPrefSet;
@@ -72,6 +75,7 @@ public class CodefireSettings extends SettingsFragment
     String mCustomLabelText = null;
 
     private ListPreference mStatusBarClockStyle;
+    private ListPreference mTransparency;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -129,6 +133,13 @@ public class CodefireSettings extends SettingsFragment
         mShowBrightnessToggleslider.setChecked(Settings.System.getInt(getContentResolver(),
                 Settings.System.SHOW_BRIGHTNESS_TOGGLESLIDER, 0) == 1);
         mShowBrightnessToggleslider.setOnPreferenceChangeListener(this);
+
+        /* StatusBar Transparency */
+        mTransparency = (ListPreference) mPrefSet.findPreference(PREF_TRANSPARENCY);
+        mTransparency.setOnPreferenceChangeListener(this);
+        mTransparency.setValue(Integer.toString(Settings.System.getInt(getActivity()
+                .getContentResolver(), Settings.System.STATUS_BAR_TRANSPARENCY,
+                100)));
 
         /* Disable BootAnimation Toggle */
         mDisableBootanimPref = (CheckBoxPreference) mPrefSet.findPreference(DISABLE_BOOTANIMATION_PREF);
@@ -244,8 +255,19 @@ public class CodefireSettings extends SettingsFragment
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.STATUS_BAR_CLOCK_STYLE, statusBarClockStyle);
             mStatusBarClockStyle.setSummary(mStatusBarClockStyle.getEntries()[index]);
+        } else if (STATUS_BAR_TRANSPARENCY.equals(key)) {
+            int Transparency = Integer.valueOf((String) newValue);
+            int index = mTransparency.findIndexOfValue((String) newValue);
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.STATUS_BAR_TRANSPARENCY, Transparency);
+            mTransparency.setSummary(mTransparency.getEntries()[index]);
+            restartSystemUI();
         }
         return true;
     }
-
+    private void restartSystemUI() {
+        try {
+            Runtime.getRuntime().exec("pkill -TERM -f  com.android.systemui");
+        } catch (IOException e) {
+            e.printStackTrace();
 }
