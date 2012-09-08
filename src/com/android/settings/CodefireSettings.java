@@ -135,7 +135,7 @@ public class CodefireSettings extends SettingsFragment
         mShowBrightnessToggleslider.setOnPreferenceChangeListener(this);
 
         /* StatusBar Transparency */
-        mTransparency = (ListPreference) mPrefSet.findPreference(PREF_TRANSPARENCY);
+        mTransparency = (ListPreference) mPrefSet.findPreference(STATUS_BAR_TRANSPARENCY);
         mTransparency.setOnPreferenceChangeListener(this);
         mTransparency.setValue(Integer.toString(Settings.System.getInt(getActivity()
                 .getContentResolver(), Settings.System.STATUS_BAR_TRANSPARENCY,
