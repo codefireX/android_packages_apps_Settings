@@ -56,7 +56,7 @@ public class CodefireSettings extends SettingsFragment
     private static final String KEY_LCD_DENSITY = "lcd_density";
     private static final String STATUS_BAR_CLOCK_STYLE = "status_bar_clock_style";
     private static final String PREF_CUSTOM_CARRIER_LABEL = "custom_carrier_label";
-    private static final String PREF_TRANSPARENCY = "status_bar_transparency";
+    private static final String STATUS_BAR_TRANSPARENCY = "status_bar_transparency";
 
     private ContentResolver mCr;
     private PreferenceScreen mPrefSet;
