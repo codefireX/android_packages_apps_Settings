@@ -270,4 +270,6 @@ public class CodefireSettings extends SettingsFragment
             Runtime.getRuntime().exec("pkill -TERM -f  com.android.systemui");
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
 }
