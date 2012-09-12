@@ -4,31 +4,25 @@
         android:key="pref_category_button_settings"
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
-        <!-- General Settings - launches activity -->
-        <PreferenceScreen android:key="codefire_general"
-                android:title="@string/codefire_general"
-                android:summary="@string/codefire_general_summary">
-            <intent android:action="android.intent.action.MAIN"
-                    android:targetPackage="com.android.settings"
-                    android:targetClass="com.android.settings.codefire.GeneralPrefs" />
-        </PreferenceScreen>
+    <!-- General Settings - launches fragment -->
+    <PreferenceScreen
+        android:key="codefire_general"
+        android:fragment="com.android.settings.codefire.GeneralPrefs"
+        android:title="@string/codefire_general"
+        android:summary="@string/codefire_general_summary" />
 
-        <!-- Theme Settings - launches activity -->
-        <PreferenceScreen android:key="codefire_theme"
-                android:title="@string/codefire_theme"
-                android:summary="@string/codefire_theme_summary">
-            <intent android:action="android.intent.action.MAIN"
-                    android:targetPackage="com.android.settings"
-                    android:targetClass="com.android.settings.codefire.ThemePrefs" />
-        </PreferenceScreen>
+    <!-- Theme Settings - launches fragment -->
+    <PreferenceScreen
+        android:key="codefire_theme"
+        android:fragment="com.android.settings.codefire.ThemePrefs"
+        android:title="@string/codefire_theme"   
+        android:summary="@string/codefire_theme_summary" />
 
-        <!-- Status Bar Settings - launches activity -->
-        <PreferenceScreen android:key="codefire_statusbar"
-                android:title="@string/codefire_statusbar"
-                android:summary="@string/codefire_statusbar_summary">
-            <intent android:action="android.intent.action.MAIN"
-                    android:targetPackage="com.android.settings"
-                    android:targetClass="com.android.settings.codefire.StatusBarPrefs" />
-        </PreferenceScreen>
+    <!-- Status Bar Settings - launches fragment -->
+    <PreferenceScreen
+        android:key="codefire_statusbar"
+        android:fragment="com.android.settings.codefire.StatusBarPrefs"
+        android:title="@string/codefire_statusbar"   
+        android:summary="@string/codefire_statusbar_summary" />
 
 </PreferenceScreen>
