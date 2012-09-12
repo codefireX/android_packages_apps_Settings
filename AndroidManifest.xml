@@ -1532,6 +1532,30 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".fragments.GeneralPrefs"
+            android:label="GeneralPrefs" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.android.settings.SHORTCUT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".fragments.StatusBarPrefs"
+            android:label="Statusbar Prefs" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.android.settings.SHORTCUT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".fragments.ThemePrefs"
+            android:label="Theme Prefs" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.android.settings.SHORTCUT" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".fragments.StatusBarSignal"
             android:label="Statusbar Signal" >
             <intent-filter>
