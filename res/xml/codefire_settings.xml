@@ -23,9 +23,9 @@
         </PreferenceScreen>
 
         <!-- Status Bar Settings - launches activity -->
-        <PreferenceScreen android:key="codefire_theme"
-                android:title="@string/codefire_theme"
-                android:summary="@string/codefire_theme_summary">
+        <PreferenceScreen android:key="codefire_statusbar"
+                android:title="@string/codefire_statusbar"
+                android:summary="@string/codefire_statusbar_summary">
             <intent android:action="android.intent.action.MAIN"
                     android:targetPackage="com.android.settings"
                     android:targetClass="com.android.settings.codefire.StatusBarPrefs" />
