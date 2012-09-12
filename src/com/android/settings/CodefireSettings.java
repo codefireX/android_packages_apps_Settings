@@ -1,4 +1,4 @@
-package com.android.settings.codefire;
+package com.android.settings;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -45,6 +45,6 @@ public class CodefireSettings extends SettingsFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        addPreferencesFromResource(R.xml.codefire);
+        addPreferencesFromResource(R.xml.codefire_settings);
         }
 }
