@@ -43,12 +43,9 @@ public class CodefireSettings extends SettingsFragment
 
     private final static String TAG = CodefireSettings.class.getSimpleName();
 
-    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.codefire);
-        }
-    }
-
+        } 
 }
