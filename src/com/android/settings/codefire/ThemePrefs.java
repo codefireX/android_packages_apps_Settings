@@ -77,7 +77,6 @@ public class ThemePrefs extends SettingsFragment
         mDualPane.setChecked(Settings.System.getInt(getContentResolver(),
                 Settings.System.DUAL_PANE_SETTINGS, 0) == 1);
         mDualPane.setOnPreferenceChangeListener(this);
-        }
     }
 
     private void updateCustomLabelTextSummary() {

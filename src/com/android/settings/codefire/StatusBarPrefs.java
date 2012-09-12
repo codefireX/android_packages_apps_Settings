@@ -72,9 +72,9 @@ public class StatusBarPrefs extends SettingsFragment
         mShowBrightnessToggleslider.setChecked(Settings.System.getInt(getContentResolver(),
                 Settings.System.SHOW_BRIGHTNESS_TOGGLESLIDER, 0) == 1);
         mShowBrightnessToggleslider.setOnPreferenceChangeListener(this);
-        }
     }
 
+    @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         String key = preference.getKey();
 
