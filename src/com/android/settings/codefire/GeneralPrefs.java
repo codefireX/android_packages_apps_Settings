@@ -62,6 +62,9 @@ public class GeneralPrefs extends SettingsFragment
 
     private EditTextPreference mKillAppLongpressBackTimeout;
 
+    private Preference mCustomLabel;
+    String mCustomLabelText = null;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

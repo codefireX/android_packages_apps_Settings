@@ -38,8 +38,7 @@ import com.android.settings.colorpicker.ColorPickerPreference;
 
 import java.io.IOException;
 
-public class CodefireSettings extends SettingsFragment
-    implements Preference.OnPreferenceChangeListener {
+public class CodefireSettings extends SettingsFragment {
 
     private final static String TAG = CodefireSettings.class.getSimpleName();
 
@@ -47,5 +46,5 @@ public class CodefireSettings extends SettingsFragment
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.codefire);
-        } 
+        }
 }
