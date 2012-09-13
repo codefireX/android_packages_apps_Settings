@@ -4986,7 +4986,6 @@
     <!-- Shortcut picker -->
     <string name="use_custom_app_title">Use custom application</string>
     <string name="use_custom_app_summary">Use custom application instead of the recent applications dialog</string>
-    <string name="select_custom_app_title">Select custom application</string>
     <string name="group_applications">Applications</string>
     <!-- Network Label -->
     <string name="custom_carrier_label_title">Custom carrier label</string>

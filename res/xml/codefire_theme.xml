@@ -27,7 +27,6 @@
     <PreferenceScreen
         android:key="navigation_bar"
         android:fragment="com.android.settings.codefire.Navbar"
-        android:title="@string/header_navbar"
-        android:summary="@string/header_summary_navigation_bar />
+        android:title="@string/header_navbar" />
 
 </PreferenceScreen>
