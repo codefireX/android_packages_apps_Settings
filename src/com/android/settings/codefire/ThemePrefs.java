@@ -83,9 +83,9 @@ public class ThemePrefs extends SettingsFragment
         /* Force Tablet UI */
         mTabletui = (CheckBoxPreference) mPrefSet.findPreference(
                 PREF_MODE_TABLET_UI);
-        mDualPane.setChecked(Settings.System.getInt(getContentResolver(),
+        mTabletui.setChecked(Settings.System.getInt(getContentResolver(),
                 Settings.System.MODE_TABLET_UI, 0) == 1);
-        mDualPane.setOnPreferenceChangeListener(this);
+        mTabletui.setOnPreferenceChangeListener(this);
     }
 
     private void updateCustomLabelTextSummary() {
