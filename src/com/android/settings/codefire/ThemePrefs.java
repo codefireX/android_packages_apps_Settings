@@ -48,11 +48,13 @@ public class ThemePrefs extends SettingsFragment
     private static final String KEY_NAVIGATION_BAR = "navigation_bar";
     private static final String KEY_LCD_DENSITY = "lcd_density";
     private static final String PREF_CUSTOM_CARRIER_LABEL = "custom_carrier_label";
+    private static final String PREF_MODE_TABLET_UI = "mode_tabletui";
 
     private ContentResolver mCr;
     private PreferenceScreen mPrefSet;
     private PreferenceScreen mNavigationBar;
     private CheckBoxPreference mDualPane;
+    private CheckBoxPreference mTabletui;
 
     private Preference mCustomLabel;
     String mCustomLabelText = null;
@@ -76,6 +78,13 @@ public class ThemePrefs extends SettingsFragment
                 KEY_DUAL_PANE);
         mDualPane.setChecked(Settings.System.getInt(getContentResolver(),
                 Settings.System.DUAL_PANE_SETTINGS, 0) == 1);
+        mDualPane.setOnPreferenceChangeListener(this);
+
+        /* Force Tablet UI */
+        mTabletui = (CheckBoxPreference) mPrefSet.findPreference(
+                PREF_MODE_TABLET_UI);
+        mDualPane.setChecked(Settings.System.getInt(getContentResolver(),
+                Settings.System.MODE_TABLET_UI, 0) == 1);
         mDualPane.setOnPreferenceChangeListener(this);
     }
 
@@ -133,6 +142,8 @@ public class ThemePrefs extends SettingsFragment
 
         if (KEY_DUAL_PANE.equals(key)) {
             Settings.System.putInt(mCr, Settings.System.DUAL_PANE_SETTINGS, (Boolean) newValue ? 1 : 0);
+        } else if (PREF_MODE_TABLET_UI.equals(key)) {
+            Settings.System.putInt(mCr, Settings.System.MODE_TABLET_UI, (Boolean) newValue ? 1 : 0);
         }
         return true;
     }
