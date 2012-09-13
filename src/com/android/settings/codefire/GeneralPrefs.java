@@ -3,6 +3,9 @@ package com.android.settings.codefire;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Dialog;
+import android.app.DialogFragment;
+import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.ContentResolver;
 import android.content.DialogInterface;
@@ -19,6 +22,7 @@ import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
+import android.text.format.DateFormat;
 import android.text.Spannable;
 import android.view.Display;
 import android.view.LayoutInflater;
@@ -51,14 +55,16 @@ public class GeneralPrefs extends SettingsFragment
     private static final String DISABLE_BOOTANIMATION_DEFAULT = "0";
     private static final String PREF_RECENT_KILL_ALL = "recent_kill_all";
     private static final String KILL_APP_LONGPRESS_BACK_TIMEOUT = "pref_kill_app_longpress_back_timeout";
+    public static final String KEY_DAILY_REBOOT = "daily_reboot";
 
     private ContentResolver mCr;
     private PreferenceScreen mPrefSet;
 
-    private CheckBoxPreference mTrackballWake;
-    private CheckBoxPreference mTrackballUnlockScreen;
+    private CheckBoxPreference mDailyReboot;
     private CheckBoxPreference mDisableBootanimPref;
     private CheckBoxPreference mRecentKillAll;
+    private CheckBoxPreference mTrackballWake;
+    private CheckBoxPreference mTrackballUnlockScreen;
 
     private EditTextPreference mKillAppLongpressBackTimeout;
 
@@ -104,6 +110,32 @@ public class GeneralPrefs extends SettingsFragment
             mPrefSet.removePreference(mTrackballWake);
             mPrefSet.removePreference(mTrackballUnlockScreen);
         }
+
+        mDailyReboot = (CheckBoxPreference) findPreference(KEY_DAILY_REBOOT);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        updateRebootSummary();
+    }
+
+    public void updateRebootSummary() {
+        if (mDailyReboot.isChecked()) {
+            int[] rebootTime = getUserSpecifiedRebootTime(mContext);
+            java.text.DateFormat f = DateFormat.getTimeFormat(mContext);
+            GregorianCalendar d = new GregorianCalendar();
+            d.set(Calendar.HOUR_OF_DAY, rebootTime[0]);
+            d.set(Calendar.MINUTE, rebootTime[1]);
+            Resources res = getResources();
+            mDailyReboot
+                    .setSummary(String.format(
+                            res.getString(R.string.performance_daily_reboot_summary),
+                            f.format(d.getTime())));
+        } else {
+            mDailyReboot.setSummary(mContext
+                    .getString(R.string.performance_daily_reboot_summary_unscheduled));
+        }
     }
 
     private void updateCustomLabelTextSummary() {
@@ -134,8 +166,23 @@ public class GeneralPrefs extends SettingsFragment
         if (preference == mDisableBootanimPref) {
             SystemProperties.set(DISABLE_BOOTANIMATION_PERSIST_PROP,
                     mDisableBootanimPref.isChecked() ? "1" : "0");
+            return true;
+        } else if (preference == mDailyReboot) {
+            if (((CheckBoxPreference) preference).isChecked()) {
+                getFragmentManager().beginTransaction()
+                        .addToBackStack("timepicker").add(new TimePickerFragment(), "timepicker")
+                        .commit();
+            } else {
+                updateRebootSummary();
+                // send intent to unschedule
+                Intent schedule = new Intent(getActivity(),
+                        DailyRebootScheduleService.class);
+                getActivity().startService(schedule);
+            }
+            return true;
         }
-        return true;
+
+        return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -163,6 +210,52 @@ public class GeneralPrefs extends SettingsFragment
             Settings.System.putInt(mCr, Settings.System.RECENT_KILL_ALL_BUTTON, (Boolean) newValue ? 1 : 0);
         }
         return true;
+    }
+
+    public class TimePickerFragment extends DialogFragment
+            implements TimePickerDialog.OnTimeSetListener {
+
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            // Use the current time as the default values for the picker
+            final Calendar c = Calendar.getInstance();
+            int hour = c.get(Calendar.HOUR_OF_DAY);
+            int minute = c.get(Calendar.MINUTE);
+
+            // Create a new instance of TimePickerDialog and return it
+            return new TimePickerDialog(getActivity(), this, hour, minute,
+                    DateFormat.is24HourFormat(getActivity()));
+        }
+
+        public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+            setUserSpecifiedRebootTime(getActivity(), hourOfDay, minute);
+            Intent schedule = new Intent(getActivity(),
+                    DailyRebootScheduleService.class);
+            getActivity().startService(schedule);
+            OtherSettings.this.updateRebootSummary();
+        }
+    }
+
+    public static boolean isDailyRebootEnabled(Context c) {
+        SharedPreferences prefs =
+                PreferenceManager.getDefaultSharedPreferences(c);
+        return prefs.getBoolean(OtherSettings.KEY_DAILY_REBOOT, false);
+    }
+
+    public static int[] getUserSpecifiedRebootTime(Context c) {
+        SharedPreferences prefs =
+                PreferenceManager.getDefaultSharedPreferences(c);
+        int[] time = new int[2];
+        time[0] = prefs.getInt(OtherSettings.KEY_DAILY_REBOOT + "_hour", 1);
+        time[1] = prefs.getInt(OtherSettings.KEY_DAILY_REBOOT + "_minute", 0);
+        return time;
+    }
+
+    public static void setUserSpecifiedRebootTime(Context c, int hour, int minutes) {
+        SharedPreferences prefs =
+                PreferenceManager.getDefaultSharedPreferences(c);
+        prefs.edit().putInt(OtherSettings.KEY_DAILY_REBOOT + "_hour", hour).
+                putInt(OtherSettings.KEY_DAILY_REBOOT + "_minute", minutes).commit();
     }
 
 }
