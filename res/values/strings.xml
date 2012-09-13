@@ -4872,12 +4872,16 @@
     <!-- **** CYANOGENMOD ADDITIONS END **** -->
 
     <!-- CodeFire Additions Start -->
-    <string name="codefire_battbar">Battery Bar</string>
+    <string name="codefire_battbar">Battery bar</string>
     <string name="codefire_settings">codefireX</string>
     <string name="codefire_general">General</string>
+    <string name="codefire_general_summary">Recents kill-all, longpress timeout, disable bootanim, etc</string>
+    <string name="codefire_theme">Theme Tweaks</string>
+    <string name="codefire_theme_summary">Custom carrier, density wizard, dual pane view, navbar, etc</string>
     <string name="codefire_lockscreen">Lock Screen</string>
     <string name="codefire_statusbar">Status Bar</string>
-    <string name="codefire_signal">Signal Styles</string>
+    <string name="codefire_statusbar_summary">Battery bar, clock styles, signal styles, etc</string>
+    <string name="codefire_signal">Signal styles</string>
     <!-- Battery Bar -->
     <string name="battery_bar">Battery bar location</string>
     <string name="battery_bar_color">Battery bar color</string>

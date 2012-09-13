@@ -1532,6 +1532,27 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".codefire.GeneralPrefs"
+            android:label="GeneralPrefs" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".codefire.StatusBarPrefs"
+            android:label="Statusbar Prefs" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".codefire.ThemePrefs"
+            android:label="Theme Prefs" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".fragments.StatusBarSignal"
             android:label="Statusbar Signal" >
             <intent-filter>
