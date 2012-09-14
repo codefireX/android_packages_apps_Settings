@@ -83,8 +83,9 @@ public class ThemePrefs extends SettingsFragment
         /* Force Tablet UI */
         mTabletui = (CheckBoxPreference) mPrefSet.findPreference(
                 PREF_MODE_TABLET_UI);
-        mTabletui.setChecked(Settings.System.getBoolean(getActivity().getApplicationContext().getContentResolver(),
-                Settings.System.MODE_TABLET_UI, false));
+        mTabletui.setChecked(Settings.System.getInt(getContentResolver(),
+                Settings.System.DUAL_PANE_SETTINGS, 0) == 1);
+        mTabletui.setOnPreferenceChangeListener(this);
     }
 
     private void updateCustomLabelTextSummary() {
@@ -142,9 +143,7 @@ public class ThemePrefs extends SettingsFragment
         if (KEY_DUAL_PANE.equals(key)) {
             Settings.System.putInt(mCr, Settings.System.DUAL_PANE_SETTINGS, (Boolean) newValue ? 1 : 0);
         } else if (PREF_MODE_TABLET_UI.equals(key)) {
-            Settings.System.putBoolean(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.MODE_TABLET_UI,
-                    ((CheckBoxPreference) preference).isChecked());
+            Settings.System.putInt(mCr, Settings.System.MODE_TABLET_UI, (Boolean) newValue ? 1 : 0);
         }
         return true;
     }
