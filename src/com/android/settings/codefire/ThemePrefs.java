@@ -83,7 +83,7 @@ public class ThemePrefs extends SettingsFragment
         /* Force Tablet UI */
         mTabletui = (CheckBoxPreference) mPrefSet.findPreference(
                 PREF_MODE_TABLET_UI);
-        mTabletui.setChecked(Settings.System.getBoolean(mContext.getContentResolver(),
+        mTabletui.setChecked(Settings.System.getBoolean(getActivity().getApplicationContext().getContentResolver(),
                 Settings.System.MODE_TABLET_UI, false));
     }
 
@@ -142,7 +142,7 @@ public class ThemePrefs extends SettingsFragment
         if (KEY_DUAL_PANE.equals(key)) {
             Settings.System.putInt(mCr, Settings.System.DUAL_PANE_SETTINGS, (Boolean) newValue ? 1 : 0);
         } else if (PREF_MODE_TABLET_UI.equals(key)) {
-            Settings.System.putBoolean(mContext.getContentResolver(),
+            Settings.System.putBoolean(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.MODE_TABLET_UI,
                     ((CheckBoxPreference) preference).isChecked());
         }
