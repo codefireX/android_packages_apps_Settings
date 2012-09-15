@@ -9,6 +9,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.util.Log;
 import android.os.SystemProperties;
@@ -31,6 +33,10 @@ import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
+import android.widget.Toast;
+
+import com.android.settings.codefire.CMDProcessor;
+import com.android.settings.codefire.Helpers;
 
 import com.android.settings.R;
 import com.android.settings.SettingsFragment;
@@ -38,11 +44,14 @@ import com.android.settings.SettingsFragment;
 import com.android.settings.colorpicker.ColorPickerPreference;
 
 import java.io.IOException;
+import java.util.List;
 
 public class ThemePrefs extends SettingsFragment
     implements Preference.OnPreferenceChangeListener {
 
     private final static String TAG = ThemePrefs.class.getSimpleName();
+
+    private static final int REQUEST_PICK_BOOT_ANIMATION = 203;
 
     private static final String KEY_DUAL_PANE = "dual_pane";
     private static final String KEY_NAVIGATION_BAR = "navigation_bar";
@@ -56,6 +65,7 @@ public class ThemePrefs extends SettingsFragment
     private CheckBoxPreference mDualPane;
     private CheckBoxPreference mTabletui;
 
+    private Preference mCustomBootAnimation;
     private Preference mCustomLabel;
     String mCustomLabelText = null;
 
@@ -68,6 +78,9 @@ public class ThemePrefs extends SettingsFragment
         mPrefSet = getPreferenceScreen();
         mCr = getContentResolver();
         mNavigationBar = (PreferenceScreen) findPreference(KEY_NAVIGATION_BAR);
+
+        /* Custom Boot Animation */
+        mCustomBootAnimation = findPreference("custom_bootanimation");
 
         /* Custom Carrier Label */
         mCustomLabel = findPreference(PREF_CUSTOM_CARRIER_LABEL);
@@ -129,6 +142,19 @@ public class ThemePrefs extends SettingsFragment
             });
 
             alert.show();
+        } else if (preference == mCustomBootAnimation) {
+            PackageManager packageManager = getActivity().getPackageManager();
+            Intent test = new Intent(Intent.ACTION_GET_CONTENT);
+            test.setType("file/*");
+            List<ResolveInfo> list = packageManager.queryIntentActivities(test, PackageManager.GET_ACTIVITIES);
+            if(list.size() > 0) {
+                Intent intent = new Intent(Intent.ACTION_GET_CONTENT, null);
+                intent.setType("file/*");
+                startActivityForResult(intent, REQUEST_PICK_BOOT_ANIMATION);
+            } else {
+                //No app installed to handle the intent - file explorer required
+                Toast.makeText(mContext, R.string.install_file_manager_error, Toast.LENGTH_SHORT).show();
+            }
         } else {
             // If we didn't handle it, let preferences handle it.
             return super.onPreferenceTreeClick(preferenceScreen, preference);
@@ -148,4 +174,41 @@ public class ThemePrefs extends SettingsFragment
         return true;
     }
 
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == Activity.RESULT_OK) {
+            if (requestCode == REQUEST_PICK_BOOT_ANIMATION) {
+                if (data==null) {
+                    //Nothing returned by user, probably pressed back button in file manager
+                    return;
+                }
+
+                String path = data.getData().getEncodedPath();
+
+                Helpers.getMount("rw");
+                //backup old boot animation
+                new CMDProcessor().su.runWaitFor("mv /system/media/bootanimation.zip /system/media/bootanimation.backup");
+
+                //Copy new bootanimation, give proper permissions
+                new CMDProcessor().su.runWaitFor("cp "+ path +" /system/media/bootanimation.zip");
+                new CMDProcessor().su.runWaitFor("chmod 644 /system/media/bootanimation.zip");
+
+                Helpers.getMount("ro");
+            }
+        }
+    }
+
+    public void copy(File src, File dst) throws IOException {
+        InputStream in = new FileInputStream(src);
+        FileOutputStream out = new FileOutputStream(dst);
+
+        // Transfer bytes from in to out
+        byte[] buf = new byte[1024];
+        int len;
+        while ((len = in.read(buf)) > 0) {
+            out.write(buf, 0, len);
+        }
+        in.close();
+        out.close();
+    }
 }
