@@ -7,7 +7,8 @@
     <PreferenceScreen
         android:key="battery_bar"
         android:fragment="com.android.settings.codefire.StatusBarBattery"
-        android:title="@string/codefire_battbar" />
+        android:title="@string/codefire_battbar"
+        android:summary="@string/codefire_battbar_summary" />
 
     <ListPreference
         android:key="status_bar_clock_style"
@@ -23,6 +24,7 @@
     <PreferenceScreen
         android:key="statusbar_signal"
         android:fragment="com.android.settings.codefire.StatusBarSignal"
-        android:title="@string/codefire_signal" />
+        android:title="@string/codefire_signal"
+        android:summary="@string/codefire_signal_summary" />
 
 </PreferenceScreen>

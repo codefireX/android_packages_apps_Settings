@@ -27,11 +27,13 @@
     <PreferenceScreen
         android:key="lcd_density"
         android:fragment="com.android.settings.codefire.DensityChanger"
-        android:title="@string/lcd_density_wizard" />
+        android:title="@string/lcd_density_wizard"
+        android:summary="@string/lcd_density_wizard_summary" />
 
     <PreferenceScreen
         android:key="navigation_bar"
         android:fragment="com.android.settings.cyanogenmod.NavigationBar"
-        android:title="@string/combined_navigation_bar_title" />
+        android:title="@string/combined_navigation_bar_title"
+        android:summary="@string/navigation_bar_summary" />
 
 </PreferenceScreen>
