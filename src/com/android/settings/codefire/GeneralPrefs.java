@@ -74,6 +74,11 @@ public class GeneralPrefs extends SettingsFragment
         mPrefSet = getPreferenceScreen();
         mCr = getContentResolver();
 
+        /* Disable BootAnimation Toggle */
+        mDisableBootanimPref = (CheckBoxPreference) mPrefSet.findPreference(DISABLE_BOOTANIMATION_PREF);
+        String disableBootanim = SystemProperties.get(DISABLE_BOOTANIMATION_PERSIST_PROP, DISABLE_BOOTANIMATION_DEFAULT);
+        mDisableBootanimPref.setChecked("1".equals(disableBootanim));
+
         /* Trackball wake pref */
         mTrackballWake = (CheckBoxPreference) mPrefSet.findPreference(
                 TRACKBALL_WAKE_TOGGLE);
