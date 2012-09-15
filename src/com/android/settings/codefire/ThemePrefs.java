@@ -153,7 +153,7 @@ public class ThemePrefs extends SettingsFragment
                 startActivityForResult(intent, REQUEST_PICK_BOOT_ANIMATION);
             } else {
                 //No app installed to handle the intent - file explorer required
-                Toast.makeText(mContext, R.string.install_file_manager_error, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity().getApplicationContext(), R.string.install_file_manager_error, Toast.LENGTH_SHORT).show();
             }
         } else {
             // If we didn't handle it, let preferences handle it.
@@ -196,19 +196,5 @@ public class ThemePrefs extends SettingsFragment
                 Helpers.getMount("ro");
             }
         }
-    }
-
-    public void copy(File src, File dst) throws IOException {
-        InputStream in = new FileInputStream(src);
-        FileOutputStream out = new FileOutputStream(dst);
-
-        // Transfer bytes from in to out
-        byte[] buf = new byte[1024];
-        int len;
-        while ((len = in.read(buf)) > 0) {
-            out.write(buf, 0, len);
-        }
-        in.close();
-        out.close();
     }
 }
