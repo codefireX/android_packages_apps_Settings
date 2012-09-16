@@ -1078,6 +1078,9 @@
         <item>10%</item>
         <item>18% (default)</item>
         <item>26%</item>
+        <item>34%</item>
+        <item>42%</item>
+        <item>50%</item>
     </string-array>
 
     <string-array name="pref_zram_size_values" translatable="false">
@@ -1085,6 +1088,9 @@
         <item>10</item>
         <item>18</item>
         <item>26</item>
+        <item>34</item>
+        <item>42</item>
+        <item>50</item>
     </string-array>
 
     <string-array name="entries_status_bar_clock_style" translatable="false">
