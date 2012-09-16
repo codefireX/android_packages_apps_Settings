@@ -4935,6 +4935,8 @@
     <string name="hex_hint">#FF000000</string>
     <string name="set">Set</string>
     <string name="ics_color">Holo</string>
+    <!-- Lockscreen Styles -->
+    <string name="lockscreen_settings_style_title">Lockscreen style</string>
     <!-- LCD Density -->
     <string name="dpi">DPI</string>
     <string name="lcd_density_wizard">LCD Density Wizard</string>

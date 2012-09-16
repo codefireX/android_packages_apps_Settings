@@ -56,8 +56,15 @@ public class ThemePrefs extends SettingsFragment
     private static final String KEY_DUAL_PANE = "dual_pane";
     private static final String KEY_NAVIGATION_BAR = "navigation_bar";
     private static final String KEY_LCD_DENSITY = "lcd_density";
+    private static final String LOCKSCREEN_STYLE_PREF = "lockscreen_settings_style";
     private static final String PREF_CUSTOM_CARRIER_LABEL = "custom_carrier_label";
     private static final String PREF_MODE_TABLET_UI = "mode_tabletui";
+
+    private static final int LOCK_STYLE_JB = 0;
+    private static final int LOCK_STYLE_ICS = 1;
+    private static final int LOCK_STYLE_GB = 2;
+    private static final int LOCK_STYLE_ECLAIR = 3;
+    private ListPreference mLockscreenStyle;
 
     private ContentResolver mCr;
     private PreferenceScreen mPrefSet;
@@ -99,6 +106,11 @@ public class ThemePrefs extends SettingsFragment
         mTabletui.setChecked(Settings.System.getInt(getContentResolver(),
                 Settings.System.DUAL_PANE_SETTINGS, 0) == 1);
         mTabletui.setOnPreferenceChangeListener(this);
+
+        /* Lockscreen style */
+        mLockscreenStyle = (ListPreference) mPrefSet.findPreference(
+                LOCKSCREEN_STYLE_PREF);
+        mLockscreenStyle.setOnPreferenceChangeListener(this);
     }
 
     private void updateCustomLabelTextSummary() {
@@ -170,6 +182,8 @@ public class ThemePrefs extends SettingsFragment
             Settings.System.putInt(mCr, Settings.System.DUAL_PANE_SETTINGS, (Boolean) newValue ? 1 : 0);
         } else if (PREF_MODE_TABLET_UI.equals(key)) {
             Settings.System.putInt(mCr, Settings.System.MODE_TABLET_UI, (Boolean) newValue ? 1 : 0);
+        } else if (LOCKSCREEN_STYLE_PREF.equals(key)) {
+            Settings.System.putInt(mCr, Settings.System.LOCKSCREEN_STYLE, Integer.valueOf((String) newValue));
         }
         return true;
     }

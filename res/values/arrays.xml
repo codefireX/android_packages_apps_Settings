@@ -74,6 +74,20 @@
         <item>0</item>
     </string-array>
 
+    <string-array name="lockscreen_style_entries">
+        <item>JellyBean (GlowPad)</item>
+        <item>Ice Cream Sandwich (MultiWave)</item>
+        <item>GingerBread (Tabs)</item>
+        <item>Eclair (Rotary)</item>
+    </string-array>
+
+    <string-array name="lockscreen_style_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
     <string-array name="signal_style_entries">
         <item>Show signal bars</item>
         <item>Show signal text</item>
