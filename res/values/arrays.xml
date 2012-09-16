@@ -88,7 +88,7 @@
 
     <string-array name="wifi_signal_style_entries">
         <item>Show signal bars</item>
-        <item>Show Signal Text</item>
+        <item>Show signal text</item>
     </string-array>
 
     <string-array name="wifi_signal_style_values" translatable="false">
