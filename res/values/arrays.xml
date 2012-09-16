@@ -136,11 +136,13 @@
 
     <string-array name="lcd_density_entries">
         <item>100</item>
-        <item>128</item>
+        <item>120</item>
         <item>160</item>
-        <item>190</item>
+        <item>180</item>
         <item>200</item>
+        <item>220</item>
         <item>240</item>
+        <item>280</item>
         <item>custom</item>
     </string-array>
 
