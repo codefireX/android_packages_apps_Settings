@@ -85,6 +85,7 @@ public class ThemePrefs extends SettingsFragment
         mPrefSet = getPreferenceScreen();
         mCr = getContentResolver();
         mNavigationBar = (PreferenceScreen) findPreference(KEY_NAVIGATION_BAR);
+        mLockscreenStyle = (ListPreference) mPrefSet.findPreference(LOCKSCREEN_STYLE_PREF);
 
         /* Custom Boot Animation */
         mCustomBootAnimation = findPreference("custom_bootanimation");
@@ -108,8 +109,10 @@ public class ThemePrefs extends SettingsFragment
         mTabletui.setOnPreferenceChangeListener(this);
 
         /* Lockscreen style */
-        mLockscreenStyle = (ListPreference) mPrefSet.findPreference(
-                LOCKSCREEN_STYLE_PREF);
+        int LockscreenStyle = Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
+                Settings.System.LOCKSCREEN_STYLE, 0);
+        mLockscreenStyle.setValue(String.valueOf(LockscreenStyle));
+        mLockscreenStyle.setSummary(mLockscreenStyle.getEntry());
         mLockscreenStyle.setOnPreferenceChangeListener(this);
     }
 
@@ -183,7 +186,11 @@ public class ThemePrefs extends SettingsFragment
         } else if (PREF_MODE_TABLET_UI.equals(key)) {
             Settings.System.putInt(mCr, Settings.System.MODE_TABLET_UI, (Boolean) newValue ? 1 : 0);
         } else if (LOCKSCREEN_STYLE_PREF.equals(key)) {
-            Settings.System.putInt(mCr, Settings.System.LOCKSCREEN_STYLE, Integer.valueOf((String) newValue));
+            int LockscreenStyle = Integer.valueOf((String) newValue);
+            int index = mLockscreenStyle.findIndexOfValue((String) newValue);
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.LOCKSCREEN_STYLE, LockscreenStyle);
+            mLockscreenStyle.setSummary(mLockscreenStyle.getEntries()[index]);
         }
         return true;
     }
