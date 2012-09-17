@@ -1539,6 +1539,13 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".codefire.PropModder"
+            android:label="Propmodder" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".codefire.StatusBarPrefs"
             android:label="Statusbar Prefs" >
             <intent-filter>
@@ -1555,6 +1562,12 @@
         <activity
             android:name=".fragments.StatusBarSignal"
             android:label="Statusbar Signal" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".codefire.ShowBuildProp"
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>

@@ -11,6 +11,13 @@
         android:title="@string/codefire_general"
         android:summary="@string/codefire_general_summary" />
 
+    <!-- Build Prop Editor - launches fragment -->
+    <PreferenceScreen
+        android:key="codefire_propmodder"
+        android:fragment="com.android.settings.codefire.PropModder"
+        android:title="@string/codefire_propmodder"   
+        android:summary="@string/codefire_propmodder_summary" />
+
     <!-- Theme Settings - launches fragment -->
     <PreferenceScreen
         android:key="codefire_theme"
