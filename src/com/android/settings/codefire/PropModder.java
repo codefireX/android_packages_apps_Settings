@@ -81,10 +81,6 @@ public class PropModder extends PreferenceFragment implements
     private static final String WIFI_SCAN_PROP = "wifi.supplicant_scan_interval";
     private static final String WIFI_SCAN_PERSIST_PROP = "persist.wifi_scan_interval";
     private static final String WIFI_SCAN_DEFAULT = System.getProperty(WIFI_SCAN_PROP);
-    private static final String LCD_DENSITY_PREF = "pref_lcd_density";
-    private static final String LCD_DENSITY_PROP = "ro.sf.lcd_density";
-    private static final String LCD_DENSITY_PERSIST_PROP = "persist.lcd_density";
-    private static final String LCD_DENSITY_DEFAULT = System.getProperty(LCD_DENSITY_PROP);
     private static final String MAX_EVENTS_PREF = "pref_max_events";
     private static final String MAX_EVENTS_PROP = "windowsmgr.max_events_per_sec";
     private static final String MAX_EVENTS_PERSIST_PROP = "persist.max_events";
@@ -147,9 +143,6 @@ public class PropModder extends PreferenceFragment implements
     private static final String THREE_G_PROP_5 = "ro.ril.hsdpa.category";
     private static final String THREE_G_PROP_6 = "ro.ril.enable.a53";
     private static final String THREE_G_PROP_7 = "ro.ril.hsupa.category";
-    private static final String GPU_PREF = "pref_gpu";
-    private static final String GPU_PERSIST_PROP = "persist_gpu";
-    private static final String GPU_PROP = "debug.sf.hw";
     private boolean NEEDS_SETUP = false;
     private boolean success = false;
 
@@ -166,7 +159,6 @@ public class PropModder extends PreferenceFragment implements
 
     private PreferenceScreen mRebootMsg;
     private ListPreference mWifiScanPref;
-    private ListPreference mLcdDensityPref;
     private ListPreference mMaxEventsPref;
     private ListPreference mRingDelayPref;
     private ListPreference mVmHeapsizePref;
@@ -179,7 +171,6 @@ public class PropModder extends PreferenceFragment implements
     private CheckBoxPreference mCheckInPref;
     private ListPreference mSdcardBufferPref;
     private CheckBoxPreference m3gSpeedPref;
-    private CheckBoxPreference mGpuPref;
     private AlertDialog mAlertDialog;
     private NotificationManager mNotificationManager;
 
@@ -205,9 +196,6 @@ public class PropModder extends PreferenceFragment implements
 
         mWifiScanPref = (ListPreference) prefSet.findPreference(WIFI_SCAN_PREF);
         mWifiScanPref.setOnPreferenceChangeListener(this);
-
-        mLcdDensityPref = (ListPreference) prefSet.findPreference(LCD_DENSITY_PREF);
-        mLcdDensityPref.setOnPreferenceChangeListener(this);
 
         mMaxEventsPref = (ListPreference) prefSet.findPreference(MAX_EVENTS_PREF);
         mMaxEventsPref.setOnPreferenceChangeListener(this);
@@ -254,8 +242,6 @@ public class PropModder extends PreferenceFragment implements
         mSdcardBufferPref.setOnPreferenceChangeListener(this);
 
         m3gSpeedPref = (CheckBoxPreference) prefSet.findPreference(THREE_G_PREF);
-
-        mGpuPref = (CheckBoxPreference) prefSet.findPreference(GPU_PREF);
 
         new UpdateScreen().execute();
     }
@@ -341,9 +327,6 @@ public class PropModder extends PreferenceFragment implements
                 && doMod(null, THREE_G_PROP_5, String.valueOf(value ? 8 : DISABLE))
                 && doMod(null, THREE_G_PROP_6, String.valueOf(value ? 1 : DISABLE))
                 && doMod(null, THREE_G_PROP_7, String.valueOf(value ? 5 : DISABLE));
-        } else if (preference == mGpuPref) {
-            value = mGpuPref.isChecked();
-            return doMod(GPU_PERSIST_PROP, GPU_PROP, String.valueOf(value ? 1 : DISABLE));
         } else if (preference == mRebootMsg) {
             return cmd.su.runWaitFor("reboot").success();
         }
@@ -357,9 +340,6 @@ public class PropModder extends PreferenceFragment implements
             Log.e(TAG, "New preference selected: " + newValue);
             if (preference == mWifiScanPref) {
                 return doMod(WIFI_SCAN_PERSIST_PROP, WIFI_SCAN_PROP,
-                        newValue.toString());
-            } else if (preference == mLcdDensityPref) {
-                return doMod(LCD_DENSITY_PERSIST_PROP, LCD_DENSITY_PROP,
                         newValue.toString());
             } else if (preference == mMaxEventsPref) {
                 return doMod(MAX_EVENTS_PERSIST_PROP, MAX_EVENTS_PROP,
@@ -523,7 +503,7 @@ public class PropModder extends PreferenceFragment implements
         Log.d(TAG, "Backing up build.prop to /system/tmp/pm_build.prop");
         return cmd.su.runWaitFor("cp /system/build.prop /system/tmp/pm_build.prop").success();
     }
-    
+
     public boolean restoreBuildProp() {
         Log.d(TAG, "Restoring build.prop from /system/tmp/pm_build.prop");
         return cmd.su.runWaitFor("cp /system/tmp/pm_build.prop /system/build.prop").success();
@@ -531,7 +511,6 @@ public class PropModder extends PreferenceFragment implements
 
     private class UpdateScreen extends AsyncTask<Void, Void, Void> {
         String wifi;
-        String lcd;
         String maxE;
         String ring;
         String vm;
@@ -544,7 +523,6 @@ public class PropModder extends PreferenceFragment implements
         String g0;
         String g3;
         String g6;
-        String gpu;
 
         public UpdateScreen() {
         }
@@ -556,7 +534,6 @@ public class PropModder extends PreferenceFragment implements
             // accessing storage is slow so don't block the main
             // thread while updating values from build.prop
             wifi = Helpers.findBuildPropValueOf(WIFI_SCAN_PROP);
-            lcd = Helpers.findBuildPropValueOf(LCD_DENSITY_PROP);
             maxE = Helpers.findBuildPropValueOf(MAX_EVENTS_PROP);
             ring = Helpers.findBuildPropValueOf(RING_DELAY_PROP);
             vm = Helpers.findBuildPropValueOf(VM_HEAPSIZE_PROP);
@@ -569,7 +546,6 @@ public class PropModder extends PreferenceFragment implements
             g0 = Helpers.findBuildPropValueOf(THREE_G_PROP_0);
             g3 = Helpers.findBuildPropValueOf(THREE_G_PROP_3);
             g6 = Helpers.findBuildPropValueOf(THREE_G_PROP_6);
-            gpu = Helpers.findBuildPropValueOf(GPU_PROP);
             return null;
         }
 
@@ -632,11 +608,6 @@ public class PropModder extends PreferenceFragment implements
                 m3gSpeedPref.setChecked(true);
             } else {
                 m3gSpeedPref.setChecked(false);
-            }
-            if (!gpu.equals(DISABLE)) {
-                mGpuPref.setChecked(true);
-            } else {
-                mGpuPref.setChecked(false);
             }
             if (initScriptLogcat.isFile()) {
                 mLogcatPref.setChecked(true);

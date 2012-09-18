@@ -22,15 +22,6 @@
     <PreferenceCategory android:key="general_category"
         android:title="@string/buildprop_title">
 
-        <PreferenceScreen
-            android:key="showbuildprop"
-            android:title="@string/showbuild_title"
-            android:summary="@string/showbuild_label">
-            <intent android:action="android.intent.action.MAIN"
-                android:targetPackage="com.android.settings"
-                android:targetClass="com.android.settings.codefire.ShowBuildProp" />
-        </PreferenceScreen>
-
         <ListPreference android:key="pref_wifi_scan_interval"
             android:dialogTitle="@string/pref_wifi_scan_interval_title"
             android:title="@string/pref_wifi_scan_interval_title"
