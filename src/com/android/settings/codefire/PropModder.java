@@ -581,12 +581,6 @@ public class PropModder extends PreferenceFragment implements
             } else {
                 mWifiScanPref.setValue(WIFI_SCAN_DEFAULT);
             }
-            if (!lcd.equals(DISABLE)) {
-                mLcdDensityPref.setValue(lcd);
-                mLcdDensityPref.setSummary(String.format(getString(R.string.pref_lcd_density_alt_summary), lcd));
-            } else {
-                mLcdDensityPref.setValue(LCD_DENSITY_DEFAULT);
-            }
             if (!maxE.equals(DISABLE)) {
                 mMaxEventsPref.setValue(maxE);
                 mMaxEventsPref.setSummary(String.format(getString(R.string.pref_max_events_alt_summary), maxE));

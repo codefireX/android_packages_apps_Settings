@@ -20,7 +20,7 @@ public class Helpers {
 
     /**
      * Checks device for SuperUser permission
-     * 
+     *
      * @return If SU was granted or denied
      */
     public static boolean checkSu() {
@@ -47,7 +47,7 @@ public class Helpers {
 
     /**
      * Checks to see if Busybox is installed in "/system/"
-     * 
+     *
      * @return If busybox exists
      */
     public static boolean checkBusybox() {
@@ -83,16 +83,16 @@ public class Helpers {
                 }
             }
             br.close();
-        } 
+        }
         catch (FileNotFoundException e) {
             Log.d(TAG, "/proc/mounts does not exist");
-        } 
+        }
         catch (IOException e) {
             Log.d(TAG, "Error reading /proc/mounts");
         }
         return null;
     }
-    
+
     public static boolean getMount(final String mount)
     {
         final CMDProcessor cmd = new CMDProcessor();
@@ -110,7 +110,7 @@ public class Helpers {
         }
         return ( cmd.su.runWaitFor("busybox mount -o remount," + mount + " /system").success() );
     }
-    
+
     public static String getFile(final String filename) {
         String s = "";
         final File f = new File(filename);
@@ -132,7 +132,7 @@ public class Helpers {
         }
         return s;
     }
-    
+
     public static void writeNewFile(String filePath, String fileContents) {
         File f = new File(filePath);
         if (f.exists()) {
@@ -140,7 +140,7 @@ public class Helpers {
         }
 
         try{
-            // Create file 
+            // Create file
             FileWriter fstream = new FileWriter(f);
             BufferedWriter out = new BufferedWriter(fstream);
             out.write(fileContents);
@@ -150,10 +150,10 @@ public class Helpers {
             Log.d( TAG, "Failed to create " + filePath + " File contents: " + fileContents);  
         }
     }
-    
+
     /**
      * Long toast message
-     * 
+     *
      * @param c Application Context
      * @param msg Message to send
      */
@@ -165,7 +165,7 @@ public class Helpers {
 
     /**
      * Short toast message
-     * 
+     *
      * @param c Application Context
      * @param msg Message to send
      */
@@ -177,7 +177,7 @@ public class Helpers {
 
     /**
      * Long toast message
-     * 
+     *
      * @param c Application Context
      * @param msg Message to send
      */
@@ -186,19 +186,104 @@ public class Helpers {
             msgLong(c, msg);
         }
     }
-    
+
     public static boolean isPackageInstalled(final String packageName,
             final PackageManager pm)
     {
         String mVersion;
         try {
-            mVersion = pm.getPackageInfo(packageName, 0).versionName;           
+            mVersion = pm.getPackageInfo(packageName, 0).versionName;
             if (mVersion.equals(null)) {
                 return false;
             }
         } catch (NameNotFoundException e) {
             return false;
-        }       
+        }
         return true;
+    }
+
+    /*
+     * Mount System partition
+     *
+     * @param read_value ro for ReadOnly and rw for Read/Write
+     *
+     * @returns true for successful mount
+     */
+    public static boolean mountSystem(String read_value) {
+        String REMOUNT_CMD = "busybox mount -o %s,remount -t yaffs2 /dev/block/mtdblock1 /system";
+        final CMDProcessor cmd = new CMDProcessor();
+        Log.d(TAG, "Remounting /system " + read_value);
+        return cmd.su.runWaitFor(String.format(REMOUNT_CMD, read_value)).success();
+    }
+
+    /*
+     * Find value of build.prop item (/system can be ro or rw)
+     *
+     * @param prop /system/build.prop property name to find value of
+     *
+     * @returns String value of @param:prop
+     */
+    public static String findBuildPropValueOf(String prop) {
+        String mBuildPath = "/system/build.prop";
+        String DISABLE = "disable";
+        String value = null;
+        try {
+            //create properties construct and load build.prop
+            Properties mProps = new Properties();
+            mProps.load(new FileInputStream(mBuildPath));
+            //get the property
+            value = mProps.getProperty(prop, DISABLE);
+            Log.d(TAG, String.format("Helpers:findBuildPropValueOf found {%s} with the value (%s)", prop, value));
+        } catch (IOException ioe) {
+            Log.d(TAG, "failed to load input stream");
+        } catch (NullPointerException npe) {
+            //swallowed thrown by ill formatted requests
+        }
+
+        if (value != null) {
+            return value;
+        } else {
+            return DISABLE;
+        }
+    }
+
+    // find value of /sys/kernel/fast_charge/force_fast_charge
+    public static int isFastCharge() {
+        int onOff = 0;
+        String line = "";
+        final String filename = "/sys/kernel/fast_charge/force_fast_charge";
+        final File f = new File(filename);
+
+        if (f.exists() && f.canRead()) {
+            try {
+                final BufferedReader br = new BufferedReader(new FileReader(f), 256);
+                String buffer = null;
+                while ((buffer = br.readLine()) != null) {
+                    line += buffer + "\n";
+                    try {
+                        onOff = Integer.parseInt(buffer);
+                    } catch (NumberFormatException nfe) {
+                        onOff = 0;
+                    }
+                }
+                br.close();
+            } catch (final Exception e) {
+                Log.e(TAG, "Error reading file: " + filename, e);
+                onOff = 0;
+            }
+        }
+        return onOff;
+    }
+
+    public static void restartSystemUI() {
+        new CMDProcessor().su.run("pkill -TERM -f com.android.systemui");
+    }
+
+    public static boolean isScreenLarge() {
+        final int screenSize = Resources.getSystem().getConfiguration().screenLayout &
+                Configuration.SCREENLAYOUT_SIZE_MASK;
+        boolean isScreenLarge = screenSize == Configuration.SCREENLAYOUT_SIZE_LARGE ||
+            screenSize == Configuration.SCREENLAYOUT_SIZE_XLARGE;
+        return isScreenLarge;
     }
 }

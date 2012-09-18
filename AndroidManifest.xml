@@ -1568,6 +1568,7 @@
         </activity>
         <activity
             android:name=".codefire.ShowBuildProp"
+            android:label="Show BuildProp" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
