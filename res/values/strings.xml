@@ -5057,7 +5057,6 @@
     <string name="navigation_bar_style">Navigation bar style</string>
     <string name="button_transparency_title">Navigation button transparency</string>
     <string name="menu_nav_bar_reset">Reset navigation bar</string>
-    <string name="dpi">DPI</string>
     <!-- Navigation ring bar -->
     <string name="navbar_ring_cat">Navigation Bar Ring Targets</string>
     <string name="interface_navring">Ring Targets</string>
