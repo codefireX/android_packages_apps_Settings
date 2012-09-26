@@ -1539,6 +1539,13 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".codefire.Navbar"
+            android:label="Navbar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".codefire.PropModder"
             android:label="Propmodder" >
             <intent-filter>
