@@ -5005,6 +5005,10 @@
     <!-- TabletUI Toggle -->
     <string name="tablet_ui">Force tabletUI</string>
     <string name="tablet_ui_summary">at any DPI (requires reboot)</string>
+    <!-- Shortcut picker -->
+    <string name="use_custom_app_title">Use custom application</string>
+    <string name="use_custom_app_summary">Use custom application instead of the recent applications dialog</string>
+    <string name="group_applications">Applications</string>
     <!-- Navigation bar -->
     <string name="header_navbar">Navigation bar</string>
     <string name="header_summary_navigation_bar">Buttons to display, nav bar color, order, height</string>
@@ -5057,7 +5061,7 @@
     <string name="navigation_bar_style">Navigation bar style</string>
     <string name="button_transparency_title">Navigation button transparency</string>
     <string name="menu_nav_bar_reset">Reset navigation bar</string>
-    <!-- Navigation ring bar -->
+    <!-- Navigation rings -->
     <string name="navbar_ring_cat">Navigation Bar Ring Targets</string>
     <string name="interface_navring">Ring Targets</string>
     <string name="interface_navring_custom_pref_summary">Release on target to launch </string>
