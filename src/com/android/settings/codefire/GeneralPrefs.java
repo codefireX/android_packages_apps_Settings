@@ -51,6 +51,7 @@ public class GeneralPrefs extends SettingsFragment
     private static final String DISABLE_BOOTANIMATION_DEFAULT = "0";
     private static final String PREF_RECENT_KILL_ALL = "recent_kill_all";
     private static final String KILL_APP_LONGPRESS_BACK_TIMEOUT = "pref_kill_app_longpress_back_timeout";
+    private static final String PREF_RECENTS_MEM_DISPLAY = "interface_recents_mem_display";
 
     private ContentResolver mCr;
     private PreferenceScreen mPrefSet;
@@ -59,6 +60,7 @@ public class GeneralPrefs extends SettingsFragment
     private CheckBoxPreference mTrackballUnlockScreen;
     private CheckBoxPreference mDisableBootanimPref;
     private CheckBoxPreference mRecentKillAll;
+    private CheckBoxPreference mRecentsMemDisplayPreference;
 
     private EditTextPreference mKillAppLongpressBackTimeout;
 
@@ -99,6 +101,13 @@ public class GeneralPrefs extends SettingsFragment
         mRecentKillAll.setChecked(Settings.System.getInt(getContentResolver(),
                 Settings.System.RECENT_KILL_ALL_BUTTON, 0) == 1);
         mRecentKillAll.setOnPreferenceChangeListener(this);
+
+        /* Recents Memory Display */
+        mRecentsMemDisplayPreference = (CheckBoxPreference) mPrefSet.findPreference(
+                PREF_RECENTS_MEM_DISPLAY);
+        mRecentsMemDisplayPreference.setChecked(Settings.System.getInt(getContentResolver(),
+                Settings.System.SYSTEMUI_RECENTS_MEM_DISPLAY, 0) == 1);
+        mRecentsMemDisplayPreference.setOnPreferenceChangeListener(this);
 
         /* Kill App Longpress Back timeout duration pref */
         mKillAppLongpressBackTimeout = (EditTextPreference) mPrefSet.findPreference(KILL_APP_LONGPRESS_BACK_TIMEOUT);
@@ -166,6 +175,8 @@ public class GeneralPrefs extends SettingsFragment
             Settings.System.putInt(mCr, Settings.System.TRACKBALL_UNLOCK_SCREEN, (Boolean) newValue ? 1 : 0);
         } else if (PREF_RECENT_KILL_ALL.equals(key)) {
             Settings.System.putInt(mCr, Settings.System.RECENT_KILL_ALL_BUTTON, (Boolean) newValue ? 1 : 0);
+        } else if (PREF_RECENTS_MEM_DISPLAY.equals(key)) {
+            Settings.System.putInt(mCr, Settings.System.SYSTEMUI_RECENTS_MEM_DISPLAY, (Boolean) newValue ? 1 : 0);
         }
         return true;
     }
