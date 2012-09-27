@@ -6,7 +6,7 @@
 
     <PreferenceCategory
         android:key="codefire_misc"
-        android:title="codefire_misc" >
+        android:title="@string/codefire_misc" >
         <CheckBoxPreference
             android:key="pref_disable_bootanimation"
             android:title="@string/pref_disable_bootanimation_title"
@@ -43,7 +43,7 @@
 
     <PreferenceCategory
         android:key="interface_recents"
-        android:title="interface_recents" >
+        android:title="@string/interface_recents" >
         <CheckBoxPreference
             android:key="recent_kill_all"
             android:title="@string/recent_kill_all"
