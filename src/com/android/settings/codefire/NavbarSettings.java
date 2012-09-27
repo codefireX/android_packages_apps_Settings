@@ -174,11 +174,6 @@ public class NavbarSettings extends SettingsPreferenceFragment implements
         mGlowTimes = (ListPreference) findPreference(PREF_GLOW_TIMES);
         mGlowTimes.setOnPreferenceChangeListener(this);
 
-        // don't allow devices that must use a navigation bar to disable it
-        if (hasNavBarByDefault || mTablet) {
-            prefs.removePreference(mEnableNavigationBar);
-        }
-
         mNavigationBarHeight = (ListPreference) findPreference("navigation_bar_height");
         mNavigationBarHeight.setOnPreferenceChangeListener(this);
 
@@ -188,9 +183,6 @@ public class NavbarSettings extends SettingsPreferenceFragment implements
         mNavigationBarWidth = (ListPreference) findPreference("navigation_bar_width");
         mNavigationBarWidth.setOnPreferenceChangeListener(this);
 
-        if (mTablet) {
-            prefs.removePreference(mNavBarMenuDisplay);
-        }
         refreshSettings();
         setHasOptionsMenu(true);
         updateGlowTimesSummary();
