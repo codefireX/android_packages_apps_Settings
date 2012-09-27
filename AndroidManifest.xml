@@ -1539,7 +1539,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".codefire.Navbar"
+            android:name=".codefire.NavbarSettings"
             android:label="Navbar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
