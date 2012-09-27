@@ -5,52 +5,58 @@
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
     <PreferenceCategory
-        android:key="codefire_misc"
-        android:title="@string/codefire_misc" >
-        <CheckBoxPreference
-            android:key="pref_disable_bootanimation"
-            android:title="@string/pref_disable_bootanimation_title"
-            android:summary="@string/pref_disable_bootanimation_summary" />
-        <EditTextPreference
-            android:title="@string/pref_kill_app_longpress_back_timeout_title"
-            android:dialogTitle="@string/pref_kill_app_longpress_back_timeout_dialogtitle"
-            android:summary="@string/pref_kill_app_longpress_back_timeout_summary"
-            android:key="pref_kill_app_longpress_back_timeout"
-            android:singleLine="true"
-            android:inputType="number"
-            android:defaultValue="1000" />
-        <CheckBoxPreference android:key="pref_trackball_unlock_toggle"
-            android:title="@string/pref_trackball_unlock_toggle_title"
-            android:summary="@string/pref_trackball_unlock_toggle_summary" />
-        <CheckBoxPreference android:key="pref_trackball_wake_toggle"
-            android:title="@string/pref_trackball_wake_toggle_title"
-            android:summary="@string/pref_trackball_wake_toggle_summary" />
-        <EditTextPreference
-            android:title="@string/pref_kill_app_longpress_back_timeout_title"
-            android:dialogTitle="@string/pref_kill_app_longpress_back_timeout_dialogtitle"
-            android:summary="@string/pref_kill_app_longpress_back_timeout_summary"
-            android:key="pref_kill_app_longpress_back_timeout"
-            android:singleLine="true"
-            android:inputType="number"
-            android:defaultValue="1000" />
-        <CheckBoxPreference android:key="pref_trackball_unlock_toggle"
-            android:title="@string/pref_trackball_unlock_toggle_title"
-            android:summary="@string/pref_trackball_unlock_toggle_summary" />
-        <CheckBoxPreference android:key="pref_trackball_wake_toggle"
-            android:title="@string/pref_trackball_wake_toggle_title"
-            android:summary="@string/pref_trackball_wake_toggle_summary" />
-    </PreferenceCategory>
+        android:title="@string/codefire_misc" />
+
+    <CheckBoxPreference
+        android:key="pref_disable_bootanimation"
+        android:title="@string/pref_disable_bootanimation_title"
+        android:summary="@string/pref_disable_bootanimation_summary" />
+
+    <EditTextPreference
+        android:title="@string/pref_kill_app_longpress_back_timeout_title"
+        android:dialogTitle="@string/pref_kill_app_longpress_back_timeout_dialogtitle"
+        android:summary="@string/pref_kill_app_longpress_back_timeout_summary"
+        android:key="pref_kill_app_longpress_back_timeout"
+        android:singleLine="true"
+        android:inputType="number"
+        android:defaultValue="1000" />
+
+    <CheckBoxPreference android:key="pref_trackball_unlock_toggle"
+        android:title="@string/pref_trackball_unlock_toggle_title"
+        android:summary="@string/pref_trackball_unlock_toggle_summary" />
+
+    <CheckBoxPreference android:key="pref_trackball_wake_toggle"
+        android:title="@string/pref_trackball_wake_toggle_title"
+        android:summary="@string/pref_trackball_wake_toggle_summary" />
+
+    <EditTextPreference
+        android:title="@string/pref_kill_app_longpress_back_timeout_title"
+        android:dialogTitle="@string/pref_kill_app_longpress_back_timeout_dialogtitle"
+        android:summary="@string/pref_kill_app_longpress_back_timeout_summary"
+        android:key="pref_kill_app_longpress_back_timeout"
+        android:singleLine="true"
+        android:inputType="number"
+        android:defaultValue="1000" />
+
+    <CheckBoxPreference android:key="pref_trackball_unlock_toggle"
+        android:title="@string/pref_trackball_unlock_toggle_title"
+        android:summary="@string/pref_trackball_unlock_toggle_summary" />
+
+    <CheckBoxPreference android:key="pref_trackball_wake_toggle"
+        android:title="@string/pref_trackball_wake_toggle_title"
+        android:summary="@string/pref_trackball_wake_toggle_summary" />
 
     <PreferenceCategory
-        android:key="interface_recents"
-        android:title="@string/interface_recents" >
-        <CheckBoxPreference
-            android:key="recent_kill_all"
-            android:title="@string/recent_kill_all"
-            android:summary="@string/recent_kill_all_summary" />
-        <CheckBoxPreference
-            android:title="@string/interface_recents_mem_display_title"
-            android:summary="@string/interface_recents_mem_display_description"
-            android:key="interface_recents_mem_display" />
-    </PreferenceCategory>
+        android:title="@string/interface_recents" />
+
+    <CheckBoxPreference
+        android:key="recent_kill_all"
+        android:title="@string/recent_kill_all"
+        android:summary="@string/recent_kill_all_summary" />
+
+    <CheckBoxPreference
+        android:title="@string/interface_recents_mem_display_title"
+        android:summary="@string/interface_recents_mem_display_description"
+        android:key="interface_recents_mem_display" />
+
 </PreferenceScreen>
