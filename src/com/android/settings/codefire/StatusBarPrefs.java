@@ -42,12 +42,14 @@ public class StatusBarPrefs extends SettingsFragment
 
     private static final String SHOW_BRIGHTNESS_TOGGLESLIDER = "pref_show_brightness_toggleslider";
     private static final String STATUS_BAR_CLOCK_STYLE = "status_bar_clock_style";
+    private static final String ROTATIONLOCK_TOGGLE = "interface_rotationlock_toggle";
 
     private ContentResolver mCr;
     private PreferenceScreen mPrefSet;
 
     private CheckBoxPreference mShowBrightnessToggleslider;
     private ListPreference mStatusBarClockStyle;
+    private ListPreference mRotationLockTogglePreference;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -66,12 +68,20 @@ public class StatusBarPrefs extends SettingsFragment
         mStatusBarClockStyle.setSummary(mStatusBarClockStyle.getEntry());
         mStatusBarClockStyle.setOnPreferenceChangeListener(this);
 
+        /* RotationLock Toggle */
+        mRotationLockTogglePreference = (ListPreference) findPreference("interface_rotationlock_toggle");
+        mRotationLockTogglePreference.setOnPreferenceChangeListener(this);
+
         /* Notification Area Brightness Toggleslider pref */
         mShowBrightnessToggleslider = (CheckBoxPreference) mPrefSet.findPreference(
                 SHOW_BRIGHTNESS_TOGGLESLIDER);
         mShowBrightnessToggleslider.setChecked(Settings.System.getInt(getContentResolver(),
                 Settings.System.SHOW_BRIGHTNESS_TOGGLESLIDER, 0) == 1);
         mShowBrightnessToggleslider.setOnPreferenceChangeListener(this);
+
+        if (mTablet) {
+            prefs.removePreference(mRotationLockTogglePreference);
+        }
     }
 
     @Override
@@ -86,6 +96,11 @@ public class StatusBarPrefs extends SettingsFragment
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.STATUS_BAR_CLOCK_STYLE, statusBarClockStyle);
             mStatusBarClockStyle.setSummary(mStatusBarClockStyle.getEntries()[index]);
+        } else if (ROTATIONLOCK_TOGGLE.equals(key)) {
+            final String newToggleMode = (String) newValue;
+            Settings.System.putString(getContentResolver(),
+                    Settings.System.SYSTEMUI_INTERFACE_ROTATIONLOCK_TOGGLE,
+                    newToggleMode);
         }
         return true;
     }

@@ -4360,7 +4360,7 @@
     <string name="status_bar_title">Status bar</string>
     <string name="status_bar_clock_title">Clock</string>
     <string name="status_bar_general_title">General</string>
-    <string name="status_bar_clock_style_title">Clock style</string>
+    <string name="status_bar_clock_style_title">Clock Style</string>
     <string name="clock_style_noclock">Do not show the clock</string>
     <string name="clock_style_right">Right clock</string>
     <string name="clock_style_center">Center clock</string>
@@ -4862,7 +4862,7 @@
     <!-- **** CYANOGENMOD ADDITIONS END **** -->
 
     <!-- CodeFire Additions Start -->
-    <string name="codefire_battbar">Battery bar</string>
+    <string name="codefire_battbar">Battery Bar</string>
     <string name="codefire_battbar_summary">Graphical battery bar display with color chooser</string>
     <string name="codefire_settings">codefireX</string>
     <string name="codefire_general">General</string>
@@ -4875,7 +4875,7 @@
     <string name="codefire_propmodder_summary">Modify various build.prop values such as wifi scan interval, hsupa mode, ring delay, etc.</string>
     <string name="codefire_statusbar">Status Bar</string>
     <string name="codefire_statusbar_summary">Battery bar, clock styles, signal styles, etc</string>
-    <string name="codefire_signal">Signal styles</string>
+    <string name="codefire_signal">Signal Styles</string>
     <string name="codefire_signal_summary">Six bar signal icons and wifi/mobile signal styles with color choosers</string>
     <!-- Battery Bar -->
     <string name="battery_bar">Battery bar location</string>
@@ -5089,6 +5089,7 @@
     <string name="summary_navring_amount">Choose the number of ring targets</string>
     <string name="interface_navring_settings_title">Navigation bar ring</string>
     <string name="interface_navring_settings_summary">Edit your custom nav ring apps</string>
-
+    <!-- Rotation Lock Notification Toggle -->
+    <string name="interface_rotationlock_toggle">Rotation Lock Toggle</string>
     <!-- **** CODEFIRE ADDITIONS END **** -->
 </resources>

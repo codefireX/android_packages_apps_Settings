@@ -17,6 +17,12 @@
         android:entryValues="@array/values_status_bar_clock_style"
         android:persistent="false" />
 
+    <ListPreference
+        android:entries="@array/interface_rotationlock_toggle_entries"
+        android:entryValues="@array/interface_rotationlock_toggle_values"
+        android:key="interface_rotationlock_toggle"
+        android:title="@string/interface_rotationlock_toggle" />
+
     <CheckBoxPreference android:key="pref_show_brightness_toggleslider"
         android:title="@string/pref_show_brightness_toggleslider_title"
         android:summary="@string/pref_show_brightness_toggleslider_summary" />
