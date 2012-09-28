@@ -78,10 +78,6 @@ public class StatusBarPrefs extends SettingsFragment
         mShowBrightnessToggleslider.setChecked(Settings.System.getInt(getContentResolver(),
                 Settings.System.SHOW_BRIGHTNESS_TOGGLESLIDER, 0) == 1);
         mShowBrightnessToggleslider.setOnPreferenceChangeListener(this);
-
-        if (mTablet) {
-            prefs.removePreference(mRotationLockTogglePreference);
-        }
     }
 
     @Override
