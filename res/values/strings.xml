@@ -5089,6 +5089,10 @@
     <string name="summary_navring_amount">Choose the number of ring targets</string>
     <string name="interface_navring_settings_title">Navigation bar ring</string>
     <string name="interface_navring_settings_summary">Edit your custom nav ring apps</string>
+    <!-- Nav and SysBar Color Picker -->
+    <string name="interface_navbar_appearance">Nav/SysBar Appearance</string>
+    <string name="interface_navbar_color_title">Set Color</string>
+    <string name="interface_navbar_restore_stock_color">Restore stock color</string>
     <!-- Rotation Lock Notification Toggle -->
     <string name="interface_rotationlock_toggle">Rotation Lock Toggle</string>
     <!-- **** CODEFIRE ADDITIONS END **** -->

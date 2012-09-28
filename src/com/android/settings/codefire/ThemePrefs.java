@@ -58,6 +58,7 @@ public class ThemePrefs extends SettingsFragment
     private static final String KEY_LCD_DENSITY = "lcd_density";
     private static final String PREF_CUSTOM_CARRIER_LABEL = "custom_carrier_label";
     private static final String PREF_MODE_TABLET_UI = "mode_tabletui";
+    private static final String PREF_NAVBAR_COLOR = "systemui_navbar_color";
 
     private ContentResolver mCr;
     private PreferenceScreen mPrefSet;
@@ -68,6 +69,8 @@ public class ThemePrefs extends SettingsFragment
     private Preference mCustomBootAnimation;
     private Preference mCustomLabel;
     String mCustomLabelText = null;
+
+    ColorPickerPreference mNavBarColor;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -92,6 +95,10 @@ public class ThemePrefs extends SettingsFragment
         mDualPane.setChecked(Settings.System.getInt(getContentResolver(),
                 Settings.System.DUAL_PANE_SETTINGS, 0) == 1);
         mDualPane.setOnPreferenceChangeListener(this);
+
+        /* Nav/SysBar Color Picker */
+        mNavBarColor = (ColorPickerPreference) findPreference(PREF_NAVBAR_COLOR);
+        mNavBarColor.setOnPreferenceChangeListener(this);
 
         /* Force Tablet UI */
         mTabletui = (CheckBoxPreference) mPrefSet.findPreference(
@@ -170,10 +177,17 @@ public class ThemePrefs extends SettingsFragment
             Settings.System.putInt(mCr, Settings.System.DUAL_PANE_SETTINGS, (Boolean) newValue ? 1 : 0);
         } else if (PREF_MODE_TABLET_UI.equals(key)) {
             Settings.System.putInt(mCr, Settings.System.MODE_TABLET_UI, (Boolean) newValue ? 1 : 0);
+        } else if (PREF_NAVBAR_COLOR.equals(key)) {
+            String hex = ColorPickerPreference.convertToARGB(Integer
+                    .valueOf(String.valueOf(newValue)));
+            preference.setSummary(hex);
+
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.SYSTEMUI_NAVBAR_COLOR, intHex);
         }
         return true;
     }
-
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == Activity.RESULT_OK) {
