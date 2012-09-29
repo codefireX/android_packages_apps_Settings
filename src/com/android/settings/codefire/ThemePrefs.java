@@ -59,6 +59,7 @@ public class ThemePrefs extends SettingsFragment
     private static final String KEY_LCD_DENSITY = "lcd_density";
     private static final String PREF_CUSTOM_CARRIER_LABEL = "custom_carrier_label";
     private static final String PREF_MODE_TABLET_UI = "mode_tabletui";
+    private static final String PREF_NAVBAR_COLOR = "interface_navbar_color";
 
     private ContentResolver mCr;
     private PreferenceScreen mPrefSet;
@@ -111,10 +112,10 @@ public class ThemePrefs extends SettingsFragment
         /* Navigation Bar Custom Colors */
         mNavBar = (ColorPreference) findPreference("interface_navbar_color");
         mNavBar.setProviderTarget(Settings.System.SYSTEMUI_NAVBAR_COLOR,
-                EOSConstants.SYSTEMUI_NAVBAR_COLOR_DEF);
+                Settings.System.SYSTEMUI_NAVBAR_COLOR_DEF);
 
         mStockColor = (Preference) findPreference("interface_navbar_color_default");
-        mStockColor.setOnPreferenceClickListener(this);
+        mStockColor.setOnPreferenceChangeListener(this);
     }
 
     private void updateCustomLabelTextSummary() {
@@ -186,17 +187,10 @@ public class ThemePrefs extends SettingsFragment
             Settings.System.putInt(mCr, Settings.System.DUAL_PANE_SETTINGS, (Boolean) newValue ? 1 : 0);
         } else if (PREF_MODE_TABLET_UI.equals(key)) {
             Settings.System.putInt(mCr, Settings.System.MODE_TABLET_UI, (Boolean) newValue ? 1 : 0);
-        }
-        return true;
-    }
-
-    @Override
-    public boolean onPreferenceClick(Preference pref) {
-        // TODO Auto-generated method stub
-        if (pref.equals(mStockColor)) {
+        } else if (PREF_MODE_TABLET_UI.equals(key)) {
             Settings.System.putInt(mResolver, Settings.System.SYSTEMUI_NAVBAR_COLOR, -1);
         }
-        return false;
+        return true;
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
