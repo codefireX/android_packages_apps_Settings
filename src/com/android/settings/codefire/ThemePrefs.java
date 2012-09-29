@@ -40,6 +40,7 @@ import com.android.settings.codefire.Helpers;
 
 import com.android.settings.R;
 import com.android.settings.SettingsFragment;
+import com.android.settings.SettingsPreferenceFragment;
 
 import com.android.settings.colorpicker.ColorPickerPreference;
 
@@ -69,12 +70,19 @@ public class ThemePrefs extends SettingsFragment
     private Preference mCustomLabel;
     String mCustomLabelText = null;
 
+    ColorPreference mNavBar;
+    Preference mStockColor;
+    Context mContext;
+    ContentResolver mResolver;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.codefire_theme);
 
+        mContext = (Context) getActivity();
+        mResolver = mContext.getContentResolver();
         mPrefSet = getPreferenceScreen();
         mCr = getContentResolver();
         mNavigationBar = (PreferenceScreen) findPreference(KEY_NAVIGATION_BAR);
@@ -99,6 +107,14 @@ public class ThemePrefs extends SettingsFragment
         mTabletui.setChecked(Settings.System.getInt(getContentResolver(),
                 Settings.System.DUAL_PANE_SETTINGS, 0) == 1);
         mTabletui.setOnPreferenceChangeListener(this);
+
+        /* Navigation Bar Custom Colors */
+        mNavBar = (ColorPreference) findPreference("interface_navbar_color");
+        mNavBar.setProviderTarget(Settings.System.SYSTEMUI_NAVBAR_COLOR,
+                EOSConstants.SYSTEMUI_NAVBAR_COLOR_DEF);
+
+        mStockColor = (Preference) findPreference("interface_navbar_color_default");
+        mStockColor.setOnPreferenceClickListener(this);
     }
 
     private void updateCustomLabelTextSummary() {
@@ -174,6 +190,14 @@ public class ThemePrefs extends SettingsFragment
         return true;
     }
 
+    @Override
+    public boolean onPreferenceClick(Preference pref) {
+        // TODO Auto-generated method stub
+        if (pref.equals(mStockColor)) {
+            Settings.System.putInt(mResolver, Settings.System.SYSTEMUI_NAVBAR_COLOR, -1);
+        }
+        return false;
+    }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == Activity.RESULT_OK) {

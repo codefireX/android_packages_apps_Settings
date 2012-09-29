@@ -36,4 +36,16 @@
         android:title="@string/header_navbar"
         android:summary="@string/header_summary_navigation_bar" />
 
+    <PreferenceCategory
+        android:key="navbar_appearance"
+        android:title="@string/interface_navbar_appearance" />
+
+    <com.android.settings.codefire.ColorPreference
+        android:key="interface_navbar_color"
+        android:title="interface_navbar_color_title" />
+
+    <Preference
+        android:key="interface_navbar_color_default"
+        android:title="@string/interface_navbar_restore_stock_color" />
+
 </PreferenceScreen>
