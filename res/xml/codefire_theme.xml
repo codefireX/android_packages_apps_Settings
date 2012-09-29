@@ -36,12 +36,4 @@
         android:title="@string/header_navbar"
         android:summary="@string/header_summary_navigation_bar" />
 
-    <PreferenceCategory
-        android:key="navbar_appearance"
-        android:title="@string/interface_navbar_appearance" />
-
-    <com.android.settings.colorpicker.ColorPickerPreference
-        android:key="interface_navbar_color"
-        android:title="interface_navbar_color_title" />
-
 </PreferenceScreen>
