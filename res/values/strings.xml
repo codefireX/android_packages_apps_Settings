@@ -5092,6 +5092,7 @@
     <!-- Nav and SysBar Color Picker -->
     <string name="interface_navbar_appearance">Nav/SysBar Appearance</string>
     <string name="interface_navbar_color_title">Set Color</string>
+    <string name="interface_navbar_color_summary">Stock is 0xFF000000</string>
     <string name="interface_navbar_restore_stock_color">Restore stock color</string>
     <!-- Rotation Lock Notification Toggle -->
     <string name="interface_rotationlock_toggle">Rotation Lock Toggle</string>

@@ -42,10 +42,7 @@
 
     <com.android.settings.codefire.ColorPreference
         android:key="interface_navbar_color"
-        android:title="@string/interface_navbar_color_title" />
-
-    <Preference
-        android:key="interface_navbar_color_default"
-        android:title="@string/interface_navbar_restore_stock_color" />
+        android:title="@string/interface_navbar_color_title"
+        android:summary="@string/interface_navbar_color_summary" />
 
 </PreferenceScreen>
