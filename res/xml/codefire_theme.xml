@@ -37,12 +37,17 @@
         android:summary="@string/header_summary_navigation_bar" />
 
     <PreferenceCategory
-        android:key="navbar_appearance"
-        android:title="@string/interface_navbar_appearance" />
+        android:key="color_appearance"
+        android:title="@string/interface_color_appearance" />
 
     <com.android.settings.codefire.ColorPreference
         android:key="interface_navbar_color"
         android:title="@string/interface_navbar_color_title"
-        android:summary="@string/interface_navbar_color_summary" />
+        android:summary="@string/interface_def_color_summary" />
+
+    <com.android.settings.codefire.ColorPreference
+        android:key="interface_statusbar_color"
+        android:title="@string/interface_statusbar_color_title"
+        android:summary="@string/interface_def_color_summary" />
 
 </PreferenceScreen>
