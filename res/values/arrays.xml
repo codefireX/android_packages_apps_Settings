@@ -176,6 +176,8 @@
         <item>@string/glow_times_superquick</item>
         <item>@string/glow_times_quick</item>
         <item>@string/glow_times_normal</item>
+        <item>@string/glow_times_slow</item>
+        <item>@string/glow_times_superslow</item>
     </string-array>
 
     <string-array name="glow_times_values" translatable="false">
@@ -183,6 +185,8 @@
         <item>75|8</item>
         <item>188|19</item>
         <item>500|50</item>
+        <item>750|75</item>
+        <item>1000|100</item>
     </string-array>
 
     <string-array name="pref_navigation_menu_entries">
