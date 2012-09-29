@@ -59,7 +59,7 @@ public class ThemePrefs extends SettingsFragment
     private static final String KEY_LCD_DENSITY = "lcd_density";
     private static final String PREF_CUSTOM_CARRIER_LABEL = "custom_carrier_label";
     private static final String PREF_MODE_TABLET_UI = "mode_tabletui";
-    private static final String PREF_NAVBAR_COLOR = "interface_navbar_color";
+    private static final String PREF_NAVBAR_COLOR_DEF = "interface_navbar_color_default";
 
     private ContentResolver mCr;
     private PreferenceScreen mPrefSet;
@@ -187,7 +187,7 @@ public class ThemePrefs extends SettingsFragment
             Settings.System.putInt(mCr, Settings.System.DUAL_PANE_SETTINGS, (Boolean) newValue ? 1 : 0);
         } else if (PREF_MODE_TABLET_UI.equals(key)) {
             Settings.System.putInt(mCr, Settings.System.MODE_TABLET_UI, (Boolean) newValue ? 1 : 0);
-        } else if (PREF_MODE_TABLET_UI.equals(key)) {
+        } else if (PREF_NAVBAR_COLOR_DEF.equals(key)) {
             Settings.System.putInt(mResolver, Settings.System.SYSTEMUI_NAVBAR_COLOR, -1);
         }
         return true;
