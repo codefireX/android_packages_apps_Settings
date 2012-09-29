@@ -113,9 +113,6 @@ public class ThemePrefs extends SettingsFragment
         mNavBar = (ColorPreference) findPreference("interface_navbar_color");
         mNavBar.setProviderTarget(Settings.System.SYSTEMUI_NAVBAR_COLOR,
                 Settings.System.SYSTEMUI_NAVBAR_COLOR_DEF);
-
-        mStockColor = (Preference) findPreference("interface_navbar_color_default");
-        mStockColor.setOnPreferenceChangeListener(this);
     }
 
     private void updateCustomLabelTextSummary() {
@@ -187,8 +184,6 @@ public class ThemePrefs extends SettingsFragment
             Settings.System.putInt(mCr, Settings.System.DUAL_PANE_SETTINGS, (Boolean) newValue ? 1 : 0);
         } else if (PREF_MODE_TABLET_UI.equals(key)) {
             Settings.System.putInt(mCr, Settings.System.MODE_TABLET_UI, (Boolean) newValue ? 1 : 0);
-        } else if (PREF_NAVBAR_COLOR_DEF.equals(key)) {
-            Settings.System.putInt(mResolver, Settings.System.SYSTEMUI_NAVBAR_COLOR, -1);
         }
         return true;
     }
