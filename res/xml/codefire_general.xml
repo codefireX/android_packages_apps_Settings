@@ -29,6 +29,10 @@
         android:title="@string/pref_trackball_wake_toggle_title"
         android:summary="@string/pref_trackball_wake_toggle_summary" />
 
+    <CheckBoxPreference android:key="system_volume_keys_rotate"
+        android:title="@string/system_volume_keys_rotate"
+        android:summary="@string/system_volume_keys_rotate_summary" />
+
     <PreferenceCategory
         android:title="@string/interface_recents" />
 

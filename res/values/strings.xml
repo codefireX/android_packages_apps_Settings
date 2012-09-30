@@ -5099,5 +5099,8 @@
     <string name="interface_statusbar_color_title"> Status Bar Color</string>
     <!-- Rotation Lock Notification Toggle -->
     <string name="interface_rotationlock_toggle">Rotation Lock Toggle</string>
+    <!-- Volume Keys Switch on Rotation -->
+    <string name="system_volume_keys_rotate">Volume keys switch on rotation</string>
+    <string name="system_volume_keys_rotate_summary">When the device is rotated 90 or 180 degrees anti-clockwise.</string>
     <!-- **** CODEFIRE ADDITIONS END **** -->
 </resources>

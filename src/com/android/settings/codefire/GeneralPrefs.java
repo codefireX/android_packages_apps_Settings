@@ -52,6 +52,7 @@ public class GeneralPrefs extends SettingsFragment
     private static final String PREF_RECENT_KILL_ALL = "recent_kill_all";
     private static final String KILL_APP_LONGPRESS_BACK_TIMEOUT = "pref_kill_app_longpress_back_timeout";
     private static final String PREF_RECENTS_MEM_DISPLAY = "interface_recents_mem_display";
+    private static final String PREF_VOL_KEYS_SWITCH_ON_ROT = "system_volume_keys_switch_on_rotation";
 
     private ContentResolver mCr;
     private PreferenceScreen mPrefSet;
@@ -61,8 +62,11 @@ public class GeneralPrefs extends SettingsFragment
     private CheckBoxPreference mDisableBootanimPref;
     private CheckBoxPreference mRecentKillAll;
     private CheckBoxPreference mRecentsMemDisplayPreference;
+    private CheckBoxPreference mVolumeKeysSwitch;
 
     private EditTextPreference mKillAppLongpressBackTimeout;
+
+    private Context mContext;
 
     private Preference mCustomLabel;
     String mCustomLabelText = null;
@@ -73,6 +77,7 @@ public class GeneralPrefs extends SettingsFragment
 
         addPreferencesFromResource(R.xml.codefire_general);
 
+        mContext = getActivity();
         mPrefSet = getPreferenceScreen();
         mCr = getContentResolver();
 
@@ -112,6 +117,13 @@ public class GeneralPrefs extends SettingsFragment
         /* Kill App Longpress Back timeout duration pref */
         mKillAppLongpressBackTimeout = (EditTextPreference) mPrefSet.findPreference(KILL_APP_LONGPRESS_BACK_TIMEOUT);
         mKillAppLongpressBackTimeout.setOnPreferenceChangeListener(this);
+
+        /* Volume Keys Switch on Rotation */
+        mVolumeKeysSwitch = (CheckBoxPreference) findPreference("system_volume_keys_rotate");
+        mVolumeKeysSwitch.setChecked(Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.SYSTEM_VOLUME_KEYS_SWITCH_ON_ROTATION,
+                Settings.System.SYSTEM_VOLUME_KEYS_SWITCH_ON_ROTATION_DEF) == 1);
+        mVolumeKeysSwitch.setOnPreferenceChangeListener(this);
 
         /* Remove mTrackballWake on devices without trackballs */
         if (!getResources().getBoolean(R.bool.has_trackball)) {
@@ -169,6 +181,10 @@ public class GeneralPrefs extends SettingsFragment
                 Log.d(TAG, "Exception error on preference change.");
                 return false;
             }
+        } else if (PREF_VOL_KEYS_SWITCH_ON_ROT.equals(key)) {
+            Settings.System.putInt(mContext.getContentResolver(),
+                    Settings.System.SYSTEM_VOLUME_KEYS_SWITCH_ON_ROTATION,
+                    ((Boolean) newValue).booleanValue() ? 1 : 0);
         } else if (TRACKBALL_WAKE_TOGGLE.equals(key)) {
             Settings.System.putInt(mCr, Settings.System.TRACKBALL_WAKE_SCREEN, (Boolean) newValue ? 1 : 0);
         } else if (TRACKBALL_UNLOCK_TOGGLE.equals(key)) {
