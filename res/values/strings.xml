@@ -4877,9 +4877,6 @@
     <string name="codefire_statusbar_summary">Battery bar, clock styles, signal styles, etc</string>
     <string name="codefire_signal">Signal Styles</string>
     <string name="codefire_signal_summary">Six bar signal icons and wifi/mobile signal styles with color choosers</string>
-    <!-- Alternate Default App Grid -->
-    <string name="alt_resolver">Change default app grid</string>
-    <string name="alt_resolver_summary">to an alternate GB style default app picker</string>
     <!-- Battery Bar -->
     <string name="battery_bar">Battery bar location</string>
     <string name="battery_bar_color">Battery bar color</string>
@@ -4917,7 +4914,7 @@
     <string name="recent_kill_all">Enable kill-all-button</string>
     <string name="recent_kill_all_summary">Displays a button to kill all apps on recents window (requires reboot)</string>    
     <!-- Recent Apps Memory Display -->
-    <string name="interface_recents_mem_display_title">Enable memory display</string>
+    <string name="interface_recents_mem_display_title">Enable Memory Display</string>
     <string name="interface_recents_mem_display_description">Enable display of available memory</string>
     <!-- Color Picker -->
     <string name="dialog_color_picker">Color Picker</string>
@@ -4948,6 +4945,7 @@
     <string name="custom_carrier_label_title">Custom carrier label</string>
     <string name="custom_carrier_label_explain">Please enter a new label. Enter an empty label to revert to stock label.</string>
     <string name="custom_carrier_label_notset">Custom label currently not set</string>
+
     <!-- PropModder -->
     <string name="buildprop_title">/system/build.prop mods</string>
     <string name="nonprop_cat_title">Mods involving init.d script</string>
@@ -4997,6 +4995,7 @@
     <string name="pref_sdcard_buffer_summary">Modify the sdcard buffer-size for better performance</string>
     <string name="pref_g_speed_title">3G Speed Hack</string>
     <string name="pref_g_speed_summary">Uncap 3g speed</string>
+
     <!-- Signal Styles -->
     <string name="header_summary_signal">@null</string>
     <string name="signal_style">Signal text style</string>

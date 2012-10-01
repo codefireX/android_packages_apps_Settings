@@ -7,11 +7,8 @@
     <PreferenceCategory
         android:title="@string/codefire_misc" />
 
-    <CheckBoxPreference android:key="use_alt_resolver"
-        android:title="@string/alt_resolver"
-        android:summary="@string/alt_resolver_summary" />
-
-    <CheckBoxPreference android:key="pref_disable_bootanimation"
+    <CheckBoxPreference
+        android:key="pref_disable_bootanimation"
         android:title="@string/pref_disable_bootanimation_title"
         android:summary="@string/pref_disable_bootanimation_summary" />
 
@@ -39,7 +36,8 @@
     <PreferenceCategory
         android:title="@string/interface_recents" />
 
-    <CheckBoxPreference android:key="recent_kill_all"
+    <CheckBoxPreference
+        android:key="recent_kill_all"
         android:title="@string/recent_kill_all"
         android:summary="@string/recent_kill_all_summary" />
 

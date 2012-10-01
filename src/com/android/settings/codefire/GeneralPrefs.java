@@ -53,7 +53,6 @@ public class GeneralPrefs extends SettingsFragment
     private static final String KILL_APP_LONGPRESS_BACK_TIMEOUT = "pref_kill_app_longpress_back_timeout";
     private static final String PREF_RECENTS_MEM_DISPLAY = "interface_recents_mem_display";
     private static final String PREF_VOL_KEYS_SWITCH_ON_ROT = "system_volume_keys_switch_on_rotation";
-    private static final String PREF_USE_ALT_RESOLVER = "use_alt_resolver";
 
     private ContentResolver mCr;
     private PreferenceScreen mPrefSet;
@@ -64,7 +63,6 @@ public class GeneralPrefs extends SettingsFragment
     private CheckBoxPreference mRecentKillAll;
     private CheckBoxPreference mRecentsMemDisplayPreference;
     private CheckBoxPreference mVolumeKeysSwitch;
-    private CheckBoxPreference mUseAltResolver;
 
     private EditTextPreference mKillAppLongpressBackTimeout;
 
@@ -127,12 +125,6 @@ public class GeneralPrefs extends SettingsFragment
                 Settings.System.SYSTEM_VOLUME_KEYS_SWITCH_ON_ROTATION_DEF) == 1);
         mVolumeKeysSwitch.setOnPreferenceChangeListener(this);
 
-        /* Alternate Default App Chooser */
-        mUseAltResolver = (CheckBoxPreference) findPreference(PREF_USE_ALT_RESOLVER);
-        mUseAltResolver.setChecked(Settings.System.getBoolean(mContext.getContentResolver(),
-                        Settings.System.ACTIVITY_RESOLVER_USE_ALT, false));
-        mUseAltResolver.setOnPreferenceChangeListener(this);
-
         /* Remove mTrackballWake on devices without trackballs */
         if (!getResources().getBoolean(R.bool.has_trackball)) {
             mPrefSet.removePreference(mTrackballWake);
@@ -193,10 +185,6 @@ public class GeneralPrefs extends SettingsFragment
             Settings.System.putInt(mContext.getContentResolver(),
                     Settings.System.SYSTEM_VOLUME_KEYS_SWITCH_ON_ROTATION,
                     ((Boolean) newValue).booleanValue() ? 1 : 0);
-        } else if (PREF_USE_ALT_RESOLVER.equals(key)) {
-            Settings.System.putBoolean(getActivity().getContentResolver(),
-                    Settings.System.ACTIVITY_RESOLVER_USE_ALT,
-                    mUseAltResolver.isChecked() ? "1" : "0");
         } else if (TRACKBALL_WAKE_TOGGLE.equals(key)) {
             Settings.System.putInt(mCr, Settings.System.TRACKBALL_WAKE_SCREEN, (Boolean) newValue ? 1 : 0);
         } else if (TRACKBALL_UNLOCK_TOGGLE.equals(key)) {
