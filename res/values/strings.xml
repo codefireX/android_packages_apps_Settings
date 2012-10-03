@@ -4280,6 +4280,8 @@
 
     <!-- Notification Drawer  -->
     <string name="notification_drawer_title">Notification drawer</string>
+    <string name="notification_drawer_phone_summary">for phone</string>
+    <string name="notification_drawer_tablet_summary">for tablet</string>
 
     <!-- Combined Bar  -->
     <string name="combined_bar_title">Combined bar</string>
