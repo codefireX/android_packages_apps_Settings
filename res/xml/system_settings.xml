@@ -34,7 +34,7 @@
         android:key="notification_drawer_tablet"
         android:fragment="com.android.settings.cyanogenmod.TabletPowerWidget"
         android:title="@string/notification_drawer_title"
-        android:summary=@string/notification_drawer_tablet_summary" />
+        android:summary="@string/notification_drawer_tablet_summary" />
 
     <PreferenceScreen
         android:key="wallpaper"
