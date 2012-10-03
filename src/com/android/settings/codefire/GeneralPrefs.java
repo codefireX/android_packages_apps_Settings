@@ -128,9 +128,10 @@ public class GeneralPrefs extends SettingsFragment
         mVolumeKeysSwitch.setOnPreferenceChangeListener(this);
 
         /* Alternate Default App Chooser */
-        mUseAltResolver = (CheckBoxPreference) findPreference(PREF_USE_ALT_RESOLVER);
-        mUseAltResolver.setChecked(Settings.System.getBoolean(mContext.getContentResolver(),
-                        Settings.System.ACTIVITY_RESOLVER_USE_ALT, false));
+        mUseAltResolver = (CheckBoxPreference) findPreference("use_alt_resolver");
+        mUseAltResolver.setChecked(Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.ACTIVITY_RESOLVER_USE_ALT,
+                Settings.System.ACTIVITY_RESOLVER_USE_ALT_DEF) == 1);
         mUseAltResolver.setOnPreferenceChangeListener(this);
 
         /* Remove mTrackballWake on devices without trackballs */
@@ -194,9 +195,9 @@ public class GeneralPrefs extends SettingsFragment
                     Settings.System.SYSTEM_VOLUME_KEYS_SWITCH_ON_ROTATION,
                     ((Boolean) newValue).booleanValue() ? 1 : 0);
         } else if (PREF_USE_ALT_RESOLVER.equals(key)) {
-            Settings.System.putBoolean(getActivity().getContentResolver(),
+            Settings.System.putInt(mContext.getContentResolver(),
                     Settings.System.ACTIVITY_RESOLVER_USE_ALT,
-                    mUseAltResolver.isChecked() ? "1" : "0");
+                    ((Boolean) newValue).booleanValue() ? 1 : 0);
         } else if (TRACKBALL_WAKE_TOGGLE.equals(key)) {
             Settings.System.putInt(mCr, Settings.System.TRACKBALL_WAKE_SCREEN, (Boolean) newValue ? 1 : 0);
         } else if (TRACKBALL_UNLOCK_TOGGLE.equals(key)) {
