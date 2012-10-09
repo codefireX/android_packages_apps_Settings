@@ -26,6 +26,10 @@
                 android:targetPackage="com.android.development"
                 android:targetClass="com.android.development.Development" />
     </PreferenceScreen>
+    <com.android.settings.BugreportPreference
+            android:key="bugreport"
+            android:title="@string/bugreport_title"
+            android:dialogTitle="@string/bugreport_title" />
 
     <PreferenceScreen
             android:key="local_backup_password"
