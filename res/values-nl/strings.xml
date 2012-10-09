@@ -304,7 +304,6 @@
     <string name="owner_info_settings_summary" msgid="3800834657847339570"></string>
     <string name="owner_info_settings_edit_text_hint" msgid="4608681417960923911">"Typ tekst voor weergave op vergrendeld scherm"</string>
     <string name="location_settings_title" msgid="8935806698251432196">"Locatiediensten"</string>
-    <string name="location_settings_title" msgid="4483843407328665068">"Locatietoegang"</string>
     <string name="security_settings_title" msgid="7945465324818485460">"Beveiliging"</string>
     <string name="security_settings_summary" msgid="967393342537986570">"Mijn locatie\', schermontgrendeling, SIM- en referentieopslagvergrendeling instellen"</string>
     <string name="cdma_security_settings_summary" msgid="6068799952798901542">"\'Mijn locatie\' instellen, scherm ontgrendelen, opslag van referenties vergrendelen"</string>
@@ -2480,7 +2479,6 @@ Schakel het scherm uit om de geselecteerde melding in actie te zien of annuleer 
     <string name="wifi_security_wpa_wpa2">WPA/WPA2 PSK</string>
     <string name="wifi_security_psk_generic">@string/wifi_security_wpa_wpa2</string>
     <string name="wifi_security_eap">802.1x EAP</string>
-    <string name="fcc_equipment_id">Equipment ID</string>
     <string name="status_imei">IMEI</string>
     <string name="status_imei_sv">IMEI SV</string>
     <string name="lockpattern_need_to_unlock_footer" />
