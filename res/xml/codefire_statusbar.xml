@@ -33,4 +33,12 @@
         android:title="@string/codefire_signal"
         android:summary="@string/codefire_signal_summary" />
 
+    <ListPreference
+        android:key="statusbar_transparency"
+        android:title="@string/statusbar_transparency_title"
+        android:summary="@string/statusbar_transparency_summary"
+        android:entries="@array/statusbar_transparency_entries"
+        android:entryValues="@array/statusbar_transparency_values"
+        android:defaultValue="0"/>
+
 </PreferenceScreen>

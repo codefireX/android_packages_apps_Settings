@@ -43,6 +43,7 @@ public class StatusBarPrefs extends SettingsFragment
     private static final String SHOW_BRIGHTNESS_TOGGLESLIDER = "pref_show_brightness_toggleslider";
     private static final String STATUS_BAR_CLOCK_STYLE = "status_bar_clock_style";
     private static final String ROTATIONLOCK_TOGGLE = "interface_rotationlock_toggle";
+    private static final String STATUSBAR_TRANSPARENCY = "statusbar_transparency";
 
     private ContentResolver mCr;
     private PreferenceScreen mPrefSet;
@@ -50,6 +51,7 @@ public class StatusBarPrefs extends SettingsFragment
     private CheckBoxPreference mShowBrightnessToggleslider;
     private ListPreference mStatusBarClockStyle;
     private ListPreference mRotationLockTogglePreference;
+    private ListPreference mStatusbarTransparency;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -60,6 +62,13 @@ public class StatusBarPrefs extends SettingsFragment
         mPrefSet = getPreferenceScreen();
         mCr = getContentResolver();
         mStatusBarClockStyle = (ListPreference) mPrefSet.findPreference(STATUS_BAR_CLOCK_STYLE);
+
+        /* Status Bar Transparency */
+        mStatusbarTransparency = (ListPreference) findPreference(STATUSBAR_TRANSPARENCY);
+        int statusBarTransparency = Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
+                Settings.System.STATUSBAR_TRANSPARENCY, 100);
+        mStatusbarTransparency.setValue(String.valueOf(statusBarTransparency));
+        mStatusbarTransparency.setOnPreferenceChangeListener(this);
 
         /* Clock Style */
         int statusBarClockStyle = Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
@@ -97,8 +106,11 @@ public class StatusBarPrefs extends SettingsFragment
             Settings.System.putString(getContentResolver(),
                     Settings.System.SYSTEMUI_INTERFACE_ROTATIONLOCK_TOGGLE,
                     newToggleMode);
+        } else if (STATUSBAR_TRANSPARENCY.equals(key)) {
+            int statusBarTransparency = Integer.valueOf((String) newValue);
+            result = Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.STATUS_BAR_TRANSPARENCY, statusBarTransparency);
         }
         return true;
     }
-
 }
