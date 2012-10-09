@@ -1466,7 +1466,7 @@
     <string name="wifi_setup_status_unsecured_network" msgid="8143046977328718252">"Conectar-se à rede não segura"</string>
     <string name="wifi_setup_status_edit_network" msgid="4765340816724760717">uração46645163"</string>
     <string name="wifi_setup_status_new_network" msgid="7468952850452301083">"Conectar-se à nova rede"</string>
-    <string name="wifi_setup_status_connecting" msgid="4971421484401530740">"Conectando..."</string>sting_ne46645163
+    <string name="wifi_setup_status_connecting" msgid="4971421484401530740">"Conectando..."</string>
     <string name="wifi_setup_status_proceed_to_next" msgid="6708250000342940031">"Ir para a próxima etapa"</string>
     <string name="wifi_setup_status_eap_not_supported" msgid="5335338851032315905">"EAP não é suportado."</string>
     <string name="wifi_setup_eap_not_supported" msgid="595556546597351489">"Não é possível configurar uma conexão Wi-Fi EAP durante a configuração. É possível fazer isso em seguida, na opção Configurações &gt; Sem fio &amp; redes."</string>
