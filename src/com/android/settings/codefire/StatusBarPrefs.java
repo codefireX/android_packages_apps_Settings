@@ -66,7 +66,7 @@ public class StatusBarPrefs extends SettingsFragment
         /* Status Bar Transparency */
         mStatusbarTransparency = (ListPreference) findPreference(STATUSBAR_TRANSPARENCY);
         int statusBarTransparency = Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
-                Settings.System.STATUS_BAR_TRANSPARENCY, 100);
+                Settings.System.STATUSBAR_TRANSPARENCY, 100);
         mStatusbarTransparency.setValue(String.valueOf(statusBarTransparency));
         mStatusbarTransparency.setOnPreferenceChangeListener(this);
 
@@ -108,7 +108,7 @@ public class StatusBarPrefs extends SettingsFragment
                     newToggleMode);
         } else if (STATUSBAR_TRANSPARENCY.equals(key)) {
             int statusBarTransparency = Integer.valueOf((String) newValue);
-            Settings.System.putInt(getActivity().getContentResolver(),
+            result = Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.STATUS_BAR_TRANSPARENCY, statusBarTransparency);
         }
         return true;
