@@ -11,11 +11,13 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
+import android.os.RemoteException;
 import android.os.SystemProperties;
 import android.preference.CheckBoxPreference;
 import android.preference.EditTextPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
+import android.preference.PreferenceActivity;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
@@ -81,6 +83,7 @@ public class GeneralPrefs extends SettingsFragment
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ContentResolver resolver = getActivity().getContentResolver();
 
         addPreferencesFromResource(R.xml.codefire_general);
 
@@ -167,7 +170,7 @@ public class GeneralPrefs extends SettingsFragment
                 "1.0", "0.75", "0.50", "0.25"
         };
         StringBuilder b = new StringBuilder()
-                .append(getResources().getString(R.string.eos_screenshot_scaling_summary))
+                .append(getResources().getString(R.string.screenshot_scaling_summary))
                 .append(mScreenshotEntries[val]);
         mScreenshotFactor.setSummary(b.toString());
     }

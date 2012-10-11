@@ -10,12 +10,14 @@ import android.os.SystemProperties;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceActivity;
+import android.preference.PreferenceFragment;
+import android.preference.PreferenceScreen;
 import android.provider.Settings;
 
 import com.android.settings.SettingsFragment;
 import com.android.settings.R;
 
-import com.android.settings.SeekBarPreference;
+import com.android.settings.widgets.SeekBarPreference;
 
 public class Scroller extends PreferenceFragment implements
         OnPreferenceChangeListener {
