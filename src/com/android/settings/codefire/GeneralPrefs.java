@@ -31,6 +31,7 @@ import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
+import android.widget.Toast;
 
 import com.android.settings.R;
 import com.android.settings.SettingsFragment;
@@ -53,6 +54,7 @@ public class GeneralPrefs extends SettingsFragment
     private static final String KILL_APP_LONGPRESS_BACK_TIMEOUT = "pref_kill_app_longpress_back_timeout";
     private static final String PREF_RECENTS_MEM_DISPLAY = "interface_recents_mem_display";
     private static final String PREF_VOL_KEYS_SWITCH_ON_ROT = "system_volume_keys_switch_on_rotation";
+    private static final String KEY_SCREENSHOT_FACTOR = "screenshot_scaling";
 
     private ContentResolver mCr;
     private PreferenceScreen mPrefSet;
@@ -65,6 +67,8 @@ public class GeneralPrefs extends SettingsFragment
     private CheckBoxPreference mVolumeKeysSwitch;
 
     private EditTextPreference mKillAppLongpressBackTimeout;
+
+    private ListPreference mScreenshotFactor;
 
     private Context mContext;
 
@@ -87,6 +91,13 @@ public class GeneralPrefs extends SettingsFragment
         /* Custom Scroller Settings */
         mScroller = mPrefSet.findPreference("scroll_setup");
         mScroller.setSummary(R.string.scroll_summary);
+
+        /* Screenshot Scale Factor */
+        mScreenshotFactor = (ListPreference) findPreference(KEY_SCREENSHOT_FACTOR);
+        mScreenshotFactor.setOnPreferenceChangeListener(this);
+        int currentVal = Settings.System.getInt(resolver, Settings.System.SYSTEMUI_SCREENSHOT_SCALE_INDEX, 0);
+        mScreenshotFactor.setValue(String.valueOf(currentVal));
+        updateScreenshotFactorSummary(currentVal);
 
         /* Disable BootAnimation Toggle */
         mDisableBootanimPref = (CheckBoxPreference) mPrefSet.findPreference(DISABLE_BOOTANIMATION_PREF);
@@ -149,6 +160,18 @@ public class GeneralPrefs extends SettingsFragment
         }
     }
 
+    private void updateScreenshotFactorSummary(int val) {
+        // little cheat as the percent sign used in the pref entries
+        // does not play nice with getStringArray
+        String[] mScreenshotEntries = {
+                "1.0", "0.75", "0.50", "0.25"
+        };
+        StringBuilder b = new StringBuilder()
+                .append(getResources().getString(R.string.eos_screenshot_scaling_summary))
+                .append(mScreenshotEntries[val]);
+        mScreenshotFactor.setSummary(b.toString());
+    }
+
     @Override
     public void onResume() {
         super.onResume();
@@ -195,6 +218,10 @@ public class GeneralPrefs extends SettingsFragment
             Settings.System.putInt(mContext.getContentResolver(),
                     Settings.System.SYSTEM_VOLUME_KEYS_SWITCH_ON_ROTATION,
                     ((Boolean) newValue).booleanValue() ? 1 : 0);
+        } else if(KEY_SCREENSHOT_FACTOR.equals(key)) {
+            int val = Integer.parseInt((String) objValue);
+            Settings.System.putInt(getContentResolver(), Settings.System.SYSTEMUI_SCREENSHOT_SCALE_INDEX, val);
+            updateScreenshotFactorSummary(val);
         } else if (TRACKBALL_WAKE_TOGGLE.equals(key)) {
             Settings.System.putInt(mCr, Settings.System.TRACKBALL_WAKE_SCREEN, (Boolean) newValue ? 1 : 0);
         } else if (TRACKBALL_UNLOCK_TOGGLE.equals(key)) {

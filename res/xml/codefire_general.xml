@@ -19,6 +19,13 @@
         android:inputType="number"
         android:defaultValue="1000" />
 
+    <ListPreference android:key="screenshot_scaling"
+        android:title="@string/screenshot_scaling_title"
+        android:summary="@string/screenshot_scaling_summary"
+        android:entries="@array/screenshot_scaling_entries"
+        android:entryValues="@array/screenshot_scaling_values"
+        android:dialogTitle="@string/screenshot_scaling_dialog_title" />
+
    <Preference android:key="scroll_setup"
         android:title="@string/scroll_title"
         android:summary="@string/scroll_summary" />
