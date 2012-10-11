@@ -222,7 +222,7 @@ public class GeneralPrefs extends SettingsFragment
                     Settings.System.SYSTEM_VOLUME_KEYS_SWITCH_ON_ROTATION,
                     ((Boolean) newValue).booleanValue() ? 1 : 0);
         } else if(KEY_SCREENSHOT_FACTOR.equals(key)) {
-            int val = Integer.parseInt((String) objValue);
+            int val = Integer.parseInt((String) newValue);
             Settings.System.putInt(getContentResolver(), Settings.System.SYSTEMUI_SCREENSHOT_SCALE_INDEX, val);
             updateScreenshotFactorSummary(val);
         } else if (TRACKBALL_WAKE_TOGGLE.equals(key)) {
