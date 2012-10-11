@@ -4973,7 +4973,6 @@
     <string name="custom_carrier_label_title">Custom carrier label</string>
     <string name="custom_carrier_label_explain">Please enter a new label. Enter an empty label to revert to stock label.</string>
     <string name="custom_carrier_label_notset">Custom label currently not set</string>
-
     <!-- PropModder -->
     <string name="buildprop_title">/system/build.prop mods</string>
     <string name="nonprop_cat_title">Mods involving init.d script</string>
@@ -5023,7 +5022,13 @@
     <string name="pref_sdcard_buffer_summary">Modify the sdcard buffer-size for better performance</string>
     <string name="pref_g_speed_title">3G Speed Hack</string>
     <string name="pref_g_speed_summary">Uncap 3g speed</string>
-
+    <!-- Scroller options -->
+    <string name="scroller_options">Scroller options</string>
+    <string name="scroll">Scroller</string>
+    <string name="scroll_title">Scroller options</string>
+    <string name="scroll_summary">Adjust feel of your scroller</string>
+    <string name="scroll_friction_title">Scroll friction</string>
+    <string name="custom_fling_velocity_title">Scroll fling velocity</string>
     <!-- Signal Styles -->
     <string name="header_summary_signal">@null</string>
     <string name="signal_style">Signal text style</string>

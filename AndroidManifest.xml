@@ -1553,6 +1553,13 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".codefire.Scroller"
+            android:label="@string/scroller_options" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".codefire.StatusBarPrefs"
             android:label="Statusbar Prefs" >
             <intent-filter>

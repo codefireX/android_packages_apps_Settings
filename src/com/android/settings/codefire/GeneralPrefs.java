@@ -68,8 +68,11 @@ public class GeneralPrefs extends SettingsFragment
 
     private Context mContext;
 
+    private Preference mScroller;
     private Preference mCustomLabel;
     String mCustomLabelText = null;
+
+    Scroller scrollerFragment;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -80,6 +83,10 @@ public class GeneralPrefs extends SettingsFragment
         mContext = getActivity();
         mPrefSet = getPreferenceScreen();
         mCr = getContentResolver();
+
+        /* Custom Scroller Settings */
+        mScroller = mPrefSet.findPreference("scroll_setup");
+        mScroller.setSummary(R.string.scroll_summary);
 
         /* Disable BootAnimation Toggle */
         mDisableBootanimPref = (CheckBoxPreference) mPrefSet.findPreference(DISABLE_BOOTANIMATION_PREF);
@@ -160,6 +167,9 @@ public class GeneralPrefs extends SettingsFragment
         if (preference == mDisableBootanimPref) {
             SystemProperties.set(DISABLE_BOOTANIMATION_PERSIST_PROP,
                     mDisableBootanimPref.isChecked() ? "1" : "0");
+        } else if (preference == mScroller) {
+            ((PreferenceActivity) getActivity())
+                    .startPreferenceFragment(new Scroller(), true);
         }
         return true;
     }
