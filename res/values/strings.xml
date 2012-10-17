@@ -5053,7 +5053,7 @@
     <string name="wifi_signal_style">WiFi signal text style</string>
     <string name="wifi_signal_color_title">WiFi signal color</string>
     <!-- Status Bar, SysBar, and NavBar Transparency -->
-    <string name="transparancy_header">Transparency</string>
+    <string name="transparency_header">Transparency</string>
     <string name="status_bar_transparency_title">Statusbar Transparency</string>
     <string name="status_bar_transparency_summary">Modify status bar alpha level</string>
     <string name="navigation_bar_transparency_title">Nav/SysBar Transparency</string>
