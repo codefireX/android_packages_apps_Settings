@@ -139,14 +139,6 @@ public class ColorPickerDialog extends Dialog {
             invalidate();
         }
         
-        public void setTransparency(int alpha) {
-            int color = mCenterPaint.getColor();            
-            int newColor = Color.argb(alpha, Color.red(color), Color.green(color), Color.blue(color));
-            mCenterPaint.setColor(newColor);
-            mEditText.setText(convertToARGB(newColor));
-            invalidate();
-        }
-        
         private int ave(int s, int d, float p) {
             return s + java.lang.Math.round(p * (d - s));
         }
@@ -297,7 +289,6 @@ public class ColorPickerDialog extends Dialog {
     private Context mContext;
     private EditText mEditText;
     private ColorPickerView mColorPickerView;
-    private SeekBar mTransparencyBar;
 
     public ColorPickerDialog(Context context, OnColorChangedListener listener, int initialColor) {
         super(context);
@@ -324,13 +315,6 @@ public class ColorPickerDialog extends Dialog {
         mColorPickerView = new ColorPickerView(getContext(), onColorChangedListener, mInitialColor);        
         layout.addView(mColorPickerView, layoutParams);
         
-        mTransparencyBar = new SeekBar(mContext);
-        mTransparencyBar.setMax(255);
-		mTransparencyBar.setProgressDrawable(new TextSeekBarDrawable(mContext.getResources(), "alpha", true));
-		mTransparencyBar.setProgress(Color.alpha(mInitialColor));
-		mTransparencyBar.setOnSeekBarChangeListener(onTransparencyChangedListener);
-		layout.addView(mTransparencyBar, layoutParams);
-        
         mEditText = new EditText(mContext);
         mEditText.addTextChangedListener(mEditTextListener);
         mEditText.setText(convertToARGB(mInitialColor));
@@ -350,19 +334,6 @@ public class ColorPickerDialog extends Dialog {
         }
     };
     
-    private SeekBar.OnSeekBarChangeListener onTransparencyChangedListener = new SeekBar.OnSeekBarChangeListener() {
-        
-        public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-            mColorPickerView.setTransparency(progress);
-        }
-        
-        public void onStartTrackingTouch(SeekBar seekBar) {
-        }
-
-        public void onStopTrackingTouch(SeekBar seekBar) {
-        }
-    };
-    
     private TextWatcher mEditTextListener = new TextWatcher() {
         
         public void afterTextChanged(Editable s) {
@@ -378,7 +349,6 @@ public class ColorPickerDialog extends Dialog {
                     int color = convertToColorInt(s2);
                     mColorPickerView.setCenterColor(color);
                     mListener.colorUpdate(color);
-                    mTransparencyBar.setProgress(Color.alpha(color));
                     mColorPickerView.invalidate();
                 }            
             }
