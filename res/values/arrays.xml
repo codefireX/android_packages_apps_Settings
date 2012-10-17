@@ -62,7 +62,7 @@
         <item>3</item>
     </string-array>
 
-    <string-array name="statusbar_transparency_entries">
+    <string-array name="entries_transparency">
         <item>No transparency</item>
         <item>10%</item>
         <item>25%</item>
@@ -75,7 +75,7 @@
         <item>100%</item>
     </string-array>
 
-    <string-array name="statusbar_transparency_values">
+    <string-array name="values_transparency" translatable="false">
         <item>100</item>
         <item>90</item>
         <item>75</item>

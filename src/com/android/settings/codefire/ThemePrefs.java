@@ -59,12 +59,16 @@ public class ThemePrefs extends SettingsFragment
     private static final String KEY_LCD_DENSITY = "lcd_density";
     private static final String PREF_CUSTOM_CARRIER_LABEL = "custom_carrier_label";
     private static final String PREF_MODE_TABLET_UI = "mode_tabletui";
+    private static final String STATUS_BAR_TRANSPARENCY = "status_bar_transparency";
+    private static final String NAV_BAR_TRANSPARENCY = "nav_bar_transparency";
 
     private ContentResolver mCr;
     private PreferenceScreen mPrefSet;
     private PreferenceScreen mNavigationBar;
     private CheckBoxPreference mDualPane;
     private CheckBoxPreference mTabletui;
+    private ListPreference mStatusbarTransparency;
+    private ListPreference mNavigationBarTransparency;
 
     private Preference mCustomBootAnimation;
     private Preference mCustomLabel;
@@ -114,10 +118,24 @@ public class ThemePrefs extends SettingsFragment
         mNavBar.setProviderTarget(Settings.System.SYSTEMUI_NAVBAR_COLOR,
                 Settings.System.SYSTEMUI_NAVBAR_COLOR_DEF);
 
+        /* NavBar/SysBar Transparency */
+        mNavigationBarTransparency = (ListPreference) mPrefSet.findPreference(NAV_BAR_TRANSPARENCY);
+        int navBarTransparency = Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
+                Settings.System.NAV_BAR_TRANSPARENCY, 100);
+        mNavigationBarTransparency.setValue(String.valueOf(navBarTransparency));
+        mNavigationBarTransparency.setOnPreferenceChangeListener(this);
+
         /* Status Bar Custom Colors */
         mStatusBar = (ColorPreference) findPreference("interface_statusbar_color");
         mStatusBar.setProviderTarget(Settings.System.SYSTEMUI_STATUSBAR_COLOR,
                 Settings.System.SYSTEMUI_STATUSBAR_COLOR_DEF);
+
+        /* Status Bar Transparency */
+        mStatusbarTransparency = (ListPreference) mPrefSet.findPreference(STATUS_BAR_TRANSPARENCY);
+        int statusBarTransparency = Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
+                Settings.System.STATUS_BAR_TRANSPARENCY, 100);
+        mStatusbarTransparency.setValue(String.valueOf(statusBarTransparency));
+        mStatusbarTransparency.setOnPreferenceChangeListener(this);
     }
 
     private void updateCustomLabelTextSummary() {
@@ -189,6 +207,16 @@ public class ThemePrefs extends SettingsFragment
             Settings.System.putInt(mCr, Settings.System.DUAL_PANE_SETTINGS, (Boolean) newValue ? 1 : 0);
         } else if (PREF_MODE_TABLET_UI.equals(key)) {
             Settings.System.putInt(mCr, Settings.System.MODE_TABLET_UI, (Boolean) newValue ? 1 : 0);
+        } else if (STATUS_BAR_TRANSPARENCY.equals(key)) {
+            int statusBarTransparency = Integer.valueOf((String) newValue);
+            int index = mStatusBarTransparency.findIndexOfValue((String) newValue);
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.STATUS_BAR_TRANSPARENCY, statusBarTransparency);
+        } else if (NAV_BAR_TRANSPARENCY.equals(key)) {
+            int navBarTransparency = Integer.valueOf((String) newValue);
+            int index = mNavBarTransparency.findIndexOfValue((String) newValue);
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.NAV_BAR_TRANSPARENCY, navBarTransparency);
         }
         return true;
     }
