@@ -209,12 +209,12 @@ public class ThemePrefs extends SettingsFragment
             Settings.System.putInt(mCr, Settings.System.MODE_TABLET_UI, (Boolean) newValue ? 1 : 0);
         } else if (STATUS_BAR_TRANSPARENCY.equals(key)) {
             int statusBarTransparency = Integer.valueOf((String) newValue);
-            int index = mStatusBarTransparency.findIndexOfValue((String) newValue);
+            int index = mStatusbarTransparency.findIndexOfValue((String) newValue);
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.STATUS_BAR_TRANSPARENCY, statusBarTransparency);
         } else if (NAV_BAR_TRANSPARENCY.equals(key)) {
             int navBarTransparency = Integer.valueOf((String) newValue);
-            int index = mNavBarTransparency.findIndexOfValue((String) newValue);
+            int index = mNavigationBarTransparency.findIndexOfValue((String) newValue);
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.NAV_BAR_TRANSPARENCY, navBarTransparency);
         }
