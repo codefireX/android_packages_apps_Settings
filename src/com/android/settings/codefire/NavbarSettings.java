@@ -7,10 +7,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.app.FragmentTransaction;
 import android.app.ListFragment;
 import android.appwidget.AppWidgetHost;
 import android.appwidget.AppWidgetManager;
@@ -57,6 +57,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.settings.codefire.NavRingTargets;
+import com.android.settings.codefire.WidgetConfigurationFragment;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.R;
 import com.android.settings.codefire.Helpers;
@@ -81,9 +82,11 @@ public class NavbarSettings extends SettingsPreferenceFragment implements
     private static final String NAVIGATION_BAR_HEIGHT_LANDSCAPE = "navigation_bar_height_landscape";
     private static final String NAVIGATION_BAR_WIDTH = "navigation_bar_width";
     private static final String PREF_NAVRING_AMOUNT = "pref_navring_amount";
+    private static final String NAVIGATION_BAR_WIDGETS = "navigation_bar_widgets";
 
     public static final int REQUEST_PICK_CUSTOM_ICON = 200;
     public static final int REQUEST_PICK_LANDSCAPE_ICON = 201;
+    private static final int DIALOG_NAVBAR_ENABLE = 203;
     private static final int DIALOG_NAVBAR_HEIGHT_REBOOT = 204;
 
     public static final String PREFS_NAV_BAR = "navbar";
@@ -103,6 +106,7 @@ public class NavbarSettings extends SettingsPreferenceFragment implements
     ListPreference mNavigationBarHeightLandscape;
     ListPreference mNavigationBarWidth;
     SeekBarPreference mButtonAlpha;
+    Preference mConfigureWidgets;
 
     private File customnavImage;
     private File customnavTemp;
@@ -255,6 +259,13 @@ public class NavbarSettings extends SettingsPreferenceFragment implements
         } else if (preference == mNavRingTargets) {
             ((PreferenceActivity) getActivity())
                     .startPreferenceFragment(new NavRingTargets(), true);
+            return true;
+        } else if (preference == mConfigureWidgets) {
+            FragmentTransaction ft = getFragmentManager().beginTransaction();
+            WidgetConfigurationFragment fragment = new WidgetConfigurationFragment();
+            ft.addToBackStack("config_widgets");
+            ft.replace(this.getId(), fragment);
+            ft.commit();
             return true;
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
