@@ -92,6 +92,7 @@ public class NavbarSettings extends SettingsPreferenceFragment implements
     public static final String PREFS_NAV_BAR = "navbar";
 
     Preference mNavRingTargets;
+    Preference mConfigureWidgets;
 
     // move these later
     ColorPickerPreference mNavigationBarColor;
@@ -106,7 +107,6 @@ public class NavbarSettings extends SettingsPreferenceFragment implements
     ListPreference mNavigationBarHeightLandscape;
     ListPreference mNavigationBarWidth;
     SeekBarPreference mButtonAlpha;
-    Preference mConfigureWidgets;
 
     private File customnavImage;
     private File customnavTemp;
@@ -140,6 +140,8 @@ public class NavbarSettings extends SettingsPreferenceFragment implements
         customnavTemp = new File(getActivity().getCacheDir()+"/"+"tmp_icon_" + mPendingIconIndex + ".png");
 
         mNavRingTargets = findPreference("navring_settings");
+
+        mConfigureWidgets = findPreference("navigation_bar_widgets");
 
         menuDisplayLocation = (ListPreference) findPreference(PREF_MENU_UNLOCK);
         menuDisplayLocation.setOnPreferenceChangeListener(this);
@@ -261,11 +263,8 @@ public class NavbarSettings extends SettingsPreferenceFragment implements
                     .startPreferenceFragment(new NavRingTargets(), true);
             return true;
         } else if (preference == mConfigureWidgets) {
-            FragmentTransaction ft = getFragmentManager().beginTransaction();
-            WidgetConfigurationFragment fragment = new WidgetConfigurationFragment();
-            ft.addToBackStack("config_widgets");
-            ft.replace(this.getId(), fragment);
-            ft.commit();
+            ((PreferenceActivity) getActivity())
+                    .startPreferenceFragment(new WidgetConfigurationFragment(), true);
             return true;
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);

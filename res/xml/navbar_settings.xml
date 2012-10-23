@@ -111,7 +111,8 @@
             android:title="@string/navbar_widgets">
         <Preference 
             android:key="navigation_bar_widgets"
-            android:title="@string/navbar_widgets_title" />
+            android:title="@string/navbar_widgets_title"
+            android:summary="@string/navbar_widgets_summary" />
     </PreferenceCategory>
 
 </PreferenceScreen>
