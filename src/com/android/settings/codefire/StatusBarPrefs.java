@@ -43,10 +43,12 @@ public class StatusBarPrefs extends SettingsFragment
     private static final String SHOW_BRIGHTNESS_TOGGLESLIDER = "pref_show_brightness_toggleslider";
     private static final String STATUS_BAR_CLOCK_STYLE = "status_bar_clock_style";
     private static final String ROTATIONLOCK_TOGGLE = "interface_rotationlock_toggle";
+    private static final String FAT_FINGERS = "interface_systembar_fat_fingers";
 
     private ContentResolver mCr;
     private PreferenceScreen mPrefSet;
 
+    private CheckBoxPreference mFatFingers;
     private CheckBoxPreference mShowBrightnessToggleslider;
     private ListPreference mStatusBarClockStyle;
     private ListPreference mRotationLockTogglePreference;
@@ -59,18 +61,21 @@ public class StatusBarPrefs extends SettingsFragment
 
         mPrefSet = getPreferenceScreen();
         mCr = getContentResolver();
-        mStatusBarClockStyle = (ListPreference) mPrefSet.findPreference(STATUS_BAR_CLOCK_STYLE);
 
         /* Clock Style */
+        mStatusBarClockStyle = (ListPreference) mPrefSet.findPreference(STATUS_BAR_CLOCK_STYLE);
         int statusBarClockStyle = Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
                 Settings.System.STATUS_BAR_CLOCK_STYLE, 1);
         mStatusBarClockStyle.setValue(String.valueOf(statusBarClockStyle));
         mStatusBarClockStyle.setSummary(mStatusBarClockStyle.getEntry());
         mStatusBarClockStyle.setOnPreferenceChangeListener(this);
 
-        /* RotationLock Toggle */
-        mRotationLockTogglePreference = (ListPreference) findPreference("interface_rotationlock_toggle");
-        mRotationLockTogglePreference.setOnPreferenceChangeListener(this);
+        /* Larger Clear-All Button (TabletUI ONLY) */
+        mFatFingers = (CheckBoxPreference) mPrefSet.findPreference(
+                FAT_FINGERS);
+        mFatFingers.setChecked(Settings.System.getInt(getContentResolver(),
+                Settings.System.SYSTEMUI_TABLET_BIG_CLEAR_BUTTON, 0) == 1);
+        mFatFingers.setOnPreferenceChangeListener(this);
 
         /* Notification Area Brightness Toggleslider pref */
         mShowBrightnessToggleslider = (CheckBoxPreference) mPrefSet.findPreference(
@@ -78,6 +83,10 @@ public class StatusBarPrefs extends SettingsFragment
         mShowBrightnessToggleslider.setChecked(Settings.System.getInt(getContentResolver(),
                 Settings.System.SHOW_BRIGHTNESS_TOGGLESLIDER, 0) == 1);
         mShowBrightnessToggleslider.setOnPreferenceChangeListener(this);
+
+        /* RotationLock Toggle */
+        mRotationLockTogglePreference = (ListPreference) findPreference("interface_rotationlock_toggle");
+        mRotationLockTogglePreference.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -86,6 +95,8 @@ public class StatusBarPrefs extends SettingsFragment
 
         if (SHOW_BRIGHTNESS_TOGGLESLIDER.equals(key)) {
             Settings.System.putInt(mCr, Settings.System.SHOW_BRIGHTNESS_TOGGLESLIDER, (Boolean) newValue ? 1 : 0);
+        } else if (FAT_FINGERS.equals(key)) {
+            Settings.System.putInt(mCr, Settings.System.SYSTEMUI_TABLET_BIG_CLEAR_BUTTON, (Boolean) newValue ? 1 : 0);
         } else if (STATUS_BAR_CLOCK_STYLE.equals(key)) {
             int statusBarClockStyle = Integer.valueOf((String) newValue);
             int index = mStatusBarClockStyle.findIndexOfValue((String) newValue);

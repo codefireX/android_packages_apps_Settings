@@ -17,6 +17,10 @@
         android:entryValues="@array/values_status_bar_clock_style"
         android:persistent="false" />
 
+    <CheckBoxPreference android:key="interface_systembar_fat_fingers"
+        android:title="@string/interface_systembar_fat_fingers_title"
+        android:summary="@string/interface_systembar_fat_fingers_summary" />
+
     <ListPreference
         android:entries="@array/interface_rotationlock_toggle_entries"
         android:entryValues="@array/interface_rotationlock_toggle_values"

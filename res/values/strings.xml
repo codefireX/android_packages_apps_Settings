@@ -4968,6 +4968,9 @@
     <string name="hex_hint">#FF000000</string>
     <string name="set">Set</string>
     <string name="ics_color">Holo</string>
+    <!-- Larger Clear-All Button (TabletUI) -->
+    <string name="interface_systembar_fat_fingers_title">Larger Clear All button</string>
+    <string name="interface_systembar_fat_fingers_summary">Assists with clearing notifications in TabletUI if too small</string>
     <!-- LCD Density -->
     <string name="dpi">DPI</string>
     <string name="lcd_density_wizard">LCD Density Wizard</string>
