@@ -11,6 +11,13 @@
         android:title="@string/codefire_general"
         android:summary="@string/codefire_general_summary" />
 
+    <!-- Navigation Bar Settings - launches fragment -->
+    <PreferenceScreen
+        android:key="navigation_bar"
+        android:fragment="com.android.settings.codefire.NavbarSettings"
+        android:title="@string/header_navbar"
+        android:summary="@string/header_summary_navigation_bar" />
+
     <!-- Build Prop Editor - launches fragment -->
     <PreferenceScreen
         android:key="codefire_propmodder"
@@ -18,18 +25,18 @@
         android:title="@string/codefire_propmodder"   
         android:summary="@string/codefire_propmodder_summary" />
 
-    <!-- Theme Settings - launches fragment -->
-    <PreferenceScreen
-        android:key="codefire_theme"
-        android:fragment="com.android.settings.codefire.ThemePrefs"
-        android:title="@string/codefire_theme"   
-        android:summary="@string/codefire_theme_summary" />
-
     <!-- Status Bar Settings - launches fragment -->
     <PreferenceScreen
         android:key="codefire_statusbar"
         android:fragment="com.android.settings.codefire.StatusBarPrefs"
         android:title="@string/codefire_statusbar"   
         android:summary="@string/codefire_statusbar_summary" />
+
+    <!-- Theme Settings - launches fragment -->
+    <PreferenceScreen
+        android:key="codefire_theme"
+        android:fragment="com.android.settings.codefire.ThemePrefs"
+        android:title="@string/codefire_theme"   
+        android:summary="@string/codefire_theme_summary" />
 
 </PreferenceScreen>

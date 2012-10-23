@@ -30,12 +30,6 @@
         android:title="@string/lcd_density_wizard"
         android:summary="@string/lcd_density_wizard_summary" />
 
-    <PreferenceScreen
-        android:key="navigation_bar"
-        android:fragment="com.android.settings.codefire.NavbarSettings"
-        android:title="@string/header_navbar"
-        android:summary="@string/header_summary_navigation_bar" />
-
     <PreferenceCategory
         android:key="color_appearance"
         android:title="@string/interface_color_appearance" />
