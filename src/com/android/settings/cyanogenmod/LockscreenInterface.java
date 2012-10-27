@@ -53,18 +53,28 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
     public static final String KEY_BACKGROUND_PREF = "lockscreen_background";
     private static final String KEY_ALWAYS_BATTERY_PREF = "lockscreen_battery_status";
     private static final String KEY_CLOCK_ALIGN = "lockscreen_clock_align";
+    private static final String KEY_LOCKSCREEN_BUTTONS = "lockscreen_buttons";
 
     private ListPreference mCustomBackground;
     private Preference mWeatherPref;
     private Preference mCalendarPref;
     private ListPreference mBatteryStatus;
     private ListPreference mClockAlign;
+    private PreferenceScreen mLockscreenButtons;
     private Activity mActivity;
     ContentResolver mResolver;
 
     private File wallpaperImage;
     private File wallpaperTemporary;
     private boolean mIsScreenLarge;
+
+    public boolean hasButtons() {
+        boolean buttons = true;
+        if (getResources().getBoolean(com.android.internal.R.bool.config_showNavigationBar) == true) {
+            buttons = false;
+        }
+        return buttons;
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -86,6 +96,11 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
 
         mClockAlign = (ListPreference) findPreference(KEY_CLOCK_ALIGN);
         mClockAlign.setOnPreferenceChangeListener(this);
+
+        mLockscreenButtons = (PreferenceScreen) findPreference(KEY_LOCKSCREEN_BUTTONS);
+        if (!hasButtons()) {
+            getPreferenceScreen().removePreference(mLockscreenButtons);
+        }
 
         mIsScreenLarge = Utils.isTablet(getActivity());
 
