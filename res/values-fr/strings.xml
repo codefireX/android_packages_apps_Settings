@@ -2571,7 +2571,7 @@
     <string name="pref_vm_heapsize_alt_summary">Taille du cache Dalvik VM: %s</string>
     <string name="propmodder_warning_title">REDEMARRAGE REQUIS</string>
     <string name="propmodder_warning">Ce programme change des propriétés système dans /system/build.prop A NE PAS UTILISER si vous ne savez pas ce que vous faites. Nous (n00bware, faiseurs de PropModder) ne sommes pas responsables de VOTRE appareil. Vous avez été prévenu!</string>
-    <string name="showbuild_title">Savez-vous ce qu'il y a dans votre build.prop?</string>
+    <string name="showbuild_title">Savez-vous ce qu\'il y a dans votre build.prop?</string>
     <string name="showbuild_dialog">Voici votre /system/build.prop</string>
     <string name="showbuild_loading">Loading build.prop\u2026</string>
     <string name="showbuild_error">Erreur de chargement de build.prop\u2026</string>
