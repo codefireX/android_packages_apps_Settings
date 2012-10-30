@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <!-- 
 /*
 **
@@ -30,34 +30,34 @@
     <item msgid="8392017019801393511">"Tous"</item>
   </string-array>
   <string-array name="screen_timeout_entries">
-    <item msgid="3342301044271143016">"15 secondes"</item>
-    <item msgid="8881760709354815449">"30 secondes"</item>
-    <item msgid="7589406073232279088">"1 minute"</item>
-    <item msgid="7001195990902244174">"2 minutes"</item>
-    <item msgid="7489864775127957179">"5 minutes"</item>
-    <item msgid="2314124409517439288">"10 minutes"</item>
-    <item msgid="6864027152847611413">"30 minutes"</item>
+    <item msgid="3342301044271143016">"15 secondes"</item>
+    <item msgid="8881760709354815449">"30 secondes"</item>
+    <item msgid="7589406073232279088">"1 minute"</item>
+    <item msgid="7001195990902244174">"2 minutes"</item>
+    <item msgid="7489864775127957179">"5 minutes"</item>
+    <item msgid="2314124409517439288">"10 minutes"</item>
+    <item msgid="6864027152847611413">"30 minutes"</item>
   </string-array>
   <string-array name="dream_timeout_entries">
     <item msgid="3149294732238283185">"Jamais"</item>
-    <item msgid="2194151041885903260">"15 secondes"</item>
-    <item msgid="5892295237131074341">"30 secondes"</item>
-    <item msgid="3538441365970038213">"1 minute"</item>
-    <item msgid="412343871668955639">"2 minutes"</item>
-    <item msgid="5076853889688991690">"5 minutes"</item>
-    <item msgid="1903860996174927898">"10 minutes"</item>
-    <item msgid="6415509612413178727">"30 minutes"</item>
+    <item msgid="2194151041885903260">"15 secondes"</item>
+    <item msgid="5892295237131074341">"30 secondes"</item>
+    <item msgid="3538441365970038213">"1 minute"</item>
+    <item msgid="412343871668955639">"2 minutes"</item>
+    <item msgid="5076853889688991690">"5 minutes"</item>
+    <item msgid="1903860996174927898">"10 minutes"</item>
+    <item msgid="6415509612413178727">"30 minutes"</item>
   </string-array>
   <string-array name="lock_after_timeout_entries">
     <item msgid="8929270399652145290">"Immédiatement"</item>
-    <item msgid="6736512735606834431">"5 secondes"</item>
-    <item msgid="8044619388267891375">"15 secondes"</item>
-    <item msgid="1822002388249545488">"30 secondes"</item>
-    <item msgid="8538071621211916519">"1 minute"</item>
-    <item msgid="5663439580228932882">"2 minutes"</item>
-    <item msgid="49888496216106852">"5 minutes"</item>
-    <item msgid="9002737361305019353">"10 minutes"</item>
-    <item msgid="4322676235684793329">"30 minutes"</item>
+    <item msgid="6736512735606834431">"5 secondes"</item>
+    <item msgid="8044619388267891375">"15 secondes"</item>
+    <item msgid="1822002388249545488">"30 secondes"</item>
+    <item msgid="8538071621211916519">"1 minute"</item>
+    <item msgid="5663439580228932882">"2 minutes"</item>
+    <item msgid="49888496216106852">"5 minutes"</item>
+    <item msgid="9002737361305019353">"10 minutes"</item>
+    <item msgid="4322676235684793329">"30 minutes"</item>
   </string-array>
   <string-array name="entries_font_size">
     <item msgid="8166647333858618801">"Petite"</item>
@@ -133,9 +133,9 @@
     <item msgid="2330782789550628803">"Hors de portée"</item>
   </string-array>
   <string-array name="bluetooth_visibility_timeout_entries">
-    <item msgid="8151962652413645395">"Deux minutes"</item>
-    <item msgid="8675215713017289017">"Cinq minutes"</item>
-    <item msgid="477015974247590543">"Une heure"</item>
+    <item msgid="8151962652413645395">"Deux minutes"</item>
+    <item msgid="8675215713017289017">"Cinq minutes"</item>
+    <item msgid="477015974247590543">"Une heure"</item>
     <item msgid="5198271470953124739">"Aucun délai"</item>
   </string-array>
   <string-array name="wifi_signal">
@@ -156,8 +156,8 @@
   </string-array>
   <string-array name="wifi_frequency_band_entries">
     <item msgid="624340809384223320">"Automatique"</item>
-    <item msgid="6670588712989942178">"5 GHz uniquement"</item>
-    <item msgid="2715516524973207876">"2,4 GHz uniquement"</item>
+    <item msgid="6670588712989942178">"5 GHz uniquement"</item>
+    <item msgid="2715516524973207876">"2,4 GHz uniquement"</item>
   </string-array>
   <string-array name="usage_stats_display_order_types">
     <item msgid="2100172576767439288">"Temps d\'utilisation"</item>
@@ -262,9 +262,9 @@
     <item msgid="3401625457385943795">"Limite standard"</item>
     <item msgid="4071574792028999443">"Aucun processus en arrière-plan"</item>
     <item msgid="4810006996171705398">"Un processus maximum"</item>
-    <item msgid="8586370216857360863">"Deux processus maximum"</item>
-    <item msgid="836593137872605381">"Trois processus maximum"</item>
-    <item msgid="7899496259191969307">"Quatre processus maximum"</item>
+    <item msgid="8586370216857360863">"Deux processus maximum"</item>
+    <item msgid="836593137872605381">"Trois processus maximum"</item>
+    <item msgid="7899496259191969307">"Quatre processus maximum"</item>
   </string-array>
   <string-array name="vpn_types_long">
     <item msgid="2732002039459078847">"VPN PPTP"</item>
@@ -340,5 +340,40 @@
     </string-array>
 
     <!-- **** CYANOGENMOD EDITS END **** -->
+	
+	<!-- **** CODEFIREX EDITS START **** -->
+
+    <string-array name="interface_rotationlock_toggle_entries">
+        <item>Par défaut</item>
+        <item>Afficher</item>
+        <item>Masquer</item>
+    </string-array>
+	
+    <string-array name="interface_rotationlock_toggle_values">
+        <item>default</item>
+        <item>show</item>
+        <item>hide</item>
+    </string-array>
+
+	<string-array name="battery_bar_entries">
+        <item>Masquer</item>
+        <item>Barre d\'état</item>
+        <item>Haut de la barre de navigation</item>
+        <item>Bas de la barre de navigation</item>
+    </string-array>
+	
+    <string-array name="battery_bar_style_entries">
+        <item>Normal</item>
+        <item>Centré en miroir</item>
+    </string-array>
+
+    <string-array name="pref_navigation_menu_display_entries">
+        <item>Comportement JB par défaut</item>
+        <item>Toujours montrer icônes invisibles</item>
+        <item>Afficher toujours</item>
+        <item>JB par défaut avec icônes invisibles si cachées</item>
+    </string-array>
+ 	
+	<!-- **** CODEFIREX EDITS END **** -->
 
 </resources>

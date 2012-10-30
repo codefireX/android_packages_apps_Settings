@@ -29,7 +29,7 @@
 
     <!-- Quiet hours -->
     <string name="quiet_hours_title">Heures silencieuses</string>
-    <string name="quiet_hours_summary">Configure les heures où le téléphone doit être silencieux</string>
+    <string name="quiet_hours_summary">Configurer les heures pendant lesquelles le téléphone doit être silencieux</string>
     <string name="quiet_hours_note_title">Note</string>
     <string name="quiet_hours_note_summary">Les appels entrants se comportent normalement pendant les heures silencieuses</string>
     <string name="quiet_hours_enabled">Heures silencieuses</string>
@@ -88,8 +88,8 @@
     <string name="light_levels_editor_title">Définir les autres niveaux\u2026</string>
     <string name="light_decrease_enabled_title">Réduire l\'éclairage</string>
     <string name="light_decrease_enabled_summary">Cocher pour permettre de réduire le rétro-éclairage. Utiliser l\'hystérésis pour limiter les variations</string>
-    <string name="light_decrease_hysteresis_title">Hystérésis</string>
-    <string name="light_decrease_hysteresis_summary">Sensor levels overlap this much downwards</string>
+    <string name="light_decrease_hysteresis_title">Diminuer l\'hystérésis</string>
+    <string name="light_decrease_hysteresis_summary">Définir la limite de réduction de l\'éclairage</string>
 
     <!-- Light sensor levels  -->
     <string name="ll_title">Niveaux de luminosité</string>
@@ -128,7 +128,7 @@
     <string name="dialog_test">Tester</string>
     <string name="dialog_delete_title">Supprimer</string>
     <string name="dialog_delete_message">Voulez-vous supprimer les notifications de l\'application sélectionnée?</string>
-    <string name="dialog_test_message">Éteignez l\'écran pour afficher l\'action de notification ou annuler ceci pour arrêter le test</string>
+    <string name="dialog_test_message">Éteignez l\'écran pour afficher l\'action de notification ou annulez ce dialogue pour arrêter le test</string>
     <string name="dialog_test_button">Annuler</string>
 
     <!-- Values for the notification light pulse spinners -->
@@ -163,8 +163,8 @@
 
     <!-- Notification Drawer  -->
     <string name="notification_drawer_title">Barre de notification</string>
-    <string name="notification_drawer_phone_summary">Pour téléphone</string>
-    <string name="notification_drawer_tablet_summary">Pour tablette</string>
+    <string name="notification_drawer_phone_summary">Pour le mode téléphone</string>
+    <string name="notification_drawer_tablet_summary">Pour le mode tablette</string>
 
     <!-- Combined Bar  -->
     <string name="combined_bar_title">Barre combinée</string>
@@ -174,8 +174,8 @@
     <!-- Navigation Bar  -->
     <string name="navigation_bar_title">Barre de navigation</string>
 
-    <string name="navigation_bar_help_text">1 - Pour commencer l\'édition, appuyer sur le cadenas\n\n2 - Appuyez sur un des boutons pour assigner ou changer une fonctionnalité\n\n3 - Appui long pour modifier l\'ordre\n\n4 - Pour enregistrer, appuyer à nouveau sur le cadenas\n\n5 - Pour remettre à zéro, appuyer sur le bouton reset\n\n</string>
-    <string name="navigation_bar_tips">&#8226; Les actions peuvent être assignée qu\'une seule fois\n\n&#8226; Le bouton d\'accueil ne peut être réassigné\n\n&#8226; Les boutons sur le bord ne peuvent être déplacés</string>
+    <string name="navigation_bar_help_text">1 - Pour commencer l\'édition, appuyer sur le cadenas\n\n2 - Appuyer sur un des boutons pour assigner ou changer une fonctionnalité\n\n3 - Appui long pour modifier l\'ordre\n\n4 - Pour enregistrer, appuyer à nouveau sur le cadenas\n\n5 - Pour remettre à zéro, appuyer sur le bouton reset\n\n</string>
+    <string name="navigation_bar_tips">&#8226; Les actions ne peuvent être assignées qu\'une seule fois\n\n&#8226; Le bouton d\'accueil ne peut être réassigné\n\n&#8226; Les boutons sur le bord ne peuvent être déplacés</string>
     <string name="navigation_bar_tips_title">Astuces rapides</string>
     <string name="navigation_bar_reset_message">Supprimer les paramètres actuels et remettre à zéro ?</string>
     <string name="navigation_bar_save_message">Paramètres de la barre de navigation enregistrés</string>
@@ -219,7 +219,7 @@
     <string name="title_toggle_gps">GPS</string>
     <string name="title_toggle_sound">Son</string>
     <string name="title_toggle_brightness">Luminosité</string>
-    <string name="title_toggle_sync">Sync. données</string>
+    <string name="title_toggle_sync">Synchroniser données</string>
     <string name="title_toggle_wifiap">Partage Wi-Fi</string>
     <string name="title_toggle_screentimeout">Veille écran</string>
     <string name="title_toggle_mobiledata">Données mobile</string>
@@ -237,10 +237,10 @@
     <string name="title_button_modes">Modes des boutons</string>
     <string name="pref_brightness_mode_title">Modes de luminosité</string>
     <string name="pref_brightness_mode_summary">Sélection des modes de fonctionnement du bouton Luminosité</string>
-    <string name="cm_brightness_mode_auto">Auto.</string>
+    <string name="cm_brightness_mode_auto">Automatique</string>
     <string name="cm_brightness_mode_dim">Réduit</string>
-    <string name="pref_network_mode_title">Modes réseau</string>
-    <string name="pref_screentimeout_mode_title">Mode mise en veille de l\'écran</string>
+    <string name="pref_network_mode_title">Modes Réseau</string>
+    <string name="pref_screentimeout_mode_title">Modes Mise en veille de l\'écran</string>
     <string name="pref_ring_mode_title">Sonnerie</string>
     <string name="pref_ring_mode_summary">Sélection des modes de sonnerie disponibles</string>
     <string name="cm_sound_mode_silent">Silencieux</string>
@@ -260,7 +260,7 @@
     <string name="clock_style_center">Horloge au centre</string>
     <string name="status_bar_show_clock_title">Afficher l\'heure</string>
     <string name="status_bar_am_pm_title">Indicateur AM/PM</string>
-    <string name="status_bar_am_pm_info">Horloge 24 heures activée</string>
+    <string name="status_bar_am_pm_info">Format 24 heures activé</string>
     <string name="status_bar_battery_title">Affichage du niveau de batterie</string>
     <string name="status_bar_battery_status_icon">Icône (par défaut)</string> <!-- TODO: dedup -->
     <string name="status_bar_battery_status_percentage">Pourcentage</string>
@@ -268,7 +268,7 @@
     <string name="status_bar_battery_status_circle_percentage">Cercle avec pourcentage</string>
     <string name="status_bar_battery_status_hidden">Masquer</string> <!-- TODO: dedup -->
     <string name="status_bar_toggle_brightness">Rétroéclairage</string>
-    <string name="status_bar_toggle_brightness_summary">Ajustement de la luminosité en glissant dans la barre</string>
+    <string name="status_bar_toggle_brightness_summary">Ajustement de la luminosité par glissement sur la barre d\'état</string>
     <string name="status_bar_toggle_info">Le rétroéclairage automatique est activé</string>
     <string name="status_bar_signal_text_title">Affichage du signal réseau</string>
     <string name="status_bar_signal_text_show_bars">Icône (défaut)</string>
@@ -283,7 +283,7 @@
     <string name="lockscreen_target_summary">Configurer les raccourcis de l\'écran de verrouillage</string>
     <string name="lockscreen_target_reset">Les raccourcis ont été réinitialisés</string>
     <string name="lockscreen_target_save">Raccourcis enregistrés</string>
-    <string name="lockscreen_target_reset_title">Reset</string>
+    <string name="lockscreen_target_reset_title">Réinitialiser</string>
     <string name="lockscreen_target_reset_message">Réinitialiser tous les raccourcis et revenir à la configuration d\'origine ?</string>
     <string name="lockscreen_target_empty">Vide</string>
     <string name="lockscreen_target_edit_title">Modifier le raccourci</string>
@@ -291,7 +291,7 @@
 
     <!-- Lock Screen Weather -->
     <string name="lockscreen_weather_title">Météo</string>
-    <string name="lockscreen_weather_summary">Affiche les informations météo sur l\'écran de verrouillage</string>
+    <string name="lockscreen_weather_summary">Afficher les informations météo sur l\'écran de verrouillage</string>
     <string name="lockscreen_weather_enabled">Activée</string>
     <string name="weather_enable">Afficher la météo</string>
     <string name="weather_source">Météo Yahoo!</string>
@@ -305,9 +305,9 @@
     <string name="weather_refresh_interval">Intervalle de mise à jour</string>
     <string name="weather_use_metric">Système métrique</string>
     <string name="weather_retrieve_location_dialog_title">Impossible de déterminer le lieu!</string>
-    <string name="weather_retrieve_location_dialog_message">La localisation par le réseau est désactivée.\n\nVeuillez sélectionner manuellement le lieu</string>
+    <string name="weather_retrieve_location_dialog_message">La localisation par le réseau est désactivée.\n\nVeuillez définir manuellement le lieu ou activer la localisation par le réseau</string>
     <string name="weather_retrieve_location_dialog_enable_button">Activer</string>
-    <string name="weather_invert_lowhigh">Inverser min/max température</string>
+    <string name="weather_invert_lowhigh">Inverser température min/max</string>
     <string name="weather_progress_title">Vérification du lieu</string>
 
     <!-- Lock screen Weather - Update frequency -->
@@ -321,14 +321,14 @@
 
     <!-- Lock screen Calendar -->
     <string name="lockscreen_calendar_title">Agenda</string>
-    <string name="lockscreen_calendar_summary">Affiche le prochain événement de l\'agenda sur l\'écran de verrouillage</string>
+    <string name="lockscreen_calendar_summary">Afficher le prochain événement de l\'agenda sur l\'écran de verrouillage</string>
     <string name="lockscreen_calendar_enabled">Activé</string>
     <string name="calendar_title">Afficher le prochain événement</string>
-    <string name="calendars_title">Synchronisation agenda</string>
-    <string name="calendars_summary">Utiliser les événements de ces agendas</string>
+    <string name="calendars_title">Sélection des agendas</string>
+    <string name="calendars_summary">Utiliser les événements des agendas sélectionnés</string>
     <string name="calendar_reminders_only_title">Rappels seulement</string>
     <string name="calendar_reminders_only_summary">N\'afficher que les événements avec rappel</string>
-    <string name="calendar_lookahead_title">Plage de recherche</string>
+    <string name="calendar_lookahead_title">Plage de synchronisation</string>
     <string name="calendar_show_location_title">Lieu de l\'événement</string>
     <string name="calendar_show_description_title">Description de l\'événement</string>
 
@@ -351,7 +351,7 @@
     <string name="lockscreen_background_result_successful">Fond d\'écran modifié</string>
     <string name="lockscreen_background_result_not_successful">Fond d\'écran non modifié</string>
     <string name="lockscreen_background_color_fill">Couleur</string>
-    <string name="lockscreen_background_custom_image">Image ou photo.</string>
+    <string name="lockscreen_background_custom_image">Image ou photo</string>
     <string name="lockscreen_background_default_wallpaper">Fond d\'écran par défaut</string>
 
     <!-- Lock screen vibrate settings -->
@@ -368,13 +368,22 @@
     <string name="lockscreen_clock_align_center">Centre</string>
     <string name="lockscreen_clock_align_right">Droite</string>
 
+    <string name="lockscreen_buttons_title">Options Bouton physique</string>
+    <string name="lockscreen_buttons_summary">Contrôle le comportement de la touche physique sur l\'écran de veille</string>
+    <string name="lockscreen_long_key_press_title">Paramètre appui long</string>
+    <string name="lockscreen_long_press_home_title">Action appui long Accueil</string>
+    <string name="lockscreen_long_press_menu_title">Action appui long Menu</string>
+    <string name="lockscreen_long_press_search_title">Action appui long Recherche</string>
+    <string name="lockscreen_buttons_no_action">Aucune action</string>
+    <string name="lockscreen_buttons_flashlight">Torche</string>
+
     <!-- Profiles settings  -->
     <string name="profiles_settings_title">Profils</string>
     <string name="profiles_general_title">Général</string>
     <string name="profiles_add">Ajouter</string>
     <string name="profile_menu_delete">Supprimer</string>
     <string name="profile_settings_title">Profil</string>
-    <string name="profile_empty_list_profiles_off">Pour personnaliser et utiliser le système de profils, activer le.</string>
+    <string name="profile_empty_list_profiles_off">Pour personnaliser et utiliser le système de profils, veuillez l\'activer.</string>
 
     <!-- Add Profile -->
     <string name="add_profile_dialog_title">Créer nouveau profil</string>
@@ -391,8 +400,8 @@
     <string name="duplicate_profile_name">Ce profil existe déjà !</string>
 
     <!-- Reset Profiles -->
-    <string name="profile_reset_title">Reset</string>
-    <string name="profile_reset_message">Êtes-vous certain de vouloir supprimer tous les profils et groupes d\'applications ?</string>
+    <string name="profile_reset_title">Réinitialiser</string>
+    <string name="profile_reset_message">Voulez-vous vraiment supprimer tous les profils et groupes d\'applications ?</string>
 
     <!-- Delete confimation messages -->
     <string name="profile_delete_confirm">Supprimer ce profil ?</string>
@@ -401,7 +410,7 @@
 
     <!-- Profile Config screen PreferenceGroup titles -->
     <string name="profile_connectionoverrides_title">Connexions</string>
-    <string name="profile_volumeoverrides_title">Volume perso.</string>
+    <string name="profile_volumeoverrides_title">Volume personnalisé</string>
     <string name="profile_vibratoroverrides_title">Vibrations</string>
     <string name="connection_state_disabled">Inactif</string>
     <string name="connection_state_enabled">Actif</string>
@@ -412,13 +421,13 @@
 
     <!-- Menu item for managing profiles -->
     <string name="profile_profiles_manage">Profils</string>
-    <string name="profile_profile_manage">Gérer le profil</string>
+    <string name="profile_profile_manage">Gérer les profils</string>
     <string name="profile_applist_manage">Liste des applications</string>
-    <string name="profile_appgroups_manage">Gérer les groupes</string>
-    <string name="profile_appgroup_manage">Profil</string>
+    <string name="profile_appgroups_manage">Groupes d\'applications</string>
+    <string name="profile_appgroup_manage">Gérer le groupe d\'applications</string>
 
     <!-- Profile settings screen, section header for settings related to notification profiles -->
-    <string name="profile_settings">Paramètres du Profil</string>
+    <string name="profile_settings">Paramètres du profil</string>
     <string name="profile_name">Nom</string>
 
     <!-- Profile Settings sound modes labels -->
@@ -436,15 +445,15 @@
     <string name="profile_appgroups_title">Groupes d\'applications</string>
     <string name="profile_applist_title">Applications</string>
     <string name="profile_new_appgroup">Nouveau groupe d\'applications</string>
-    <string name="profile_delete_appgroup">Supprimer ce groupe d\'applications</string>
+    <string name="profile_delete_appgroup">Supprimer ce groupe d\'applications?</string>
     <string name="profile_appgroup_name_prompt">Saisir le nom du nouveau groupe</string>
     <string name="profile_appgroup_name_title">Nom</string>
-    <string name="profile_add_app">Ajouter application</string>
-    <string name="profile_delete_app">Retirer application</string>
+    <string name="profile_add_app">Ajouter une application</string>
+    <string name="profile_delete_app">Retirer une application</string>
 
     <!-- Add application dialog box title -->
     <string name="profile_choose_app">Choisir une application</string>
-    <string name="profile_settings_header">Paramètres des Profils</string>
+    <string name="profile_settings_header">Paramètres des profils</string>
 
     <!-- Profiles - system settings -->
     <string name="profile_system_settings_title">Paramètres système</string>
@@ -499,7 +508,7 @@
     <string name="unlock_menu_unlock_title">Déverrouiller par Menu</string>
     <string name="unlock_menu_unlock_summary">Déverrouillage de l\'écran en appuyant sur le bouton Menu</string>
     <string name="unlock_quick_unlock_control_title">Déverrouillage rapide</string>
-    <string name="unlock_quick_unlock_control_summary">Évite d\'appuyer sur OK lors de la saisie du code PIN ou du mot de passe.\nAttention : effacer compte comme un essai raté !</string>
+    <string name="unlock_quick_unlock_control_summary">Déverrouiller sans appuyer sur OK si le code PIN/mot de passe est correct</string>
 
     <!-- Slide lock delay -->
     <string name="delay_and_timeout_title">Délai de verrouillage</string>
@@ -522,24 +531,35 @@
 
     <!-- Performance Settings : Warning dialog  -->
     <string name="performance_settings_warning_title">ATTENTION !</string>
-    <string name="performance_settings_warning">Les options présentes ici altèrent les performances du système, en bien ou en mal.\nElles ont des comportements différents selon les appareils et sont disponibles pour expérimentation.\nNous vous demandons de ne pas soumettre de rapport de bug à propos de celles-ci.</string>
+    <string name="performance_settings_warning">Ces options sont intégrées à titre expérimental; les changements peuvent potentiellement altérer les performances du système, provoquer des arrêts, des pertes de données ou des problèmes matériels.\nElles ont des comportements différents selon les appareils.\nNous vous demandons de ne pas soumettre de rapport de bug si ces paramètres ont été modifiés.</string>
 
     <!-- Performance Settings : Processor Settings -->
     <!-- Performance Settings : Processor settings title -->
     <string name="processor_title">Paramètres CPU</string>
     <!-- Performance Settings : Processor settings summary. -->
-    <string name="processor_summary">Stratégie et fréquences</string>
+    <string name="processor_summary">Modifier le gouverneur CPU et les fréquences</string>
 
     <!-- Performance Settings : Processor settings sub items -->
     <string name="cpu_cur_freq_title">Fréquence actuelle</string>
-    <string name="cpu_governors_title">Stratégie</string>
+    <string name="cpu_governors_title">Gouverneur</string>
     <string name="cpu_governors_summary">%S</string>
     <string name="cpu_min_freq_title">Fréquence minimale</string>
     <string name="cpu_min_freq_summary">%s</string>
     <string name="cpu_max_freq_title">Fréquence maximale</string>
     <string name="cpu_max_freq_summary">%s</string>
     <string name="cpu_set_on_boot">Appliquer au démarrage</string>
-    <string name="cpu_set_on_boot_summary">Modifie les fréquences du CPU au démarrage du système</string>
+    <string name="cpu_set_on_boot_summary">Cocher pour conserver les modifications des paramètres du CPU au redémarrage du système</string>
+
+    <!-- Performance Settings : I/O scheduler settings title -->
+    <string name="io_scheds_title">I/O scheduler</string>
+    <!-- Performance Settings : I/O scheduler settings summary. -->
+    <string name="io_scheds_summary">Changer l\'ordonnanceur des Entrées/Sorties</string>
+
+    <!-- Performance Settings : I/O scheduler settings sub items -->
+    <string name="io_sched_title">I/O scheduler</string>
+    <string name="io_sched_summary">%S</string>
+    <string name="io_sched_set_on_boot">Appliquer au démarrage</string>
+    <string name="io_sched_set_on_boot_summary">Cocher pour conserver les nouveaux paramètres de l\'ordonnanceur Entrées/Sorties</string>
 
     <!-- Memory Management -->
     <string name="memory_management_title">Gestion de la mémoire</string>
@@ -549,10 +569,10 @@
     <string name="pref_zram_summary">Compresser la mémoire pour augmenter virtuellement sa capacité (nécessite un redémarrage)</string>
     <!-- KSM -->
     <string name="pref_ksm_title">Utiliser KSM</string>
-    <string name="pref_ksm_summary">Cette fonction du noyau réduit l\'utilisation de la mémoire physique et améliore les performances (Kernel Same-page Merging)</string>
+    <string name="pref_ksm_summary">La fusion des allocations/pages de même contenu réduit l\'utilisation de la mémoire physique et améliore les performances (KSM, Kernel samepage merging)</string>
     <!-- Purgeable Assets -->
-    <string name="pref_purgeable_assets_title">Purge des bitmaps</string>
-    <string name="pref_purgeable_assets_summary">Le système peut libérer plus de RAM si la mémoire des bitmaps peut être réclamée (nécessite un redémarrage)</string>
+    <string name="pref_purgeable_assets_title">Purge des ressources</string>
+    <string name="pref_purgeable_assets_summary">Le système peut libérer plus de RAM en purgeant la mémoire des bitmaps si nécessaire (nécessite un redémarrage)</string>
 
     <!-- Performance Settings : Dithering -->
     <string name="pref_use_dithering_title">Activer le tramage</string>
@@ -569,29 +589,6 @@
     <!-- About device screen, list item title. Takes the user to the screen about how to donate to the CyanogenMod Project. -->
     <string name="donate_settings_title">Donation</string>
 
-    <!-- Anonymous Statistics  -->
-    <!-- About device screen, list item title. Takes the user to the screen about opting in or out of anonymous statistics. -->
-    <string name="anonymous_statistics_title">Statistiques CyanogenMod</string>
-    <string name="anonymous_statistics_summary">Aidez CyanogenMod en participant à l\'envoi de données anonymes pour comptabiliser les installations par type d\'appareil</string>
-    <string name="anonymous_statistics_warning_title">À propos</string>
-    <string name="anonymous_statistics_warning">Autoriser les statistiques CyanogenMod permet l\'envoi de données anonymes aux développeurs
-    du système CyanogenMod pour comptabiliser le nombre d\'installations par type d\'appareil. Les informations envoyées contiennent un identifiant unique de appareil
-    afin de limiter les doublons et en aucune manière ne compromet la sécurité de vos données. Ce jeu d\'informations est envoyé à chaque redémarrage pour ne conserver que les installations actives.
-    \n\nVous pouvez visualiser ces données en sélectionnant \"Prévisualiser les données\".</string>
-    <string name="enable_reporting_title">Activer le reporting</string>
-    <string name="preview_data_title">Prévisualiser les données</string>
-    <string name="view_stats_title">Afficher les statistiques</string>
-    <string name="anonymous_learn_more">En savoir plus...</string>
-
-    <!-- Anonymous Statistics - Notification -->
-    <string name="anonymous_notification_desc">Activer ou non les statistiques CyanogenMod</string>
-
-    <!-- Anonymous Statistics - Preview -->
-    <string name="preview_id_title">Identifiant unique</string>
-    <string name="preview_device_title">Appareil</string>
-    <string name="preview_version_title">Version</string>
-    <string name="preview_country_title">Pays</string>
-    <string name="preview_carrier_title">Opérateur</string>
 
     <!-- Display : Rotation  -->
     <string name="display_rotation_title">Rotation</string>
@@ -683,16 +680,16 @@
     <string name="link_volume_mutes">Silence commun pour alertes et sonnerie</string>
 
     <string name="adb_over_network">ADB sur TCP/IP</string>
-    <string name="adb_over_network_summary">"Activer le débogage sur toutes les interfaces (réseaux USB, Wi-Fi et Bluetooth)"</string>
+    <string name="adb_over_network_summary">"Activer le débogage sur toutes les interfaces (réseaux USB, Wi-Fi et Bluetooth). Ce paramètre est réinitialiser au redémarrage"</string>
     <!-- Warning for Adb over Network -->
     <string name="adb_over_network_warning">"ATTENTION: Lorsque cette fonction est activée, votre appareil est ouvert aux intrusions sur toutes les interfaces, y compris via le réseau mobile !\n\nIl est fortement conseillé de désactiver le réseau mobile avant d\'activer cette fonction.\n\nContinuer ?"</string>
-    <string name="adb_notify">Notification débogage</string>
-    <string name="adb_notify_summary">Afficher une notification lorsque le débogage est actif</string>
+    <string name="adb_notify">Notification débogage USB</string>
+    <string name="adb_notify_summary">Afficher une notification lorsque le débogage USB est actif</string>
     <string name="root_access">Accès root</string>
     <string name="root_access_warning_title">Autoriser l\'accès root ?</string>
     <string name="root_access_warning_message">Autoriser l\'accès root aux applications peut être très dangereux et corrompre la sécurité et la stabilité de votre appareil !</string>
     <string name="root_access_none">Désactivé</string>
-    <string name="root_access_apps">Appli. uniquement</string>
+    <string name="root_access_apps">Applications uniquement</string>
     <string name="root_access_adb">ADB uniquement</string>
     <string name="root_access_all">Applications et ADB</string>
 
@@ -706,9 +703,9 @@
 
     <!-- Sound settings screen -->
     <string name="volume_overlay_title">Contrôle du volume</string>
-    <string name="volbtn_music_controls_title">Playlist par boutons volume</string>
+    <string name="volbtn_music_controls_title">Contrôle Musique par boutons volume</string>
     <string name="volbtn_music_controls_summary">Lorsque l\'écran est éteint, un appui long permet de changer le titre en cours</string>
-    <string name="volume_ring_only_description">Sonneries</string>
+    <string name="volume_ring_only_description">Sonnerie</string>
 
     <!-- Wakeup options -->
     <string name="display_category_wakeup_options_title">Sortie de veille</string>
@@ -716,7 +713,7 @@
     <string name="pref_volume_wake_summary">Permet de rallumer l\'appareil à l\'aide des boutons de volume.</string>
 
     <!-- Kill app long-press back -->
-    <string name="kill_app_longpress_back">Tuer avec bouton Retour</string>
+    <string name="kill_app_longpress_back">Arrêter avec bouton Retour</string>
     <string name="kill_app_longpress_back_summary">Permet de forcer la fermeture de l\'application en cours en appuyant longuement sur le bouton Retour</string>
 
     <!-- Hostname setting -->
@@ -1040,7 +1037,7 @@
     <string name="show_owner_info_on_lockscreen_label" msgid="5074906168357568434">"Coordonnées du propriétaire sur l\'écran verrouillé"</string>
     <string name="owner_info_settings_title" msgid="2723190010708381889">"Infos propriétaire"</string>
     <string name="owner_info_settings_summary" msgid="3800834657847339570"></string>
-    <string name="owner_info_settings_edit_text_hint" msgid="4608681417960923911">"Saisir texte à afficher sur écran de verrouillage"</string>
+    <string name="owner_info_settings_edit_text_hint" msgid="4608681417960923911">"Saisir le texte à afficher sur l\'écran de verrouillage"</string>
     <string name="location_settings_title" msgid="4483843407328665068">"Accès aux données de localisation"</string>
     <string name="security_settings_title" msgid="7945465324818485460">"Sécurité"</string>
     <string name="security_settings_summary">"Définir les paramètres de localisation et de verrouillage de l\'appareil"</string>
@@ -2452,6 +2449,12 @@
     <string name="help_label" msgid="1107174367904110532">"Aide"</string>
     <string name="cell_broadcast_settings" msgid="8415582011920085222">"Diffusions cellulaires"</string>
     <string name="cell_broadcast_settings_summary" msgid="3301339398950905913">"Sélectionnez les types d\'alertes d\'urgence à afficher."</string>
+
+    <!--- Volume key cursor control -->
+    <string name="volume_key_cursor_control_title">Curseur contrôlé par touche Volume</string>
+    <string name="volume_key_cursor_control_off">Désactivé</string>
+    <string name="volume_key_cursor_control_on">Volume haut/bas déplace le curseur à gauche/droite</string>
+    <string name="volume_key_cursor_control_on_reverse">Volume haut/bas déplace le curseur à droite/gauche</string>
 	
     <!--- Sms security limit -->
     <string name="app_security_title">SECURITE APP</string>
@@ -2466,7 +2469,7 @@
     <string name="codefire_battbar_summary">Affichage graphique de la charge de la batterie avec sélecteur de couleur</string>
     <string name="codefire_settings">codefireX</string>
     <string name="codefire_general">Général</string>
-    <string name="codefire_general_summary">kill-all apps récentes, délai pour appui long, désactiver l\'animation de démarrage, etc</string>
+    <string name="codefire_general_summary">Arrêt de toutes les applis récentes, délai pour appui long, désactiver l\'animation de démarrage, etc.</string>
     <string name="codefire_theme">Réglage du thème</string>
     <string name="codefire_theme_summary">Personnaliser le nom de l\'opérateur, assistant densité, affichage double-volet, barre de navigation, etc</string>
     <string name="codefire_lockscreen">Ecran de verrouillage</string>
@@ -2492,7 +2495,7 @@
     <string name="enable_fast_torch_title">Activer la torche rapide</string>
     <string name="enable_fast_torch_summary">Avec l\'écran éteint, appuyer sur le bouton d\'alimentation appuyé pour allumer les leds. Pour éteindre la torche, déverrouiller ou éteindre l\'écran en pressant un autre bouton. </string>
     <!-- App Kill Timeout -->
-    <string name="pref_kill_app_longpress_back_timeout_title">Kill-App Délai de l\'appui long sur Retour</string>
+    <string name="pref_kill_app_longpress_back_timeout_title">Arrêt appli Délai de l\'appui long sur Retour</string>
     <string name="pref_kill_app_longpress_back_timeout_dialogtitle">Durée en ms (500-2000)</string>
     <string name="pref_kill_app_longpress_back_timeout_summary">Définir le délai de pression en milisecondes sur le bouton Retour pour arrêter l\'application (DOIT D\'ABORD ETRE ACTIVE DANS OPTIONS POUR DEV)</string>   
     <!-- Brightness Toggle slider -->
@@ -2500,6 +2503,10 @@
     <string name="pref_show_brightness_toggleslider_summary">Dans la zone de notification</string>
     <string name="pref_statusbar_sixbar_signal_title">Icônes Signal à six barres</string>
     <string name="pref_statusbar_sixbar_signal_summary">pour Wi-Fi et réseau mobile, au lieu de quatre (par défaut)</string>
+	    <!-- Performance Settings : Disable bootanimation -->
+    <string name="pref_disable_bootanimation_title">Désactiver animation de démarrage</string>
+    <string name="pref_disable_bootanimation_summary">Ne pas afficher l\'animation pour accélérer le démarrage</string>
+
     <!-- Custom Boot Animation -->
     <string name="custom_bootanimation_title">Animation de démarrage personnalisée</string>
     <string name="custom_bootanimation_summary">Sélectionner le zip de l\'animation de démarrage sur la carte SD. L\'ancienne animation de démarrage sera sauvegardée (l\'option "Désactiver animation de démarrage" doit être décochée).</string>
@@ -2514,12 +2521,12 @@
     <string name="pref_trackball_unlock_toggle_title">Déverrouillage par Trackball </string>
     <string name="pref_trackball_unlock_toggle_summary">Autoriser le déverrouillage de l\'appareil par Trackball</string>
     <!-- Recent Apps Kill All Button -->
-    <string name="interface_recents">Volet Apps récentes</string>
+    <string name="interface_recents">Volet Applis récentes</string>
     <string name="recent_kill_all">Activer le bouton kill-all</string>
-    <string name="recent_kill_all_summary">Affiche un bouton pour arrêter toutes les applications affichées dans le volet (nécessite un redémarrage)</string>    
+    <string name="recent_kill_all_summary">Afficher un bouton pour arrêter toutes les applications affichées dans le volet (nécessite un redémarrage)</string>    
     <!-- Recent Apps Memory Display -->
     <string name="interface_recents_mem_display_title">Affichage Mémoire</string>
-    <string name="interface_recents_mem_display_description">Active l\'affichage de la mémoire disponible</string>
+    <string name="interface_recents_mem_display_description">Activer l\'affichage de la mémoire disponible</string>
     <!-- Color Picker -->
     <string name="dialog_color_picker">Sélecteur de couleur</string>
     <string name="press_color_to_apply">Appuyer sur la couleur pour appliquer</string>
@@ -2582,7 +2589,7 @@
     <string name="pref_fast_up_summary">*ATTENTION* si vous changez cette valeur, les valeurs nécessaires seront ajoutées à votre build.prop si elles ne sont pas déjà présentes. (nécessite un redémarrage)</string>
     <string name="pref_fast_up_alt_summary">Fast up détecté actif: %s</string>
     <string name="pref_prox_delay_title">Délai du senseur de proximité</string>
-    <string name="pref_prox_delay_summary">Lorsque vous êtes en communication, l\'écran est éteint si l\'appareil est éloigné de votre visage. Ce délai contrôle le délai avant que l\'écran s\'allume (nécessite un redémarrage)</string>
+    <string name="pref_prox_delay_summary">Lorsque vous êtes en communication, l\'écran est éteint si l\'appareil est éloigné de votre visage. Ce délai contrôle le laps de temps avant que l\'écran s\'allume (nécessite un redémarrage)</string>
     <string name="pref_prox_delay_alt_summary">Senseur de proximité fixé à: %s</string>
     <string name="pref_logcat_title">Désactiver logcat</string>
     <string name="pref_logcat_summary">Désactiver le journal des événements peut améliorer la rapidité du système mais complique sérieusement le débogage.</string>
@@ -2605,7 +2612,7 @@
     <string name="scroller_options">Options de défilement</string>
     <string name="scroll">Défilement</string>
     <string name="scroll_title">Options de défilement</string>
-    <string name="scroll_summary">Adjuster la sensibilité de vos défilements</string>
+    <string name="scroll_summary">Ajuster la sensibilité de vos défilements</string>
     <string name="scroll_friction_title">Friction de défilement</string>
     <string name="custom_fling_velocity_title">Vitesse de défilement</string>
     <!-- Signal Styles -->
@@ -2649,7 +2656,7 @@
     <string name="navbar_action_search">Recherche</string>
     <string name="navbar_action_screenshot">Capture d\'écran</string>
     <string name="navbar_action_menu">Menu</string>
-    <string name="navbar_action_ime">Ouvrir le sélecteur de clavier</string>
+    <string name="navbar_action_ime">Ouvrir le mode de saisie</string>
     <string name="navbar_action_kill">Arrêter la tâche</string>
     <string name="navbar_action_power">Alimentation</string>
     <string name="navbar_action_notifications">Notifications</string>
@@ -2658,10 +2665,10 @@
     <string name="navbar_enable_bar">Activer Barre</string>
     <string name="navigation_bar_height_title">Hauteur barre navigation</string>
     <string name="navigation_bar_height_summary">Hauteur de la barre de navigation en mode portrait</string>
-    <string name="navigation_bar_height_landscape_title">Heuteur barre navigation paysage</string>
+    <string name="navigation_bar_height_landscape_title">Hauteur barre navigation paysage</string>
     <string name="navigation_bar_height_landscape_summary">Hauteur de la barre de navigation en mode paysage</string>
     <string name="navigation_bar_width_title">Largeur de la barre de navigation</string>
-    <string name="navigation_bar_width_summary">Hauteur de la barre de navigation si la barre est placée sur le côté</string>
+    <string name="navigation_bar_width_summary">Largeur de la barre de navigation si elle est placée sur le côté</string>
     <string name="navbar_enable_dialog_title">Redémarrage requis!</string>
     <string name="navbar_enable_dialog_msg">Prière de redémarrer pour activer/désactiver la barre de navigation correctement!</string>
     <string name="navbar_enable_dialog_negative">Je redémarrerai plus tard</string>
@@ -2725,6 +2732,6 @@
     <string name="interface_rotationlock_toggle">Commutateur Verrouillage Rotation</string>
     <!-- Volume Keys Switch on Rotation -->
     <string name="system_volume_keys_rotate">Inversion des touches de Volume</string>
-    <string name="system_volume_keys_rotate_summary">en cas de rotation de l\'appareil à 90 ou 180 degrés dans le sens contraire des aiguilles d\'une montre.</string>
+    <string name="system_volume_keys_rotate_summary">En cas de rotation de l\'appareil à 90 ou 180 degrés dans le sens contraire des aiguilles d\'une montre.</string>
     <!-- **** CODEFIRE ADDITIONS END **** -->
 </resources>
