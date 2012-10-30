@@ -3040,7 +3040,7 @@
          installed and that they can install TalkBack from Market. [CHAR LIMIT=NONE] -->
     <string name="accessibility_service_no_apps_message">TalkBack provides spoken feedback to
          help blind and low-vision users. Do you want to install it for free from Android
-         Market?</string>
+         Play Store?</string>
 
     <!-- Warning message about security implications of downloading accessibility scripts,
          displayed as a dialog message when the user selects to enable script downloading. [CHAR LIMIT=NONE] -->
@@ -4993,12 +4993,12 @@
     <string name="stock_density_summary">Tablets and older phones use 160. Most phones use 240. Galaxy Nexus uses 320 by default.</string>
     <string name="reboot_title">2. Reboot!</string>
     <string name="reboot_summary">Come back here after the reboot and complete the rest of the steps!</string>
-    <string name="clear_market_data_title">3. Clear market data</string>
-    <string name="clear_market_data_cleared">Market data cleared</string>
-    <string name="open_market_title">4. Open Market and hit accept</string>
+    <string name="clear_market_data_title">3. Clear Play Store data</string>
+    <string name="clear_market_data_cleared">Play Store data cleared</string>
+    <string name="open_market_title">4. Open Play Store and hit accept</string>
     <string name="open_market_summary">Press back when done to return here.</string>
     <string name="custom_density_title">5. Change density to whatever you like!</string>
-    <string name="custom_density_summary">If you ever have compatibility issues with the market, be sure to return here and repeat the process.</string>
+    <string name="custom_density_summary">If you ever have compatibility issues with the Play Store, be sure to return here and repeat the process.</string>
     <!-- Network Label -->
     <string name="custom_carrier_label_title">Custom carrier label</string>
     <string name="custom_carrier_label_explain">Please enter a new label. Enter an empty label to revert to stock label.</string>
