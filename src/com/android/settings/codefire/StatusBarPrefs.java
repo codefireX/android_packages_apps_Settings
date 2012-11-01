@@ -55,6 +55,8 @@ public class StatusBarPrefs extends SettingsFragment
     private ListPreference mStatusBarClockStyle;
     private ListPreference mRotationLockTogglePreference;
 
+    Context mContext;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,6 +65,7 @@ public class StatusBarPrefs extends SettingsFragment
 
         mPrefSet = getPreferenceScreen();
         mCr = getContentResolver();
+        mContext = (Context) getActivity();
 
         /* Clock Style */
         mStatusBarClockStyle = (ListPreference) mPrefSet.findPreference(STATUS_BAR_CLOCK_STYLE);
