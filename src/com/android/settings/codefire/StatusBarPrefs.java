@@ -44,12 +44,14 @@ public class StatusBarPrefs extends SettingsFragment
     private static final String STATUS_BAR_CLOCK_STYLE = "status_bar_clock_style";
     private static final String ROTATIONLOCK_TOGGLE = "interface_rotationlock_toggle";
     private static final String FAT_FINGERS = "interface_systembar_fat_fingers";
+    private static final String PREF_NOTIFICATION_SHOW_WIFI_SSID = "notification_show_wifi_ssid";
 
     private ContentResolver mCr;
     private PreferenceScreen mPrefSet;
 
     private CheckBoxPreference mFatFingers;
     private CheckBoxPreference mShowBrightnessToggleslider;
+    private CheckBoxPreference mShowWifiName;
     private ListPreference mStatusBarClockStyle;
     private ListPreference mRotationLockTogglePreference;
 
@@ -87,6 +89,12 @@ public class StatusBarPrefs extends SettingsFragment
         /* RotationLock Toggle */
         mRotationLockTogglePreference = (ListPreference) findPreference("interface_rotationlock_toggle");
         mRotationLockTogglePreference.setOnPreferenceChangeListener(this);
+
+        /* Show Wifi SSID in Notification Shade */
+        mShowWifiName = (CheckBoxPreference) mPrefSet.findPreference(
+                PREF_NOTIFICATION_SHOW_WIFI_SSID);
+        mShowWifiName.setChecked(Settings.System.getBoolean(mContext.getContentResolver(),
+                Settings.System.NOTIFICATION_SHOW_WIFI_SSID, false));
     }
 
     @Override
@@ -112,4 +120,15 @@ public class StatusBarPrefs extends SettingsFragment
         return true;
     }
 
+    @Override
+    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen,
+            Preference preference) {
+        if (preference == mShowWifiName) {
+            Settings.System.putBoolean(mContext.getContentResolver(),
+                    Settings.System.NOTIFICATION_SHOW_WIFI_SSID,
+                    ((CheckBoxPreference) preference).isChecked());
+            return true;
+        }
+        return super.onPreferenceTreeClick(preferenceScreen, preference);
+    }
 }

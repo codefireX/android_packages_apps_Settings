@@ -4921,6 +4921,7 @@
     <string name="codefire_theme">Theme Tweaks</string>
     <string name="codefire_theme_summary">Custom carrier, density wizard, dual pane view, navbar, etc</string>
     <string name="codefire_lockscreen">Lock Screen</string>
+    <string name="codefire_notification">Notification Shade</string>
     <string name="codefire_misc">Miscellaneous</string>
     <string name="codefire_propmodder">Prop Modder</string>
     <string name="codefire_propmodder_summary">Modify various build.prop values such as wifi scan interval, hsupa mode, ring delay, etc.</string>
@@ -4959,6 +4960,9 @@
     <string name="screenshot_scaling_title">Screenshot scale factor</string>
     <string name="screenshot_scaling_summary">Current scale factor:\u0020</string>
     <string name="screenshot_scaling_dialog_title">Select value</string>
+    <!-- WiFi SSID in Notification -->
+    <string name="notification_show_wifi_ssid_title">Show connected WiFi network</string>
+    <string name="notification_show_wifi_ssid_summary">name in the notification shade</string>
     <!-- TrackBall Settings -->
     <string name="pref_trackball_wake_toggle_title">Trackball wake</string>
     <string name="pref_trackball_wake_toggle_summary">Allow trackball to wake the device</string>
