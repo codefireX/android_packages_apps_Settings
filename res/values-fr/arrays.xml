@@ -362,6 +362,13 @@
         <item>Bas de la barre de navigation</item>
     </string-array>
 	
+	<string-array name="pref_navigation_menu_entries">
+    <item>Droite</item>
+    <item>Gauche</item>
+    <item>Les deux</item>
+    <item>Supprimer</item>
+    </string-array>
+	
     <string-array name="battery_bar_style_entries">
         <item>Normal</item>
         <item>Centré en miroir</item>

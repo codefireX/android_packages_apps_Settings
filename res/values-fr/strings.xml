@@ -749,6 +749,10 @@
     <string name="power_menu_reboot_title">Redémarrer</string>
     <string name="power_menu_screenshot_title">Capture d\'écran</string>
     <string name="power_menu_profiles_title">Profils</string>
+	<string name="power_menu_expanded_desktop">Bureau étendu</string>
+    <string name="power_menu_airplane_title">Mode avion</string>
+    <string name="power_menu_silent_title">Mode silencieux</string>
+
 
     <!-- Launches Dev Tools -->
     <string name="development_tools_title">Outils dév.</string>
@@ -828,6 +832,7 @@
     <string name="battery_info_status_full" msgid="2824614753861462808">"Chargée"</string>
     <string name="battery_info_power_unplugged" msgid="5987246575519551081">"Débranché"</string>
     <string name="battery_info_power_ac" msgid="6808516193001604634">"CA"</string>
+    <string name="battery_info_power_usb" msgid="8012931702516331797">"USB"</string>
     <string name="battery_info_power_usb" msgid="8012931702516331797">"USB"</string>
     <string name="battery_info_power_ac_usb" msgid="6777734146838328688">"CA + USB"</string>
     <string name="battery_info_power_unknown" msgid="7344115502868899881">"Inconnu"</string>
@@ -2472,6 +2477,7 @@
     <string name="codefire_general_summary">Arrêt de toutes les applis récentes, délai pour appui long, désactiver l\'animation de démarrage, etc.</string>
     <string name="codefire_theme">Réglage du thème</string>
     <string name="codefire_theme_summary">Personnaliser le nom de l\'opérateur, assistant densité, affichage double-volet, barre de navigation, etc</string>
+	<string name="codefire_notification">Menu de notification</string>
     <string name="codefire_lockscreen">Ecran de verrouillage</string>
     <string name="codefire_misc">Options diverses</string>
     <string name="codefire_propmodder">Modifications Prop</string>
@@ -2506,7 +2512,6 @@
 	    <!-- Performance Settings : Disable bootanimation -->
     <string name="pref_disable_bootanimation_title">Désactiver animation de démarrage</string>
     <string name="pref_disable_bootanimation_summary">Ne pas afficher l\'animation pour accélérer le démarrage</string>
-
     <!-- Custom Boot Animation -->
     <string name="custom_bootanimation_title">Animation de démarrage personnalisée</string>
     <string name="custom_bootanimation_summary">Sélectionner le zip de l\'animation de démarrage sur la carte SD. L\'ancienne animation de démarrage sera sauvegardée (l\'option "Désactiver animation de démarrage" doit être décochée).</string>
@@ -2515,6 +2520,10 @@
     <string name="screenshot_scaling_title">Facteur d\'échelle de capture d\'écran</string>
     <string name="screenshot_scaling_summary">Facteur d\'échelle actuel:\u0020</string>
     <string name="screenshot_scaling_dialog_title">Sélectionner une valeur</string>
+    <!-- WiFi SSID in Notification -->
+    <string name="notification_show_wifi_ssid_title">Nom réseau Wi-Fi</string>
+    <string name="notification_show_wifi_ssid_summary">Afficher le nom du réseau Wi-Fi dans le menu de notification</string>
+
     <!-- TrackBall Settings -->
     <string name="pref_trackball_wake_toggle_title">Réveil par Trackball</string>
     <string name="pref_trackball_wake_toggle_summary">Autoriser le réveil de l\'appareil par Trackball</string>
@@ -2601,7 +2610,7 @@
     <string name="pref_sleep_summary">Modifier la règle de mise en veille pendant la nuit</string>
     <string name="pref_sleep_alt_summary">Mode Veille actuel: %s</string>
     <string name="pref_tcp_stack_title">Optimiser TCP Stack</string>
-    <string name="pref_tcp_stack_summary">Modifier la taille de buffer pour une améliorer les performances</string>
+    <string name="pref_tcp_stack_summary">Modifier la taille de buffer pour améliorer les performances</string>
     <string name="pref_check_in_title">Service de contrôle</string>
     <string name="pref_check_in_summary">Stopper l\'envoi de données sur l\'utilisation du système à Google et HTC</string>
     <string name="pref_sdcard_buffer_title">Modifier vitesse Sdcard</string>
@@ -2643,9 +2652,9 @@
     <string name="navigation_bar">Barre de navigation</string>
     <string name="navbar_button_cat">Boutons de la barre de navigation</string>
     <string name="title_pref_menu_display">Place de Menu</string>
-    <string name="summary_pref_menu_display">Rappelez-vous de supprimer vos boutons de menu si vous utilisez le gran bouton Menu!</string>
+    <string name="summary_pref_menu_display">Rappelez-vous de supprimer vos boutons de menu si vous utilisez le grand bouton Menu!</string>
     <string name="title_pref_navigation_menu_display">Visibilité du Menu</string>
-    <string name="summary_pref_navigation_menu_display">Comment et quand voulez-vous que le menu apparaise?</string>
+    <string name="summary_pref_navigation_menu_display">Comment et quand voulez-vous que le menu apparaisse?</string>
     <string name="navbar_qty_title">Nombre de boutons de navigation</string>
     <string name="navbar_qty_summary">Choisir le nombre de boutons de navigation</string>
     <string name="navbar_action_title">Bouton %1$s action &amp; icône</string>
