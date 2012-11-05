@@ -147,7 +147,7 @@
   <string-array name="wifi_sleep_policy_entries">
     <item msgid="3269131034472904310">"Всегда"</item>
     <item msgid="844721238536786870">"Только при питании от сети"</item>
-    <item msgid="2990218920631468642">"Никогда (увеличивает расход трафика)"</item>
+    <item msgid="2990218920631468642">"Никогда"</item>
   </string-array>
   <string-array name="wifi_sleep_policy_entries_wifi_only">
     <item msgid="2124319326282651391">"Всегда"</item>
@@ -376,7 +376,7 @@
     <item>Вкл.</item>
   </string-array>
   <string-array name="location_entries_gps_source">
-    <item>Исп. встроенный GPS</item>
+    <item>Встроенный GPS</item>
   </string-array>
 
   <!-- Wi-Fi settings. Presented as a list dialog to the user to choose the Wi-Fi region code. -->
@@ -391,7 +391,225 @@
     <item>Корея</item>
     <item>Турция</item>
     <item>Сингапур</item>
+    <item>Бразилия</item>
   </string-array>
 
   <!-- **** CYANOGENMOD EDITS END **** -->
+
+  <!-- CodefireX additions START -->  
+    <string-array name="entries_transparency">
+        <item>Без прозрачности</item>
+        <item>10%</item>
+        <item>25%</item>
+        <item>33%</item>
+        <item>40%</item>
+        <item>50%</item>
+        <item>66%</item>
+        <item>75%</item>
+        <item>88%</item>
+        <item>100%</item>
+    </string-array>
+    
+    <string-array name="signal_style_entries">
+        <item>Графически - полоски</item>
+        <item>Число - опорный уровень</item>
+        <item>Число с припиской дБм</item>
+    </string-array>
+    
+    <string-array name="wifi_signal_style_entries">
+        <item>Графически - полоски</item>
+        <item>Число - опорный уровень</item>
+    </string-array>
+    
+    <string-array name="interface_rotationlock_toggle_entries">
+        <item>По умолчанию</item>
+        <item>Показывать</item>
+        <item>Скрывать</item>
+    </string-array>
+    
+    <string-array name="battery_bar_entries">
+        <item>Скрывать</item>
+        <item>Над панелью уведомлений</item>
+        <item>Верхняя часть панели навигации</item>
+        <item>Нижняя часть панели навигации</item>
+    </string-array>
+    
+    <string-array name="battery_bar_style_entries">
+        <item>Обычный</item>
+        <item>Симметричный центру</item>
+    </string-array>
+    
+    <string-array name="lcd_density_entries">
+        <item>100</item>
+        <item>120</item>
+        <item>160</item>
+        <item>180</item>
+        <item>200</item>
+        <item>220</item>
+        <item>240</item>
+        <item>280</item>
+        <item>Пользовательский вариант</item>
+    </string-array>
+
+    <string-array name="lcd_density_stock_entries">
+        <item>160 -- MDPI</item>
+        <item>240 -- HDPI</item>
+        <item>320 -- XHDPI</item>
+    </string-array>
+    
+    <string-array name="pref_navigation_menu_entries">
+        <item>Справа</item>
+        <item>Слева</item>
+        <item>Слева &amp; справа</item>
+        <item>Убрать</item>
+    </string-array>
+    
+    <string-array name="pref_navigation_menu_display_entries">
+        <item>По умолчанию</item>
+        <item>Всегда (с невидимым значком)</item>
+        <item>Всегда</item>
+        <item>По умолчанию (с невидимым значком, когда скрыто)</item>
+    </string-array>
+    
+    <string-array name="navbar_button_entries">
+        <item>Домой</item>
+        <item>Назад</item>
+        <item>Последние запущенные</item>
+        <item>Поиск</item>
+        <item>Снимок экрана</item>
+        <item>Меню</item>
+        <item>Показать/скрыть виджеты</item>
+        <item>Выбор способа ввода</item>
+        <item>Закрыть открытое приложение</item>
+        <item>Выкл. экран</item>
+        <item>Уведомления</item>
+        <item>Выбрать приложение ...</item>
+        <item>Пусто</item>
+    </string-array>
+    
+    <string-array name="navigation_bar_width_entries">
+        <item>42 dp (по умолчанию)</item>
+        <item>38 dp</item>
+        <item>36 dp</item>
+        <item>30 dp</item>
+        <item>24 dp</item>
+    </string-array>
+    
+    <string-array name="navigation_bar_height_entries">
+        <item>48 dp (по умолчанию)</item>
+        <item>44 dp</item>
+        <item>40 dp</item>
+        <item>38 dp</item>
+        <item>36 dp</item>
+        <item>30 dp</item>
+        <item>24 dp</item>
+    </string-array>
+    
+    <string-array name="navigation_bar_height_landscape_entries">
+        <item>48 dp (по умолчанию)</item>
+        <item>42 dp</item>
+        <item>38 dp</item>
+        <item>36 dp</item>
+        <item>30 dp</item>
+        <item>24 dp</item>
+    </string-array>
+    
+    <string-array name="navring_dialog_entries">
+        <item>Ничего</item>
+        <item>Снимок экрана</item>
+        <item>Выбор способа ввода</item>
+        <item>Переключать звонок/вибро</item>
+        <item>Переключать звонок/тихий режим</item>
+        <item>Переключать звонок/вибро/тихий режим</item>
+        <item>Закрыть приложение</item>
+        <item>Выключить экран</item>
+        <item>Google Now</item>
+        <item>Выбрать приложение ...</item>
+    </string-array>
+    
+    <string-array name="pref_navring_amount_entries">
+        <item>1 ярлык</item>
+        <item>2 ярлыка</item>
+        <item>3 ярлыка</item>
+        <item>4 ярлыка</item>
+        <item>5 ярлыков</item>
+    </string-array>
+
+
+
+  <!-- PropModder from Liquid -->
+    <string-array name="entries_fast_up_explain">
+        <item>По умолчанию</item>
+        <item>Выключить HSUPA (с ограничением)</item>
+        <item>Включить HSUPA</item>
+        <item>Включить HSUPA (без ограничения)</item>
+    </string-array>
+
+    <string-array name="entries_prox_delay_explain">
+        <item>По умолчанию</item>
+        <item>0</item>
+        <item>50</item>
+        <item>75</item>
+        <item>125</item>
+        <item>150</item>
+        <item>175</item>
+        <item>200</item>
+        <item>225</item>
+        <item>250</item>
+        <item>275</item>
+        <item>300</item>
+        <item>325</item>
+        <item>350</item>
+        <item>375</item>
+        <item>400</item>
+        <item>425</item>
+        <item>450</item>
+        <item>475</item>
+        <item>500</item>
+    </string-array>
+
+    <string-array name="entries_logcat_explain">
+        <item>Убрать навсегда</item>
+        <item>Выключить до перезагрузки</item>
+        <item>Включить</item>
+    </string-array>
+
+    <string-array name="entries_logcat">
+        <item>disable</item>
+        <item>rm_log</item>
+        <item>1</item>
+    </string-array>
+
+    <string-array name="entries_sleep_explain">
+        <item>По умолчанию</item>
+        <item>0 Приостановка питания ARM11</item>
+        <item>1 Полное отключение ARM11 (лучшее)</item>
+        <item>2 Программный сон</item>
+        <item>3 Понижать характеристики</item>
+        <item>4 Ждать прерывания</item>
+    </string-array>
+
+    <string-array name="entries_sdcard_buffer_explain">
+        <item>По умолчанию</item>
+        <item>128 kb</item>
+        <item>1024 kb</item>
+        <item>2048 kb (Лучшее)</item>
+        <item>3072 kb</item>
+        <item>4096 kb</item>
+        <item>5120 kb</item>
+        <item>6144 kb</item>
+    </string-array>
+
+    <string-array name="entries_sdcard_buffer">
+        <item>По умолчанию</item>
+        <item>128</item>
+        <item>1024</item>
+        <item>2048</item>
+        <item>3072</item>
+        <item>4096</item>
+        <item>5120</item>
+        <item>6144</item>
+    </string-array>
+    <!-- CodefireX additions END -->
+  
 </resources>
