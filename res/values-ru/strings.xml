@@ -52,14 +52,14 @@
     <string name="radioInfo_unknown" msgid="737385314432468266">"неизвестно"</string>
     <string name="radioInfo_display_packets" msgid="8654359809877290639">"pkts"</string>
     <string name="radioInfo_display_bytes" msgid="4018206969492931883">"байт"</string>
-    <string name="radioInfo_display_dbm" msgid="3621221793699882781">"dBm"</string>
+    <string name="radioInfo_display_dbm" msgid="3621221793699882781">"дБм"</string>
     <string name="radioInfo_display_asu" msgid="1422248392727818082">"asu"</string>
     <string name="radioInfo_lac" msgid="8415219164758307156">"LAC"</string>
     <string name="radioInfo_cid" msgid="4362599198392643138">"CID"</string>
     <string name="sdcard_unmount" product="nosdcard" msgid="6325292633327972272">"Отключить USB-накопитель"</string>
     <string name="sdcard_unmount" product="default" msgid="3364184561355611897">"Извлечь SD-карту"</string>
     <string name="sdcard_format" product="nosdcard" msgid="6285310523155166716">"Очистить USB-накопитель"</string>
-    <string name="sdcard_format" product="default" msgid="6713185532039187532">"Очистить SD-карту"</string>
+    <string name="sdcard_format" product="default" msgid="6713185532039187532">"Отформатировать SD-карту"</string>
     <string name="small_font" msgid="2295331917424072635">"Маленький"</string>
     <string name="medium_font" msgid="2068475425515133701">"Среднее"</string>
     <string name="large_font" msgid="599055175160971446">"Большой"</string>
@@ -722,7 +722,7 @@
     <string name="device_status_activity_title" msgid="1411201799384697904">"Общая информация"</string>
     <string name="device_status" msgid="607405385799807324">"Общая информация"</string>
     <string name="device_status_summary" product="tablet" msgid="3292717754497039686">"Статус батареи, сети и другая информация"</string>
-    <string name="device_status_summary" product="default" msgid="2599162787451519618">"Номер телефона, уровень сигнала и т.д."</string>
+    <string name="device_status_summary" product="default" msgid="2599162787451519618">"Номер телефона, уровень сигнала и прочее"</string>
     <string name="storage_settings" msgid="4211799979832404953">"Память"</string>
     <string name="storage_settings_title" msgid="8746016738388094064">"Настройки хранилища"</string>
     <string name="storage_settings_summary" product="nosdcard" msgid="3543813623294870759">"Отключить USB-накопитель, просмотреть доступные накопители"</string>
@@ -1878,7 +1878,9 @@
 
     <!-- Notification Drawer #CM -->
     <string name="notification_drawer_title">Панель уведомлений</string>
-
+    <string name="notification_drawer_phone_summary">для телефона</string>
+    <string name="notification_drawer_tablet_summary">для планшета</string>
+    
     <!-- Combined Bar #CM -->
     <string name="combined_bar_title">Объединённая панель</string>
     <string name="combined_bar_auto_hide_title">Скрывать автоматически</string>
@@ -1924,10 +1926,10 @@
     <string name="power_widget_behavior">Поведение виджета</string>
     <string name="title_expanded_hide_onchange">Скрывать при изменении</string>
     <string name="title_expanded_hide_scrollbar">Скрывать полосу прокрутки</string>
-    <string name="title_widget_picker">Кнопки виджета</string>
-    <string name="summary_widget_picker">Выберите кнопки, которые будут отображаться на этом виджете</string>
-    <string name="title_widget_order">Упорядочить кнопки виджета</string>
-    <string name="summary_widget_order">Упорядочить кнопки на виджете</string>
+    <string name="title_widget_picker">Быстрые настройки</string>
+    <string name="summary_widget_picker">Выберите кнопки, которые будут отображаться в панели уведомлений</string>
+    <string name="title_widget_order">Упорядочить быстрые настройки</string>
+    <string name="summary_widget_order">Упорядочить кнопки быстрых настроек в панели уведомлений</string>
     <string name="title_buttons">Кнопки</string>
     <string name="title_toggle_wifi">Wi-Fi</string>
     <string name="title_toggle_bluetooth">Bluetooth</string>
@@ -1941,12 +1943,12 @@
     <string name="title_toggle_lockscreen">Блокировка</string>
     <string name="title_toggle_networkmode">2G/3G</string>
     <string name="title_toggle_autorotate">Автоповорот</string>
-    <string name="title_toggle_airplane">Режим самолёта</string>
+    <string name="title_toggle_airplane">Режим полёта</string>
     <string name="title_toggle_flashlight">Фонарик</string>
     <string name="title_toggle_sleep">Выключить экран</string>
-    <string name="title_toggle_media_play_pause">Музыка: Воспр./Пауза</string>
-    <string name="title_toggle_media_previous">Музыка: Пред. трек</string>
-    <string name="title_toggle_media_next">Музыка: След. трек</string>
+    <string name="title_toggle_media_play_pause">Плеер: Воспр./Пауза</string>
+    <string name="title_toggle_media_previous">Плеер: Пред. трек</string>
+    <string name="title_toggle_media_next">Плеер: След. трек</string>
     <string name="title_toggle_lte">LTE</string>
     <string name="title_toggle_wimax">WiMAX</string>
     <string name="title_button_modes">Режимы кнопок</string>
@@ -1980,6 +1982,11 @@
     <string name="status_bar_signal_text_show_bars">Иконка (по умолчанию)</string>
     <string name="status_bar_signal_text_show_text">Текст</string>
     <string name="status_bar_signal_text_hidden">Скрытый</string>
+    <string name="status_bar_battery_status_icon">Иконка (по умолчанию)</string> <!-- TODO: dedup -->
+    <string name="status_bar_battery_status_percentage">Иконка с процентами</string>
+    <string name="status_bar_battery_status_circle">Круг</string>
+    <string name="status_bar_battery_status_circle_percentage">Круг с процентами</string>
+    <string name="status_bar_battery_status_hidden">Скрытый</string> <!-- TODO: dedup -->
 
     <string name="lock_screen_title">Экран блокировки</string>
 
@@ -2072,6 +2079,15 @@
     <string name="lockscreen_clock_align_left">Слева</string>
     <string name="lockscreen_clock_align_center">По центру</string>
     <string name="lockscreen_clock_align_right">Справа</string>
+
+    <string name="lockscreen_buttons_title">Аппаратные кнопки</string>
+    <string name="lockscreen_buttons_summary">Действия аппаратных кнопок на экране блокировки</string>
+    <string name="lockscreen_long_key_press_title">При долгом нажатии</string>
+    <string name="lockscreen_long_press_home_title">На кнопку \"Домой\"</string>
+    <string name="lockscreen_long_press_menu_title">На кнопку "\Меню\"</string>
+    <string name="lockscreen_long_press_search_title">На кнопку \"Поиск\"</string>
+    <string name="lockscreen_buttons_no_action">Пусто</string>
+    <string name="lockscreen_buttons_flashlight">Фонарик</string>
 
     <!-- Profiles settings -->
     <string name="profiles_settings_title">Профили</string>
@@ -2182,7 +2198,7 @@
     <string name="toggleBrightness">Подсветка</string>
     <string name="toggleAutoRotate">Поворот экрана</string>
     <string name="toggleScreenTimeout">Задержка выкл. экрана</string>
-    <string name="toggleAirplane">Режим самолёта</string>
+    <string name="toggleAirplane">Режим полёта</string>
     <string name="toggleFlashlight">Фонарь</string>
     <string name="toggleLockScreen">Блокировка</string>
 
@@ -2292,8 +2308,8 @@
 
     <!-- String for ShortcutPickHelper -->
     <string name="picker_activities">Действия</string>
-    <string name="select_custom_app_title">Выбрать собственное приложение</string>
-    <string name="select_custom_activity_title">Выбрать собственное действие</string>
+    <string name="select_custom_app_title">Выбрать приложение</string>
+    <string name="select_custom_activity_title">Выбрать действие</string>
     <string name="icon_picker_choose_icon_title">Выбрать иконку</string>
     <string name="icon_picker_browser">Браузер</string>
     <string name="icon_picker_movie">Видео</string>
@@ -2450,11 +2466,15 @@
     <string name="stylus_icon_enabled_title">Значок стилуса</string>
     <string name="stylus_icon_enabled_summary">Показывать значок указателя при рисовании или управлении стилусом</string>
 
-    <!-- Power menu screenshot -->
+    <!-- Power menu enable disable -->
     <string name="power_menu_title">Меню \"Параметры устройства\"</string>
     <string name="power_menu_reboot_title">Перезагрузка</string>
     <string name="power_menu_screenshot_title">Скриншот</string>
+    <string name="power_menu_expanded_desktop">Расширить рабочий стол</string>
     <string name="power_menu_profiles_title">Выбор профиля</string>
+    <string name="power_menu_airplane_title">Режим полёта</string>
+    <string name="power_menu_silent_title">Беззвучный режим</string>
+
 
     <!-- Launches Dev Tools -->
     <string name="development_tools_title">Запуск утилиты разработчика</string>
@@ -2462,6 +2482,283 @@
     <!-- USB Mass Storage -->
     <string name="usb_mass_storage_title">USB-накопитель</string>
     <string name="usb_mass_storage_summary">Включить режим USB-накопителя (UMS)</string>
+    
+    <!--- Sms security limit -->
+    <string name="app_security_title">Безопасность приложений</string>
+    <string name="sms_security_check_limit_title">Предел SMS сообщений</string>
+    <string name="sms_security_check_limit_summary">Запретить приложениям отправлять SMS слишком часто. Текущий лимит: %d сообщений за 15 минут.</string>
+    <string name="sms_security_check_limit_default">30 (По умолчанию)</string>
 
     <!-- **** CYANOGENMOD ADDITIONS END **** -->
+    
+    <!-- CodeFire Additions Start -->
+    <string name="codefire_battbar">Полоска батареи</string>
+    <string name="codefire_battbar_summary">Индикатор заряда батареи в виде линии</string>
+    <string name="codefire_settings">CodefireX</string>
+    <string name="codefire_general">Общие</string>
+    <string name="codefire_general_summary">Закрытие последних запущенных приложений, отключение анимации загрузки и прочее</string>
+    <string name="codefire_theme">Настройки темы</string>
+    <string name="codefire_theme_summary">Своя метка оператора, настройка DPI, планшетный интерфейс, и прочее</string>
+    <string name="codefire_lockscreen">Экран блокировки</string>
+    <string name="codefire_notification">Область уведомлений</string>
+    <string name="codefire_misc">Разное</string>
+    <string name="codefire_propmodder">PropModder</string>
+    <string name="codefire_propmodder_summary">Различные настройки build.prop. Интервал сканирования Wi-Fi, режим HSUPA и прочее</string>
+    <string name="codefire_statusbar">Строка состояния</string>
+    <string name="codefire_statusbar_summary">Индикатор заряда, позиция часов, стиль иконки сигнала, и прочее</string>
+    <string name="codefire_signal">Стиль сигнала</string>
+    <string name="codefire_signal_summary">Настройка отображения уровня сигнала Wi-Fi/моб. сети</string>
+    <!-- Battery Bar -->
+    <string name="battery_bar">Местоположение панели</string>
+    <string name="battery_bar_color">Цвет панели</string>
+    <string name="battery_bar_cat">Параметры панели батареи</string>
+    <string name="battery_bar_style_title">Вид отображения</string>
+    <string name="battery_bar_thickness_title">Толщина панели</string>
+    <string name="battery_bar_animate_title">Анимация зарядки</string>
+    <string name="battery_bar_animate_summary">Может испортить ощущения от прошивки. Включайте на своё усмотрение.</string>
+    <!-- Dual Pane -->
+    <string name="dual_pane_title">Двойная панель просмотра</string>
+    <string name="dual_pane_summary">Приложения, поддерживающие этот параметр, будут показаны в две панели.</string>
+    <!-- Fast Torch -->
+    <string name="enable_fast_torch_summary">Когда экран выключен, нажмите и удерживайте кнопку питания для включения\выключения светодиода(-ов). Чтобы выключить фонарик, разблокируйте или выключите дисплей.</string>
+    <string name="enable_fast_torch_title">Включить быстрый фонарик</string>
+    <!-- App Kill Timeout -->
+    <string name="pref_kill_app_longpress_back_timeout_title">Таймаут закрытия через кнопку "Назад"</string>
+    <string name="pref_kill_app_longpress_back_timeout_dialogtitle">Длительность в миллисекундах (500-2000)</string>
+    <string name="pref_kill_app_longpress_back_timeout_summary">Установить свою длительность нажатия на кнопку "Назад". (ПЕРЕД ЭТИМ НУЖНО ВКЛЮЧИТЬ ЗАКРЫТИЕ ПРИЛОЖЕНИЙ С ПОМОЩЬЮ КНОПКИ НАЗАД В НАСТРОЙКАХ ДЛЯ РАЗРАБОТЧИКОВ)</string>   
+    <!-- Brightness Toggle slider -->
+    <string name="pref_show_brightness_toggleslider_title">Показывать ползунок яркости</string>
+    <string name="pref_show_brightness_toggleslider_summary">В панели уведомлений будет показываться ползунок для настройки яркости.</string>
+    <string name="pref_statusbar_sixbar_signal_title">Шестиполосные иконки уровня сигнала</string>
+    <string name="pref_statusbar_sixbar_signal_summary">Показывать 6 полосок уровня сигнала WiFi/моб. сети вместо стандартных 4.</string>
+    <!-- Custom Boot Animation -->
+    <string name="custom_bootanimation_title">Пользовательская анимация загрузки</string>
+    <string name="custom_bootanimation_summary">Выбрать ZIP архив с анимацией загрузки с карты памяти, при этом будет сделана резервная копия текущей . (Чекбокс "Отключить анимацию загрузки" должен быть снят).</string>
+    <string name="install_file_manager_error">Не найдено приложений для выбора файла. Пожалуйста, установите диспетчер файлов.</string>
+    <!-- ScreenShot Scaling -->
+    <string name="screenshot_scaling_title">Коэффициент масштабирования снимка экрана</string>
+    <string name="screenshot_scaling_summary">Текущий :\u0020</string>
+    <string name="screenshot_scaling_dialog_title">Выберите значение</string>
+    <!-- WiFi SSID in Notification -->
+    <string name="notification_show_wifi_ssid_title">Показывать имя Wi-Fi сети</string>
+    <string name="notification_show_wifi_ssid_summary">Будет показано в области уведомлений</string>
+    <!-- TrackBall Settings -->
+    <string name="pref_trackball_wake_toggle_title">Пробуждение трекболом</string>
+    <string name="pref_trackball_wake_toggle_summary">При нажатии на трекбол устройство будет пробуждаться</string>
+    <string name="pref_trackball_unlock_toggle_title">Разблокировка трекболом</string>
+    <string name="pref_trackball_unlock_toggle_summary">После нажатия на трекбол устройство будет разблокировано</string>
+    <!-- Recent Apps Kill All Button -->
+    <string name="interface_recents">Экран последних запущенных приложений</string>
+    <string name="recent_kill_all">Включить "Kill all"</string>
+    <string name="recent_kill_all_summary">Показывает кнопку для закрытия всех последних запущенных приложений.</string>    
+    <!-- Recent Apps Memory Display -->
+    <string name="interface_recents_mem_display_title">Показывать свободную память</string>
+    <string name="interface_recents_mem_display_description">На экране последних запущенных приложений.</string>
+    <!-- Color Picker -->
+    <string name="dialog_color_picker">Выбор цвета</string>
+    <string name="press_color_to_apply">Чтобы установить цвет, нажмите на него.</string>
+    <string name="arrow_right">.</string>
+    <string name="arrow_down">.</string>
+    <string name="hex">HEX:</string>
+    <string name="hex_hint">#FF000000</string>
+    <string name="set">Ок</string>
+    <string name="ics_color">Holo</string>
+    <!-- Larger Clear-All Button (TabletUI) -->
+    <string name="interface_systembar_fat_fingers_title">Увеличенная кнопка "Очистить все"</string>
+    <string name="interface_systembar_fat_fingers_summary">Помогает с очисткой списка уведомлений при использовании планшетного интерфейса (необходима перезагрузка)</string>
+    <!-- LCD Density -->
+    <string name="dpi">DPI</string>
+    <string name="lcd_density_wizard">Настройка плотности экрана</string>
+    <string name="lcd_density_wizard_summary">Мастер настройки поможет изменить плотность экрана.</string>
+    <string name="follow_through_title">Следуйте по пунктам!</string>
+    <string name="follow_through_summary">Удостоверьтесь, что вы выполняете пункты шаг за шагом и завершаете каждый, перед тем как приступить к следующему.</string>
+    <string name="stock_density_title">1. Верните стандартный DPI</string>
+    <string name="stock_density_summary">Планшеты и старые телефоны используют 160. Большинство телефонов - 240. Galaxy Nexus использует по умолчанию 320.</string>
+    <string name="reboot_title">2. Перезагрузите устройство!</string>
+    <string name="reboot_summary">Вернитесь сюда после перезагрузки и завершите оставшиеся шаги!</string>
+    <string name="clear_market_data_title">3. Очистить данные Google Play</string>
+    <string name="clear_market_data_cleared">Данные Google Play удалены.</string>
+    <string name="open_market_title">4. Запустите Google Play и примите соглашение</string>
+    <string name="open_market_summary">После этого нажмите кнопку "Назад", чтобы вернуться сюда</string>
+    <string name="custom_density_title">5. Установите желаемый DPI!</string>
+    <string name="custom_density_summary">Если проблемы совместимости Google Play всё ещё остались, обязательно вернитесь сюда и выполните все шаги заново.</string>
+    <!-- Network Label -->
+    <string name="custom_carrier_label_title">Название оператора</string>
+    <string name="custom_carrier_label_explain">Изменение отображаемого имени оператора. Чтобы вернуть значение по умолчанию, оставьте начение пустым.</string>
+    <string name="custom_carrier_label_notset">В настоящее время не установлено.</string>
+    <!-- PropModder -->
+    <string name="buildprop_title">Настройки build.prop</string>
+    <string name="nonprop_cat_title">Настройки init.d</string>
+    <string name="main_warning_title">ВЫ ПРЕДУПРЕЖДЕНЫ</string>
+    <string name="main_warning_summary">Это приложение писалось во время просмотра обезьян, жонглирующих ножами! Приложение взламывает ваш build.prop. МЫ НЕ НЕСЁМ ОТВЕТСТВЕННОСТИ НИ ЗА КАКИЕ НОЖЕВЫЕ РАНЕНИЯ! Ваше устройство - ваша ответственность!</string>
+    <string name="pref_wifi_scan_interval_title">Интервал сканирования Wi-Fi</string>
+    <string name="pref_wifi_scan_interval_summary">Интервал сканирования Wi-Fi сетей, если сохранённые точки доступа недоступны (необходима перезагрузка).</string>
+    <string name="pref_wifi_scan_alt_summary">Время между сканированием: %s</string>
+    <string name="pref_max_events_title">Максимальное количество событий менеджера окон</string>
+    <string name="pref_max_events_summary">Ограничит максимальным значением количество событий менеджера окон за одну секунду. (необходима перезагрузка)</string>
+    <string name="pref_max_events_alt_summary">Максимальное количество системных событий: %s</string>
+    <string name="pref_ring_delay_title">Задержка входящего звонка</string>
+    <string name="pref_ring_delay_summary">Время, которое проходит между тем, как система регистрирует входящий звонок, и как начинает играть рингтон. (необходима перезагрузка)</string>
+    <string name="pref_ring_delay_alt_summary">Задержка входящего звонка: %s</string>
+    <string name="pref_vm_heapsize_title">Память под кеш Dalvik V.M.</string>
+    <string name="pref_vm_heapsize_summary">Устанавливает размер кеша, к котому имеет доступ вирутальная машина Дальвика (необходима перегагрузка)</string>
+    <string name="pref_vm_heapsize_alt_summary">Размер кеша Dalvik VM: %s</string>
+    <string name="propmodder_warning_title">НЕОБХОДИМЫ ПРАВА СУПЕРПОЛЬЗОВАТЕЛЯ</string>
+    <string name="propmodder_warning">Это приложение изменяет /system/build.prop НЕ ИСПОЛЬЗУЙТЕ, ЕСЛИ НЕ ЗНАЕТЕ, ДЛЯ ЧЕГО ЭТО НУЖНО. Мы (n00bware, создатели PropModder) мы не несём ответственности за время жизни вашего устройства. Вы предупреждены!</string>
+    <string name="showbuild_title">Знаете ли вы о содержимом вашего build.prop?</string>
+    <string name="showbuild_dialog">Это ваш build.prop</string>
+    <string name="showbuild_loading">Загрузка build.prop\u2026</string>
+    <string name="showbuild_error">Ошибка загрузки build.prop\u2026</string>
+    <string name="showbuild_unknown">Неизвестно</string>
+    <string name="showbuild_version">Версия</string>
+    <string name="showbuild_label">Мы должны глядеть в оба; знания - это полдела</string>
+    <string name="pref_fast_up_title">HSUPA - хак скорости загрузки</string>
+    <string name="pref_fast_up_summary">*ВНИМАНИЕ* Если вы измените это значение, то в ваш build.prop добавятся необходимые настройки, если они ещё не там. (необходима перезагрузка)</string>
+    <string name="pref_fast_up_alt_summary">Активный: %s</string>
+    <string name="pref_prox_delay_title">Задержка датчика приближения</string>
+    <string name="pref_prox_delay_summary">Значение определяет время, которое экран останется выключенным, если во время разговора вы отдалили телефон от лица. (необходима перезагрузка)</string>
+    <string name="pref_prox_delay_alt_summary">Текущее значение: %s</string>
+    <string name="pref_logcat_title">Отключить логирование</string>
+    <string name="pref_logcat_summary">Отключение ведения записей в журнал (лог) - может увеличить производительность, но делает отладку очень трудной.</string>
+    <string name="pref_mod_version_title">Изменить номер сборки</string>
+    <string name="pref_mod_version_summary">Не улучшает систему - это просто эстетика</string>
+    <string name="pref_mod_version_alt_summary">Номер сборки: %s</string>
+    <string name="pref_mod_version_default">PropModder!!!</string>
+    <string name="pref_sleep_title">Режимы сна</string>
+    <string name="pref_sleep_summary">Изменить политику сна устройства</string>
+    <string name="pref_sleep_alt_summary">Текущее значение: %s</string>
+    <string name="pref_tcp_stack_title">Оптимизация стека TCP</string>
+    <string name="pref_tcp_stack_summary">Изменит размер буфера для лучшей производительности</string>
+    <string name="pref_check_in_title">Службы регистрации</string>
+    <string name="pref_check_in_summary">Остановит отправку данных об использовании системы Google и HTC</string>
+    <string name="pref_sdcard_buffer_title">Ускорение карты памяти</string>
+    <string name="pref_sdcard_buffer_summary">Изменит размер буфера карты памяти для лучшей производительности.</string>
+    <string name="pref_g_speed_title">Увеличение скорости 3G</string>
+    <string name="pref_g_speed_summary">Снять ограничения скорости 3G</string>
+    <!-- Scroller options -->
+    <string name="scroller_options">Настройка прокрутки</string>
+    <string name="scroll">Прокрутка</string>
+    <string name="scroll_title">Настройка прокрутки</string>
+    <string name="scroll_summary">Настройка чувстительности прокрутки</string>
+    <string name="scroll_friction_title">Трение прокрутки</string>
+    <string name="custom_fling_velocity_title">Рывок прокрутки</string>
+    <!-- Signal Styles -->
+    <string name="header_summary_signal">@null</string>
+    <string name="signal_style">Способ отображения уровня сигнала моб. сети</string>
+    <string name="signal_color_title">Цвет индикатора сигнала моб. сети</string>
+    <string name="hide_signal_title">Скрыть полоски индикаторов сигнала</string>
+    <string name="hide_signal_summary">Кратковременное отображение индикаторов при изменении уровня сигнала</string>
+    <string name="wifi_signal_style">Способ отображения уровня сигнала Wi-Fi</string>
+    <string name="wifi_signal_color_title">Цвет индикатора сигнала Wi-Fi</string>
+    <!-- Status Bar, SysBar, and NavBar Transparency -->
+    <string name="transparency_header">Настройки прозрачности</string>
+    <string name="status_bar_transparency_title">Панель уведомлений</string>
+    <string name="status_bar_transparency_summary">Изменить прозрачность панели уведомлений</string>
+    <string name="navigation_bar_transparency_title">Панель навигации &amp; системная панель</string>
+    <string name="navigation_bar_transparency_summary">Изменить прозрачность для панели навигации и системной панели</string>
+    <!-- TabletUI Toggle -->
+    <string name="tablet_ui">Принудительный планшетный интерфейс</string>
+    <string name="tablet_ui_summary">на любом DPI (требуется перезагрузка)</string>
+    <!-- Shortcut picker -->
+    <string name="use_custom_app_title">Выбрать приложение</string>
+    <string name="use_custom_app_summary">Использовать пользовательские приложения вместо диалога</string>
+    <string name="group_applications">Приложения</string>
+    <!-- Navigation bar -->
+    <string name="header_navbar">Панель навигации</string>
+    <string name="header_summary_navigation_bar">Отображаемые кнопки, цвет панели, порядок, высота</string>
+    <string name="custom_app_icon_successfully">" иконка(и) успешно установлена(ы)!"</string>
+    <string name="navigation_bar">Панель навигации</string>
+    <string name="navbar_button_cat">Кнопки на панели навигации</string>
+    <string name="title_pref_menu_display">Расположение меню</string>
+    <string name="summary_pref_menu_display">Не забудьте удалить все кнопки меню, если вы используете большую кнопку меню!</string>
+    <string name="title_pref_navigation_menu_display">Видимость кнопки меню</string>
+    <string name="summary_pref_navigation_menu_display">Как и когда должна появляться кнопка меню?</string>
+    <string name="navbar_qty_title">Количество кнопок</string>
+    <string name="navbar_qty_summary">Выберите число отображаемых кнопок</string>
+    <string name="navbar_action_title">Иконка &amp; действие %1$\'й кнопки</string>
+    <string name="navbar_longpress_title">Действие %1$\'й кнопки на долгое нажатие</string>
+    <string name="navbar_action_home">Домой</string>
+    <string name="navbar_action_back">Назад</string>
+    <string name="navbar_action_recents">Последние запущенные</string>
+    <string name="navbar_action_search">Поиск</string>
+    <string name="navbar_action_screenshot">Снимок экрана</string>
+    <string name="navbar_action_menu">Меню</string>
+    <string name="navbar_action_ime">Выбор способа ввода</string>
+    <string name="navbar_action_kill">Убить открытое приложение</string>
+    <string name="navbar_action_power">Выкл. экран</string>
+    <string name="navbar_action_notifications">Уведомления</string>
+    <string name="navbar_action_none">Пусто</string>
+    <string name="navbar_widgets">Виджеты на панели навигации</string>
+    <string name="navbar_enable_bar">Включить панель</string>
+    <string name="navigation_bar_height_title">Высота панели</string>
+    <string name="navigation_bar_height_summary">Высота панели навигации в портретном режиме</string>
+    <string name="navigation_bar_height_landscape_title">Высота в ландшафтном режиме</string>
+    <string name="navigation_bar_height_landscape_summary">Высота панели навигации в ландшафтном режиме</string>
+    <string name="navigation_bar_width_title">Ширина панели навигации</string>
+    <string name="navigation_bar_width_summary">Будет являться высотой панели, если она отображается сбоку</string>
+    <string name="navbar_enable_dialog_title">Необходима перезагрузка!</string>
+    <string name="navbar_enable_dialog_msg">Пожалуйста, перезагрузите устройство для надлежащего включения/отключения панели навигации!</string>
+    <string name="navbar_enable_dialog_negative">Перезагрузить позже.</string>
+    <string name="navbar_enable_dialog_Positive">Перезагрузить сейчас!</string>
+    <string name="navbar_height_dialog_title">Неободима перезагрузка!</string>
+    <string name="navbar_height_dialog_summary">Пожалуйста, перезагрузите устройство для правильной установки высоты панели навигации!</string>
+    <string name="navbar_height_dialog_button_later">Перезагрузить позже.</string>
+    <string name="navbar_height_dialog_button_reboot">Перезагрузить сейчас!</string>
+    <string name="navigation_bar_tint_title">Оттенок кнопок</string>
+    <string name="navigation_bar_tint_summary">Цвет оттенка кнопок</string>
+    <string name="navigation_bar_glow_tint_title">Цвет подсветки кнопок</string>
+    <string name="navigation_bar_glow_tint_summary">Цвет подсветки кнопок панели навигации</string>
+    <string name="glow_times_title">Скорость анимации подсветки кнопок</string>
+    <string name="glow_times_off">Выключить анимацию</string>
+    <string name="glow_times_superquick">Очень быстро</string>
+    <string name="glow_times_quick">Быстро</string>
+    <string name="glow_times_normal">Обычно</string>
+    <string name="glow_times_slow">Медленно</string>
+    <string name="glow_times_superslow">Очень медленно</string>
+    <string name="navigation_bar_style">Стиль отображения панели навигации</string>
+    <string name="button_transparency_title">Прозрачность кнопок на панели навигации</string>
+    <string name="menu_nav_bar_reset">Сбросить настройки панели</string>
+    <string name="navbar_widgets_instructions">Водите пальцем для просмотра. Нажмите для выбора</string>
+    <string name="navbar_widgets_reset">Сбросить настройки виджетов</string>
+    <string name="navbar_widget_summary">%1$-й виджет из %2$-х</string>
+    <string name="navbar_widget_summary_add">Нажмите для добавления</string>
+    <string name="navbar_widgets_title">Настройка виджетов</string>
+    <string name="navbar_widgets_summary">для панели навигации</string>
+    <string name="navbar_widgets_shiftLeft">Сместите влево</string>
+    <string name="navbar_widgets_shiftRight">Сместите вправо</string>
+    <string name="navbar_widgets_delete">Удалить виджет</string>
+    <!-- Navigation rings -->
+    <string name="navbar_ring_cat">Ярлыки на кольце</string>
+    <string name="interface_navring">Ярлыки на кольце</string>
+    <string name="interface_navring_custom_pref_summary">Уберите палец с экрана над ярлыком для его запуска</string>
+    <string name="interface_navring_pref_default_summary">Коснитесь для выбора действия ярлыка</string>
+    <string name="interface_navring_assist_title">Google Now</string>
+    <string name="interface_softkey_settings">Настройки функциональных клавиш</string>
+    <string name="interface_softkeys_pref_default_title">Не выбрано</string>
+    <string name="interface_softkeys_pref_default_summary">Нажмите для выбора действия при долгом касании</string>
+    <string name="interface_softkeys_activity_dialog_title">Выберите действие</string>
+    <string name="interface_softkeys_reboot_title">Меню перезагрузки</string>
+    <string name="interface_softkeys_screenshot_title">Снимок экрана</string>
+    <string name="interface_softkeys_screenoff_title">Выключить экран</string>
+    <string name="interface_softkeys_ime_switcher_title">Выбор способа ввода</string>
+    <string name="interface_softkeys_ring_vib_title">Переключать звонок/вибро</string>
+    <string name="interface_softkeys_ring_silent_title">Переключать звонок/тихий режим</string>
+    <string name="interface_softkeys_ring_vib_silent_title">Переключать звонок/вибро/тихий режим</string>
+    <string name="interface_softkeys_kill_process_title">Закрыть приложение</string>
+    <string name="interface_softkey_package_removed">Ранее выбранное приложение недоступно</string>
+    <string name="title_navring_amount">Количество ярлыков</string>
+    <string name="summary_navring_amount">Выберите число ярлыков на кольце</string>
+    <string name="interface_navring_settings_title">Редактирование ярлыков</string>
+    <string name="interface_navring_settings_summary">Редактирование ярлыков на кольце</string>
+    <!-- Nav/SysBar and Status Bar Color Picker -->
+    <string name="interface_color_appearance">Пользовательский цвет интерфейса системы</string>
+    <string name="interface_def_color_summary">По умолчанию: 0xFF000000</string>
+    <string name="interface_navbar_color_title">Цвет панели навигации &amp; системной панели</string>
+    <string name="interface_statusbar_color_title">Цвет панели уведомлений</string>
+    <!-- Rotation Lock Notification Toggle -->
+    <string name="interface_rotationlock_toggle">Переключатель автоповорота</string>
+    <!-- Volume Keys Switch on Rotation -->
+    <string name="system_volume_keys_rotate">Инверсия кнопок громкости</string>
+    <string name="system_volume_keys_rotate_summary">Значения кнопок поменяются местами, если устройство повёрнуто на 90 или 180 градусов против часовой стрелки</string>
+    <!-- **** CODEFIRE ADDITIONS END **** -->
 </resources>
