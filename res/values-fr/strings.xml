@@ -755,7 +755,11 @@
 
 
     <!-- Launches Dev Tools -->
-    <string name="development_tools_title">Outils dév.</string>
+    <string name="development_tools_title">Divers outils de dév.</string>
+
+    <!-- USB Mass Storage -->
+    <string name="usb_mass_storage_title">Mémoire de stockage</string>
+    <string name="usb_mass_storage_summary">Activer la mémoire de stockage USB</string>
 
     <!-- **** CYANOGENMOD ADDITIONS END **** -->
 
