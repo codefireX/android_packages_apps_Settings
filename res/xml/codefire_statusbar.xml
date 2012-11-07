@@ -29,6 +29,30 @@
     <PreferenceCategory
         android:title="@string/codefire_notification" />
 
+    <ListPreference
+        android:entries="@array/notification_action_entries"
+        android:entryValues="@array/notification_action_values"
+        android:key="clock_shortclick"
+        android:title="@string/title_clock_shortclick" />
+
+    <ListPreference
+        android:entries="@array/notification_action_entries"
+        android:entryValues="@array/notification_action_values"
+        android:key="clock_longclick"
+        android:title="@string/title_clock_longclick" />
+
+    <ListPreference
+        android:entries="@array/notification_action_entries"
+        android:entryValues="@array/notification_action_values"
+        android:key="date_shortclick"
+        android:title="@string/title_date_shortclick" />
+
+    <ListPreference
+        android:entries="@array/notification_action_entries"
+        android:entryValues="@array/notification_action_values"
+        android:key="date_longclick"
+        android:title="@string/title_date_longclick" />
+
     <CheckBoxPreference android:key="interface_systembar_fat_fingers"
         android:title="@string/interface_systembar_fat_fingers_title"
         android:summary="@string/interface_systembar_fat_fingers_summary" />

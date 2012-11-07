@@ -69,11 +69,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
     private boolean mIsScreenLarge;
 
     public boolean hasButtons() {
-        boolean buttons = true;
-        if (getResources().getBoolean(com.android.internal.R.bool.config_showNavigationBar) == true) {
-            buttons = false;
-        }
-        return buttons;
+        return !getResources().getBoolean(com.android.internal.R.bool.config_showNavigationBar);
     }
 
     @Override

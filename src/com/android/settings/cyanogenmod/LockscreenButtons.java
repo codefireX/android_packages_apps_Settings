@@ -16,9 +16,10 @@
 
 package com.android.settings.cyanogenmod;
 
+import java.util.*;
+
 import android.app.Activity;
 import android.content.Intent;
-import android.content.Intent.ShortcutIconResource;
 import android.os.Bundle;
 import android.preference.ListPreference;
 import android.preference.Preference;
@@ -26,6 +27,7 @@ import android.preference.PreferenceActivity;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -35,50 +37,84 @@ import com.android.settings.Utils;
  * Lockscreen Buttons Settings
  */
 public class LockscreenButtons extends SettingsPreferenceFragment
-        implements ShortcutPickHelper.OnPickListener,
-                Preference.OnPreferenceChangeListener {
+        implements Preference.OnPreferenceChangeListener {
 
     private static final String TAG = "LockscreenButtons";
 
+    private static final String LONG_PRESS_BACK = "lockscreen_long_press_back";
     private static final String LONG_PRESS_HOME = "lockscreen_long_press_home";
     private static final String LONG_PRESS_MENU = "lockscreen_long_press_menu";
-    private static final String LONG_PRESS_SEARCH = "lockscreen_long_press_search";
 
-    private static final String CUSTOM_ENTRY = "custom";
+    // Masks for checking presence of hardware keys.
+    // Must match values in frameworks/base/core/res/res/values/config.xml
+    private static final int KEY_MASK_HOME = 0x01;
+    private static final int KEY_MASK_BACK = 0x02;
+    private static final int KEY_MASK_MENU = 0x04;
 
+    private ListPreference mLongBackAction;
     private ListPreference mLongHomeAction;
     private ListPreference mLongMenuAction;
-    private ListPreference mLongSearchAction;
     private ListPreference[] mActions;
-    private ListPreference mPickingAction;
 
-    private ShortcutPickHelper mPicker;
-    private Activity mActivity;
+    private boolean torchSupported() {
+        return getResources().getBoolean(R.bool.has_led_flash);
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        addPreferencesFromResource(R.xml.lockscreen_buttons_settings);
+        final int deviceKeys = getResources().getInteger(
+                com.android.internal.R.integer.config_deviceHardwareKeys);
+        final boolean hasHomeKey = (deviceKeys & KEY_MASK_HOME) != 0;
+        final boolean hasBackKey = (deviceKeys & KEY_MASK_BACK) != 0;
+        final boolean hasMenuKey = (deviceKeys & KEY_MASK_MENU) != 0;
 
-        mActivity = getActivity();
-        mPicker = new ShortcutPickHelper(mActivity, this);
+        addPreferencesFromResource(R.xml.lockscreen_buttons_settings);
 
         PreferenceScreen prefSet = getPreferenceScreen();
 
+        mLongBackAction = (ListPreference) prefSet.findPreference(LONG_PRESS_BACK);
+        if (hasBackKey) {
+            mLongBackAction.setKey(Settings.System.LOCKSCREEN_LONG_BACK_ACTION);
+        } else {
+            getPreferenceScreen().removePreference(mLongBackAction);
+        }
+
         mLongHomeAction = (ListPreference) prefSet.findPreference(LONG_PRESS_HOME);
-        mLongHomeAction.setKey(Settings.System.LOCKSCREEN_LONG_HOME_ACTION);
+        if (hasHomeKey) {
+            mLongHomeAction.setKey(Settings.System.LOCKSCREEN_LONG_HOME_ACTION);
+        } else {
+            getPreferenceScreen().removePreference(mLongHomeAction);
+        }
 
         mLongMenuAction = (ListPreference) prefSet.findPreference(LONG_PRESS_MENU);
-        mLongMenuAction.setKey(Settings.System.LOCKSCREEN_LONG_MENU_ACTION);
-
-        mLongSearchAction = (ListPreference) prefSet.findPreference(LONG_PRESS_SEARCH);
-        mLongSearchAction.setKey(Settings.System.LOCKSCREEN_LONG_SEARCH_ACTION);
+        if (hasMenuKey) {
+            mLongMenuAction.setKey(Settings.System.LOCKSCREEN_LONG_MENU_ACTION);
+        } else {
+            getPreferenceScreen().removePreference(mLongMenuAction);
+        }
 
         mActions = new ListPreference[] {
-            mLongHomeAction, mLongMenuAction, mLongSearchAction
+            mLongBackAction, mLongHomeAction, mLongMenuAction
         };
         for (ListPreference pref : mActions) {
+            if (torchSupported()) {
+                final CharSequence[] oldEntries = pref.getEntries();
+                final CharSequence[] oldValues = pref.getEntryValues();
+                ArrayList<CharSequence> newEntries = new ArrayList<CharSequence>();
+                ArrayList<CharSequence> newValues = new ArrayList<CharSequence>();
+                for (int i = 0; i < oldEntries.length; i++) {
+                    newEntries.add(oldEntries[i].toString());
+                    newValues.add(oldValues[i].toString());
+                }
+                newEntries.add(getString(R.string.lockscreen_buttons_flashlight));
+                newValues.add("FLASHLIGHT");
+                pref.setEntries(
+                        newEntries.toArray(new CharSequence[newEntries.size()]));
+                pref.setEntryValues(
+                        newValues.toArray(new CharSequence[newValues.size()]));
+            }
             pref.setOnPreferenceChangeListener(this);
         }
     }
@@ -105,9 +141,6 @@ public class LockscreenButtons extends SettingsPreferenceFragment
             pref.setSummary(entry);
             return;
         }
-
-        pref.setValue(CUSTOM_ENTRY);
-        pref.setSummary(mPicker.getFriendlyNameForUri(value));
     }
 
     private CharSequence findEntryForValue(ListPreference pref, CharSequence value) {
@@ -126,31 +159,11 @@ public class LockscreenButtons extends SettingsPreferenceFragment
         ListPreference list = (ListPreference) pref;
         String value = (String) newValue;
 
-        if (TextUtils.equals(value, CUSTOM_ENTRY)) {
-            mPickingAction = list;
-            mPicker.pickShortcut(new String[] {value}, new ShortcutIconResource[] {
-                    ShortcutIconResource.fromContext(mActivity, android.R.drawable.ic_delete) }, getId());
-
-            return false;
-        }
-
         if (Settings.System.putString(getContentResolver(), list.getKey(), value)) {
             pref.setSummary(findEntryForValue(list, value));
         }
 
         return true;
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        mPicker.onActivityResult(requestCode, resultCode, data);
-    }
-
-    @Override
-    public void shortcutPicked(String uri, String friendlyName, boolean isApplication) {
-        if (Settings.System.putString(getContentResolver(), mPickingAction.getKey(), uri)) {
-            mPickingAction.setSummary(friendlyName);
-        }
     }
 
 }

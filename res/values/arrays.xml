@@ -88,6 +88,23 @@
         <item>0</item>
     </string-array>
 
+    <string-array name="notification_action_entries" translatable="false">
+        <item>@string/nothing</item>
+        <item>@string/alarm</item>
+        <item>@string/today</item>
+        <item>@string/event</item>
+        <item>@string/voiceassist</item>
+        <item>@string/custom_app</item>
+    </string-array>
+    <string-array name="notification_action_values" translatable="false">
+        <item>**nothing**</item>
+        <item>**alarm**</item>
+        <item>**today**</item>
+        <item>**event**</item>
+        <item>**assist**</item>
+        <item>**app**</item>
+    </string-array>
+
     <string-array name="signal_style_entries">
         <item>Show signal bars</item>
         <item>Show signal text</item>
@@ -1767,12 +1784,18 @@
 
     <string-array name="lockscreen_long_key_press_entries" translatable="false">
         <item>@string/lockscreen_buttons_no_action</item>
-        <item>@string/lockscreen_buttons_flashlight</item>
+        <item>@string/lockscreen_buttons_next</item>
+        <item>@string/lockscreen_buttons_previous</item>
+        <item>@string/lockscreen_buttons_playpause</item>
+        <item>@string/lockscreen_buttons_toggle_sound</item>
     </string-array>
 
     <string-array name="lockscreen_long_key_press_values" translatable="false">
         <item></item>
-        <item>FLASHLIGHT</item>
+        <item>NEXT</item>
+        <item>PREVIOUS</item>
+        <item>PLAYPAUSE</item>
+        <item>SOUND</item>
     </string-array>
 
     <string-array name="hardware_keys_action_entries" translatable="false">
@@ -1827,6 +1850,24 @@
         <item>1000</item>
     </string-array>
 
+    <!-- Stylus Gestures -->
+    <string-array name="gestures_entries" translatable="false">
+        <item>@string/gestures_action_empty</item>
+        <item>@string/gestures_action_home</item>
+        <item>@string/gestures_action_back</item>
+        <item>@string/gestures_action_menu</item>
+        <item>@string/gestures_action_search</item>
+        <item>@string/gestures_action_recent</item>
+    </string-array>
+
+    <string-array name="gestures_values" translatable="false">
+        <item>1000</item>
+        <item>1001</item>
+        <item>1002</item>
+        <item>1003</item>
+        <item>1004</item>
+        <item>1005</item>
+    </string-array>
     <!-- **** CYANOGENMOD EDITS END **** -->
 
   <!-- PropModder from Liquid -->
