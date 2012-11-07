@@ -254,7 +254,7 @@
     <string name="status_bar_title">Barre d\'état</string>
     <string name="status_bar_clock_title">Horloge</string>
     <string name="status_bar_general_title">Général</string>
-	<string name="status_bar_clock_style_title">Style de l\'horloge</string>
+    <string name="status_bar_clock_style_title">Style de l\'horloge</string>
     <string name="clock_style_noclock">Ne pas afficher l\'horloge</string>
     <string name="clock_style_right">Horloge à droite</string>
     <string name="clock_style_center">Horloge au centre</string>
@@ -368,16 +368,19 @@
     <string name="lockscreen_clock_align_center">Centre</string>
     <string name="lockscreen_clock_align_right">Droite</string>
 
-    <string name="lockscreen_buttons_title">Options Bouton physique</string>
-    <string name="lockscreen_buttons_summary">Contrôle le comportement de la touche physique sur l\'écran de veille</string>
-    <string name="lockscreen_long_key_press_title">Paramètre appui long</string>
+    <string name="lockscreen_buttons_title">Actions Touches physiques</string>
+    <string name="lockscreen_buttons_summary">Voir ou modifier les actions avec les touches physiques sur l\'écran de veille</string>
+    <string name="lockscreen_long_press_back_title">Action appui long Retour</string>
     <string name="lockscreen_long_press_home_title">Action appui long Accueil</string>
     <string name="lockscreen_long_press_menu_title">Action appui long Menu</string>
-    <string name="lockscreen_long_press_search_title">Action appui long Recherche</string>
     <string name="lockscreen_buttons_no_action">Aucune action</string>
     <string name="lockscreen_buttons_flashlight">Torche</string>
+    <string name="lockscreen_buttons_next">Musique: Titre suivant</string>
+    <string name="lockscreen_buttons_previous">Musique: Titre précédent</string>
+    <string name="lockscreen_buttons_playpause">Musique: Lecture/Pause</string>
+    <string name="lockscreen_buttons_toggle_sound">Contrôles du son</string>
 
-    <!-- Profiles settings  -->
+	<!-- Profiles settings  -->
     <string name="profiles_settings_title">Profils</string>
     <string name="profiles_general_title">Général</string>
     <string name="profiles_add">Ajouter</string>
@@ -751,15 +754,8 @@
     <string name="power_menu_profiles_title">Profils</string>
 	<string name="power_menu_expanded_desktop">Bureau étendu</string>
     <string name="power_menu_airplane_title">Mode avion</string>
-    <string name="power_menu_silent_title">Mode silencieux</string>
+    <string name="power_menu_silent_title">Contrôles du son</string>
 
-
-    <!-- Launches Dev Tools -->
-    <string name="development_tools_title">Divers outils de dév.</string>
-
-    <!-- USB Mass Storage -->
-    <string name="usb_mass_storage_title">Mémoire de stockage</string>
-    <string name="usb_mass_storage_summary">Activer la mémoire de stockage USB</string>
 
     <!-- **** CYANOGENMOD ADDITIONS END **** -->
 
@@ -2458,6 +2454,13 @@
     <string name="cell_broadcast_settings" msgid="8415582011920085222">"Diffusions cellulaires"</string>
     <string name="cell_broadcast_settings_summary" msgid="3301339398950905913">"Sélectionnez les types d\'alertes d\'urgence à afficher."</string>
 
+    <!-- Launches Dev Tools -->
+    <string name="development_tools_title">Divers outils de dév.</string>
+
+    <!-- USB Mass Storage -->
+    <string name="usb_mass_storage_title">Mémoire de stockage</string>
+    <string name="usb_mass_storage_summary">Activer la mémoire de stockage USB</string>
+
     <!--- Volume key cursor control -->
     <string name="volume_key_cursor_control_title">Curseur contrôlé par touche Volume</string>
     <string name="volume_key_cursor_control_off">Désactivé</string>
@@ -2503,6 +2506,17 @@
     <!-- Fast Torch -->
     <string name="enable_fast_torch_title">Activer la torche rapide</string>
     <string name="enable_fast_torch_summary">Avec l\'écran éteint, appuyer sur le bouton d\'alimentation appuyé pour allumer les leds. Pour éteindre la torche, déverrouiller ou éteindre l\'écran en pressant un autre bouton. </string>
+    <!-- Clock and Date Shade Actions -->
+    <string name="custom_app">Applications</string>
+    <string name="nothing">Aucune action</string>
+    <string name="alarm">Alarmes</string>
+    <string name="today">Calendrier Aujourd\'hui</string>
+    <string name="event">Calendrier Nouvel événement</string>
+    <string name="voiceassist">Commandes vocales</string>
+    <string name="title_date_longclick">Actions Date appui long</string>
+    <string name="title_date_shortclick">Actions Date appui court</string>
+    <string name="title_clock_longclick">Actions Heure appui long</string>
+    <string name="title_clock_shortclick">Actions Heure appui court</string>
     <!-- App Kill Timeout -->
     <string name="pref_kill_app_longpress_back_timeout_title">Arrêt appli Délai de l\'appui long sur Retour</string>
     <string name="pref_kill_app_longpress_back_timeout_dialogtitle">Durée en ms (500-2000)</string>
