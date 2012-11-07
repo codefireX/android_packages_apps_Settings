@@ -4979,6 +4979,7 @@
     <string name="enable_fast_torch_summary">With screen off, hold power button to turn the LED(s) on. Either unlock or turn off the screen via another button press to turn the torch off. </string>
     <string name="enable_fast_torch_title">Enable fast torch</string>
     <!-- Clock and Date Shade Actions -->
+    <string name="custom_app">Custom app</string>
     <string name="nothing">Nothing</string>
     <string name="alarm">Alarms</string>
     <string name="today">Calendar for today</string>
