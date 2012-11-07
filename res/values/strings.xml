@@ -4978,6 +4978,16 @@
     <!-- Fast Torch -->
     <string name="enable_fast_torch_summary">With screen off, hold power button to turn the LED(s) on. Either unlock or turn off the screen via another button press to turn the torch off. </string>
     <string name="enable_fast_torch_title">Enable fast torch</string>
+    <!-- Clock and Date Shade Actions -->
+    <string name="nothing">Nothing</string>
+    <string name="alarm">Alarms</string>
+    <string name="today">Calendar for today</string>
+    <string name="event">Calendar new event</string>
+    <string name="voiceassist">Voice commands</string>
+    <string name="title_date_longclick">Date long click actions</string>
+    <string name="title_date_shortclick">Date short click actions</string>
+    <string name="title_clock_longclick">Clock long click actions</string>
+    <string name="title_clock_shortclick">Clock short click actions</string>
     <!-- App Kill Timeout -->
     <string name="pref_kill_app_longpress_back_timeout_title">Kill app longpress back timeout</string>
     <string name="pref_kill_app_longpress_back_timeout_dialogtitle">Duration in ms (500-2000)</string>
