@@ -1765,16 +1765,6 @@
         <item>2</item>
     </string-array>
 
-    <string-array name="lockscreen_long_key_press_entries" translatable="false">
-        <item>@string/lockscreen_buttons_no_action</item>
-        <item>@string/lockscreen_buttons_flashlight</item>
-    </string-array>
-
-    <string-array name="lockscreen_long_key_press_values" translatable="false">
-        <item></item>
-        <item>FLASHLIGHT</item>
-    </string-array>
-
     <string-array name="hardware_keys_action_entries" translatable="false">
         <item>@string/hardware_keys_action_nothing</item>
         <item>@string/hardware_keys_action_menu</item>
