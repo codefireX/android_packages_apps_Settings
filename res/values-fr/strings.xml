@@ -152,7 +152,7 @@
     <string name="header_category_interface">INTERFACE</string>
 
     <!-- Launcher settings  -->
-    <string name="launcher_settings_title">Trebuchet</string>
+    <string name="launcher_settings_title">Lanceur</string>
 
     <!-- Themes settings  -->
     <string name="themes_settings_title">Thèmes</string>
