@@ -582,11 +582,11 @@
 
     <string-array name="entries_sleep_explain">
         <item>По умолчанию</item>
-        <item>0 Приостановка питания ARM11</item>
-        <item>1 Полное отключение ARM11 (лучшее)</item>
-        <item>2 Программный сон</item>
-        <item>3 Понижать характеристики</item>
-        <item>4 Ждать прерывания</item>
+        <item>Приостановка питания ARM11</item>
+        <item>Полное отключение ARM11 (лучшее)</item>
+        <item>Программный сон</item>
+        <item>Понижать характеристики</item>
+        <item>Ждать прерывания</item>
     </string-array>
 
     <string-array name="entries_sdcard_buffer_explain">
