@@ -1982,7 +1982,8 @@
     <string name="accessibility_system_title" msgid="7187919089874130484">"Système"</string>
     <string name="accessibility_toggle_large_text_title" msgid="6618674985313017711">"Grands caractères"</string>
     <string name="accessibility_power_button_ends_call_title" msgid="5468375366375940894">"Marche/arrêt pour raccrocher"</string>
-    <string name="accessibility_speak_password_title" msgid="3344423945644925355">"Énoncer mots de passe"</string>
+	<string name="accessibility_home_button_answers_call_title">Bouton Accueil pour décrocher</string>
+	<string name="accessibility_speak_password_title" msgid="3344423945644925355">"Énoncer mots de passe"</string>
     <string name="accessibility_long_press_timeout_title" msgid="2373216941395035306">"Délai de pression"</string>
     <string name="accessibility_script_injection_title" msgid="7921388904564822855">"Améliorer l\'accessibilité du Web"</string>
     <string name="accessibility_menu_item_settings" msgid="3344942964710773365">"Paramètres"</string>
