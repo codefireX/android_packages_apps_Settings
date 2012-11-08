@@ -2479,7 +2479,7 @@
     <string name="category_spen_title">Gestes avec stylet</string>
     <string name="enable_subcat_title">Stylet</string>
     <string name="enable_spen_title_head">Activer Gestes Stylet</string>
-    <string name="enable_spen_summary_head">Autoriser les mouvements de balayage du bouton du stylet pour exécuter des actions. Attention: certaines applications ne seront pas capable de recevoir le signal envoyé par le button du stylet.</string>
+    <string name="enable_spen_summary_head">Autoriser les mouvements de balayage avec bouton du stylet pour exécuter des actions. Attention: certaines applications ne seront pas capable de recevoir le signal envoyé par le button du stylet.</string>
     <string name="gestures_subcat_title">Gestes</string>
     <string name="gestures_left_spen_title_head">Balayage à gauche</string>
     <string name="gestures_left_spen_summary_head">Permet de lancer une action en glissant vers la gauche</string>
