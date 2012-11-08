@@ -2474,6 +2474,35 @@
     <string name="sms_security_check_limit_summary">Afficher une alerte pour empêcher l\'envoi trop fréquent de messages SMS par des applications. Limite actuelle: %d messages en 15 minutes</string>
     <string name="sms_security_check_limit_default">30 (par défaut)</string>
 
+    <!-- Stylus Gestures -->
+    <string name="gestures_settings_title">Gestes avec stylet</string>
+    <string name="category_spen_title">Gestes avec stylet</string>
+    <string name="enable_subcat_title">Stylet</string>
+    <string name="enable_spen_title_head">Activer Gestes Stylet</string>
+    <string name="enable_spen_summary_head">Autoriser les mouvements de balayage du bouton du stylet pour exécuter des actions. Attention: certaines applications ne seront pas capable de recevoir le signal envoyé par le button du stylet.</string>
+    <string name="gestures_subcat_title">Gestes</string>
+    <string name="gestures_left_spen_title_head">Balayage à gauche</string>
+    <string name="gestures_left_spen_summary_head">Permet de lancer une action en glissant vers la gauche</string>
+    <string name="gestures_right_spen_title_head">Balayage à droite</string>
+    <string name="gestures_right_spen_summary_head">Permet de lancer une action en glissant vers la droite</string>
+    <string name="gestures_up_spen_title_head">Balayage vers le haut</string>
+    <string name="gestures_up_spen_summary_head">Permet de lancer une action en glissant vers le haut</string>
+    <string name="gestures_down_spen_title_head">Balayage vers le bas</string>
+    <string name="gestures_down_spen_summary_head">Permet de lancer une action en glissant vers le bas</string>
+    <string name="gestures_long_spen_title_head">Appui long</string>
+    <string name="gestures_long_spen_summary_head">Permet de lancer une action par un appui long</string>
+    <string name="gestures_double_spen_title_head">Double appui</string>
+    <string name="gestures_double_spen_summary_head">Permet de lancer une action en appuyant deux fois sur l\'écran</string>
+
+    <!-- Gestures Options -->
+    <string name="gestures_action_empty">Aucune action</string>
+    <string name="gestures_action_home">Revenir à Accueil</string>
+    <string name="gestures_action_back">Emuler la touche Retour</string>
+    <string name="gestures_action_menu">Emuler la touche Menu</string>
+    <string name="gestures_action_search">Ouvrir Recherche</string>
+    <string name="gestures_action_recent">Applications récentes</string>	
+
+
     <!-- **** CYANOGENMOD ADDITIONS END **** -->
 
     <!-- CodeFire Additions Start -->
