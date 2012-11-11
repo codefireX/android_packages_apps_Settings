@@ -1213,6 +1213,7 @@
     <string name="keep_screen_on_summary" msgid="2173114350754293009">"Во время зарядки экран будет всегда включен"</string>
     <string name="allow_mock_location" msgid="2787962564578664888">"Фиктивные местоположения"</string>
     <string name="allow_mock_location_summary" msgid="317615105156345626">"Разрешить использование фиктивных местоположений"</string>
+    <string name="allow_mock_sms">"Имитация SMS"</string>
     <string name="adb_warning_title" msgid="6234463310896563253">"Разрешить отладку USB?"</string>
     <string name="adb_warning_message" msgid="7316799925425402244">"Отладка по USB – это режим, который позволяет использовать ваше устройство как внешний накопитель: перемещать файлы (с компьютера и на компьютер), напрямую устанавливать приложения, а также просматривать системные журналы."</string>
     <string name="dev_settings_warning_title" msgid="7244607768088540165">"Изменение настроек"</string>
@@ -1971,7 +1972,10 @@
     <string name="status_bar_title">Строка состояния</string>
     <string name="status_bar_clock_title">Часы</string>
     <string name="status_bar_general_title">Основные</string>
-    <string name="status_bar_show_clock_title">Показывать часы</string>
+    <string name="status_bar_clock_style_title">Отображение часов</string>
+    <string name="clock_style_noclock">Скрыть часы</string>
+    <string name="clock_style_right">@string/lockscreen_clock_align_right</string>
+    <string name="clock_style_center">@string/lockscreen_clock_align_center</string>
     <string name="status_bar_am_pm_title">Стиль AM/PM</string>
     <string name="status_bar_am_pm_info">Включен 24-часовой формат</string>
     <string name="status_bar_battery_title">Стиль батареи</string>
@@ -2084,7 +2088,7 @@
     <string name="lockscreen_buttons_summary">Действия аппаратных кнопок на экране блокировки</string>
     <string name="lockscreen_long_key_press_title">При долгом нажатии</string>
     <string name="lockscreen_long_press_home_title">На кнопку \"Домой\"</string>
-    <string name="lockscreen_long_press_menu_title">На кнопку "\Меню\"</string>
+    <string name="lockscreen_long_press_menu_title">На кнопку \"Меню\"</string>
     <string name="lockscreen_long_press_search_title">На кнопку \"Поиск\"</string>
     <string name="lockscreen_buttons_no_action">Пусто</string>
     <string name="lockscreen_buttons_flashlight">Фонарик</string>
@@ -2249,6 +2253,9 @@
     <string name="cpu_set_on_boot">Выставлять при загрузке</string>
     <string name="cpu_set_on_boot_summary">Применить текущие настройки ЦП при загрузке</string>
 
+    <!-- Performance Settings : Disable bootanimation -->
+    <string name="pref_disable_bootanimation_title">Отключить boot анимацию</string>
+    <string name="pref_disable_bootanimation_summary">Не показывать анимаю загрузки</string>
 
     <!-- Performance Settings : I/O scheduler settings title -->
     <string name="io_scheds_title">Планировщик I/O</string>
@@ -2484,11 +2491,44 @@
     <string name="usb_mass_storage_summary">Включить режим USB-накопителя (UMS)</string>
     
     <!--- Sms security limit -->
-    <string name="app_security_title">Безопасность приложений</string>
-    <string name="sms_security_check_limit_title">Предел SMS сообщений</string>
-    <string name="sms_security_check_limit_summary">Запретить приложениям отправлять SMS слишком часто. Текущий лимит: %d сообщений за 15 минут.</string>
-    <string name="sms_security_check_limit_default">30 (По умолчанию)</string>
+    <string name="app_security_title">БЕЗОПАСНОСТЬ ПРИЛОЖЕНИЙ</string>
+    <string name="sms_security_check_limit_title">Ограничение SMS-сообщений</string>
+    <string name="sms_security_check_limit_summary">Показывать предупреждение при слишком частой отправке SMS-сообщений приложениями. Текущее значение: %d сообщений в 15 минут.</string>
+    <string name="sms_security_check_limit_default">30 (По умолч.)</string>
 
+    <!-- Stylus Gestures -->
+    <string name="gestures_settings_title">Поддержка пера</string>
+    <string name="category_spen_title">Жесты пера</string>
+    <string name="enable_subcat_title">Перо</string>
+    <string name="enable_spen_title_head">Включить жесты пером</string>
+    <string name="enable_spen_summary_head">Позволяет жестами пера запускать пользовательские приложения. Внимание: Для запуска приложения нажмите кнопку на пере и проведите по экрану в нужном направлении.</string>
+    <string name="gestures_subcat_title">Жесты</string>
+    <string name="gestures_left_spen_title_head">Провести влево</string>
+    <string name="gestures_left_spen_summary_head">Запустить пользовательское приложение жестом влево</string>
+    <string name="gestures_right_spen_title_head">Провести вправо</string>
+    <string name="gestures_right_spen_summary_head">Запустить пользовательское приложение жестом вправо</string>
+    <string name="gestures_up_spen_title_head">Провести вверх</string>
+    <string name="gestures_up_spen_summary_head">Запустить пользовательское приложение жестом вверх</string>
+    <string name="gestures_down_spen_title_head">Провести вниз</string>
+    <string name="gestures_down_spen_summary_head">Запустить пользовательское приложение жестом вниз</string>
+    <string name="gestures_long_spen_title_head">Долгое нажатие</string>
+    <string name="gestures_long_spen_summary_head">Запустить пользовательское приложение долгим нажатием на экран</string>
+    <string name="gestures_double_spen_title_head">Двойное нажатие</string>
+    <string name="gestures_double_spen_summary_head">Запустить пользовательское приложение двойным тапом по экрану</string>
+
+    <!-- Gestures Options -->
+    <string name="gestures_action_empty">Нет действия</string>
+    <string name="gestures_action_home">Домой</string>
+    <string name="gestures_action_back">Кнопка \"Назад\"</string>
+    <string name="gestures_action_menu">Кнопка \"Меню\"</string>
+    <string name="gestures_action_search">Поиск</string>
+    <string name="gestures_action_recent">Запущенные приложения</string>
+
+    <!--- Volume key cursor control -->
+    <string name="volume_key_cursor_control_title">Перемещение курсора</string>
+    <string name="volume_key_cursor_control_off">Выключено</string>
+    <string name="volume_key_cursor_control_on">Кнопка громкости +/- двигает курсор влево/вправо</string>
+    <string name="volume_key_cursor_control_on_reverse">Кнопка громкости +/- двигает курсор вправо/влево</string>
     <!-- **** CYANOGENMOD ADDITIONS END **** -->
     
     <!-- CodeFire Additions Start -->
@@ -2503,7 +2543,7 @@
     <string name="codefire_notification">Область уведомлений</string>
     <string name="codefire_misc">Разное</string>
     <string name="codefire_propmodder">PropModder</string>
-    <string name="codefire_propmodder_summary">Различные настройки build.prop. Интервал сканирования Wi-Fi, режим HSUPA и прочее</string>
+    <string name="codefire_propmodder_summary">Твики init.d &amp; build.prop. Интервал сканирования Wi-Fi, режим HSUPA и прочее</string>
     <string name="codefire_statusbar">Строка состояния</string>
     <string name="codefire_statusbar_summary">Индикатор заряда, позиция часов, стиль иконки сигнала, и прочее</string>
     <string name="codefire_signal">Стиль сигнала</string>
@@ -2522,6 +2562,17 @@
     <!-- Fast Torch -->
     <string name="enable_fast_torch_summary">Когда экран выключен, нажмите и удерживайте кнопку питания для включения\выключения светодиода(-ов). Чтобы выключить фонарик, разблокируйте или выключите дисплей.</string>
     <string name="enable_fast_torch_title">Включить быстрый фонарик</string>
+	<!-- Clock and Date Shade Actions -->
+	<string name="custom_app">@string/use_custom_app_title</string>
+	<string name="nothing">@string/no_application</string>
+	<string name="alarm">@string/alarm_volume_title</string>
+	<string name="today">События на сегодня</string>
+	<string name="event">Добавить событие</string>
+	<string name="voiceassist">Голосовой набор</string>
+	<string name="title_date_longclick">Действие при долгом касании по дате</string>
+	<string name="title_date_shortclick">Действие при коротком касании по дате</string>
+	<string name="title_clock_longclick">Действие при долгом касании по часам</string>
+	<string name="title_clock_shortclick">Действие при коротком касании по часам</string>
     <!-- App Kill Timeout -->
     <string name="pref_kill_app_longpress_back_timeout_title">Таймаут закрытия через кнопку "Назад"</string>
     <string name="pref_kill_app_longpress_back_timeout_dialogtitle">Длительность в миллисекундах (500-2000)</string>
@@ -2533,7 +2584,7 @@
     <string name="pref_statusbar_sixbar_signal_summary">Показывать 6 полосок уровня сигнала WiFi/моб. сети вместо стандартных 4.</string>
     <!-- Custom Boot Animation -->
     <string name="custom_bootanimation_title">Пользовательская анимация загрузки</string>
-    <string name="custom_bootanimation_summary">Выбрать ZIP архив с анимацией загрузки с карты памяти, при этом будет сделана резервная копия текущей . (Чекбокс "Отключить анимацию загрузки" должен быть снят).</string>
+    <string name="custom_bootanimation_summary">Выбрать ZIP архив с анимацией загрузки с карты памяти, при этом будет сделана резервная копия текущей . (Чекбокс \"Отключить анимацию загрузки\" должен быть снят).</string>
     <string name="install_file_manager_error">Не найдено приложений для выбора файла. Пожалуйста, установите диспетчер файлов.</string>
     <!-- ScreenShot Scaling -->
     <string name="screenshot_scaling_title">Коэффициент масштабирования снимка экрана</string>
@@ -2624,7 +2675,7 @@
     <string name="pref_mod_version_summary">Не улучшает систему - это просто эстетика</string>
     <string name="pref_mod_version_alt_summary">Номер сборки: %s</string>
     <string name="pref_mod_version_default">PropModder!!!</string>
-    <string name="pref_sleep_title">Режимы сна</string>
+    <string name="pref_sleep_title">Режим сна</string>
     <string name="pref_sleep_summary">Изменить политику сна устройства</string>
     <string name="pref_sleep_alt_summary">Текущее значение: %s</string>
     <string name="pref_tcp_stack_title">Оптимизация стека TCP</string>
@@ -2675,8 +2726,8 @@
     <string name="summary_pref_navigation_menu_display">Как и когда должна появляться кнопка меню?</string>
     <string name="navbar_qty_title">Количество кнопок</string>
     <string name="navbar_qty_summary">Выберите число отображаемых кнопок</string>
-    <string name="navbar_action_title">Иконка &amp; действие %1$\'й кнопки</string>
-    <string name="navbar_longpress_title">Действие %1$\'й кнопки на долгое нажатие</string>
+    <string name="navbar_action_title">Иконка &amp; действие %1$s кнопки</string>
+    <string name="navbar_longpress_title">Действие %1$s кнопки на долгое нажатие</string>
     <string name="navbar_action_home">Домой</string>
     <string name="navbar_action_back">Назад</string>
     <string name="navbar_action_recents">Последние запущенные</string>
@@ -2720,7 +2771,7 @@
     <string name="menu_nav_bar_reset">Сбросить настройки панели</string>
     <string name="navbar_widgets_instructions">Водите пальцем для просмотра. Нажмите для выбора</string>
     <string name="navbar_widgets_reset">Сбросить настройки виджетов</string>
-    <string name="navbar_widget_summary">%1$-й виджет из %2$-х</string>
+    <string name="navbar_widget_summary">%1$s виджет из %2$s</string>
     <string name="navbar_widget_summary_add">Нажмите для добавления</string>
     <string name="navbar_widgets_title">Настройка виджетов</string>
     <string name="navbar_widgets_summary">для панели навигации</string>
